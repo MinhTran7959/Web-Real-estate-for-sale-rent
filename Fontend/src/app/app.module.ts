@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from'@angular/common/http';
 import { Routes, Router, RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { PropertyCardComponent } from './Property/property-card/property-card.component';
@@ -10,12 +11,17 @@ import { NarbarComponent } from './narbar/narbar.component';
 import { HousingService } from './services/housing.service';
 import { AddPropertyComponent } from './Property/add-property/add-property.component';
 import { PropertyDatailComponent } from './Property/property-datail/property-datail.component';
+import { UserLoginComponent } from './user/user-login/user-login.component';
+import { UserRegisterComponent } from './user/user-register/user-register.component';
 
 const appRoutes: Routes=[
   {path: '' , component: PropertyListComponent},
   {path: 'rent-property' , component: PropertyListComponent},
   {path: 'add-property' , component: AddPropertyComponent},
   {path: 'property-detail/:id' , component: PropertyDatailComponent},
+  {path: 'user/login' , component: UserLoginComponent},
+  {path: 'user/register' , component: UserRegisterComponent},
+
   {path: '**' , component: PropertyListComponent}
 
 ]
@@ -27,11 +33,15 @@ const appRoutes: Routes=[
     PropertyListComponent,
     NarbarComponent,
     AddPropertyComponent,
-    PropertyDatailComponent
+    PropertyDatailComponent,
+    UserLoginComponent,
+    UserRegisterComponent
    ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [

@@ -20,7 +20,8 @@ export class PropertyListComponent implements OnInit {
     }
     ngOnInit(): void {
       // gọi services housing
-     if( this.route.snapshot.url.toString()){
+     if( this.route.snapshot.url.toString())
+     {
       this.SellRent =2 ;
      }
    

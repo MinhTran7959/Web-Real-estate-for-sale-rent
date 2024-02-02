@@ -1,4 +1,42 @@
-<p>
-  add-property works!
-</p>
-<button (click)="onBack()" class="btn btn-primary">Back</button>
+<div class="card">
+
+    <div class="card-header">
+      New property
+    </div>
+
+    <div class="card-body">
+      <form (ngSubmit)='onSubmit(Form)' #Form="ngForm">
+        <div class="form-control col-12">
+          <label for="name">Name</label>
+          <input  type="text" class="form-control"  #PropName="ngModel" ngModel name="Name" required minlength="5">
+          <span *ngIf="!PropName.valid && PropName.touched" class="error-block">
+            <span *ngIf="PropName.errors?.['required']">Please provide name</span>
+            <span *ngIf="PropName.errors?.['minlength']">Name must be at least 5 characters long</span>
+          </span>
+        </div>
+
+        <div class="form-control col-12">
+          <label for="Type">Type</label>
+          <input  type="text" class="form-control" ngModel name="Type">
+        </div>
+
+        <div class="form-control col-12">
+          <label for="Price">Price</label>
+          <input  type="text" class="form-control" ngModel name="Price">
+        </div>
+
+        <div class="form-control col-12">
+          <label for="Image">Image</label>
+          <input  type="file" class="form-control" ngModel name="Image">
+        </div>
+        <div class="form-control col-12">
+         
+          <button  [disabled]="!Form.valid" type="submit" class="btn btn-primary me-2" >Save</button>
+        
+          <button  type="Reset" class="btn btn-primary " >Cancel</button>
+
+        </div>
+      </form>
+    </div>
+
+</div>
