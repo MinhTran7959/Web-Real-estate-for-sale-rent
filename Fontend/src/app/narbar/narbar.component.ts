@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AltertifyService } from '../services/altertify.service';
 
 @Component({
   selector: 'app-narbar',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./narbar.component.css']
 })
 export class NarbarComponent implements OnInit {
+  loggedinUser!: string | null;
 
-  constructor() { }
+  constructor(private alter: AltertifyService) { }
 
   ngOnInit() {
   }
 
+  login() {
+    this.loggedinUser = localStorage.getItem('token');
+    return this.loggedinUser;
+  }
+  onLogout(){
+    localStorage.removeItem('token')
+    this.alter.success("Logout successful")
+  }
 }

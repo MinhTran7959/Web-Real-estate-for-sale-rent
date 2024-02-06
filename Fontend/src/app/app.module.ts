@@ -3,6 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from'@angular/common/http';
 import { Routes, Router, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 import { AppComponent } from './app.component';
 import { PropertyCardComponent } from './Property/property-card/property-card.component';
@@ -13,6 +17,10 @@ import { AddPropertyComponent } from './Property/add-property/add-property.compo
 import { PropertyDatailComponent } from './Property/property-datail/property-datail.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
+import { UserServiceService } from './services/user-service.service';
+import { AltertifyService } from './services/altertify.service';
+import { AuthService } from './services/auth.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const appRoutes: Routes=[
   {path: '' , component: PropertyListComponent},
@@ -42,10 +50,18 @@ const appRoutes: Routes=[
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    BrowserAnimationsModule,
+    BsDropdownModule.forRoot(),
+    TabsModule.forRoot(),
+    ButtonsModule.forRoot(),
+    BsDatepickerModule.forRoot(),
   ],
   providers: [
-    HousingService
+    HousingService,
+    UserServiceService,
+    AltertifyService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

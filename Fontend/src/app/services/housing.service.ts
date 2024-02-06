@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { Observable, pipe } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { IProperty } from '../Property/IProperty.interface';
+import { IProperty } from '../model/iproperty';
+import { Property } from '../model/property';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -22,6 +24,10 @@ export class HousingService {
     })
     
    );
+   return this.http.get<IProperty[]>('data/properties.json');
+  }
+  addProperty(property: Property) {
+    localStorage.setItem('newProp', JSON.stringify(property));
   }
 }
 // lệnh tạo: (1)cd src/app/services  (2)ng g service housing ; 

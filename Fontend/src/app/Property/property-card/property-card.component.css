@@ -12,7 +12,14 @@
 }
 
 
+.card-body h1{
+    font-family: fantasy;
+    color: #0069d9;
 
+}
+.font-highlight{
+    font-style: italic;
+}
 .card img{
     transform: scale(1,1);
     transition-duration: 500ms;

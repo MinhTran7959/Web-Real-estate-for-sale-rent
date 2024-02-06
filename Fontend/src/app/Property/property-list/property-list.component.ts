@@ -1,8 +1,9 @@
 // import { HttpClient} from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { HousingService } from '../../services/housing.service';
-import { IProperty } from '../IProperty.interface';
+
 import { ActivatedRoute } from '@angular/router';
+import { IProperty } from 'src/app/model/iproperty';
 
 
 
@@ -29,6 +30,13 @@ export class PropertyListComponent implements OnInit {
       this.housingService.getAllproperties(this.SellRent).subscribe(
         data=>{
           this.properties=data;
+          const newPropertyString = localStorage.getItem('newProp');
+          const newProperty = newPropertyString ? JSON.parse(newPropertyString) : null;
+          
+          if(newProperty.SellRent === this.SellRent){
+              this.properties= [newProperty, ...this.properties];
+          }
+
         },Error => {
           console.log(Error);// trường hợp API không hoạt động
         }

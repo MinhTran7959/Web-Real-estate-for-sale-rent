@@ -9,7 +9,7 @@
         <div class="form-group col-12">
             <label for="name" class="form-label" >Name</label>
             <input type="text" class="form-control" formControlName = "userName">
-            <span *ngIf="!userName.valid && userName.touched" class="error-block">
+            <span *ngIf="!userName.valid && (userName.touched|| userSubmited)" class="error-block">
               Please provide name
             </span>
         </div>
@@ -17,7 +17,7 @@
         <div class="form-group col-12">
           <label for="email" class="form-label">Email</label>
           <input type="email" class="form-control" formControlName = "email">
-          <span *ngIf="!email.valid && email.touched" class="error-block">
+          <span *ngIf="!email.valid && (email.touched||userSubmited)" class="error-block">
             <span *ngIf="email.hasError('required')">
               Please provide email
             </span>
@@ -28,9 +28,16 @@
         </div>
 
         <div class="form-group col-12">
+
           <label for="passwrod" class="form-label">Password</label>
-          <input type="password" class="form-control" formControlName = "password">
-          <span *ngIf="!password.valid && password.touched" class="error-block">
+            <div class="d-flex align-items-center">
+              <input [type]="show ? 'text' : 'password'" class="form-control" formControlName="password">
+                <button (click)="ShowPassword()" type="button" class="btn btn-info ml-2" 
+                  [innerHTML]="show ? '<i class=\'fa-regular fa-eye\'></i>' : '<i class=\'fa-regular fa-eye-slash\'></i>'">
+                </button>
+            </div>
+          
+          <span *ngIf="!password.valid && (password.touched||userSubmited)" class="error-block">
             <span *ngIf="password.hasError('required')">
               Please provide email
             </span>
@@ -38,29 +45,48 @@
               Password should not be lesser than 8 character
             </span>
           </span>
+
         </div>
 
         <div class="form-group col-12">
           <label for="cpassword" class="form-label">Confirm Password</label>
-          <input type="password" class="form-control" formControlName = "confirmPassword">
-          <span *ngIf="!confirmPassword.valid && confirmPassword.touched" class="error-block">
+         
+          <div class="d-flex align-items-center">
+            <input [type]="show ? 'text' : 'password'" class="form-control" formControlName="confirmPassword">
+              <button (click)="ShowPassword()" type="button" class="btn btn-info ml-2" 
+                [innerHTML]="show ? '<i class=\'fa-regular fa-eye\'></i>' : '<i class=\'fa-regular fa-eye-slash\'></i>'">
+              </button>
+          </div>
+
+          <span *ngIf="!confirmPassword.valid && (confirmPassword.touched||userSubmited)" class="error-block">
             <span *ngIf="confirmPassword.hasError('required')">
               Please confirm password
             </span>
           </span>
-            <span *ngIf=" confirmPassword.valid && registerationform.hasError('notmatched') "class="error-block">
-              Password not matched
-            </span>
+
+          <span *ngIf=" confirmPassword.valid && registerationform.hasError('notmatched') "class="error-block">
+            Password not matched
+          </span>
+          
         </div>
 
         <div class="form-group col-12">
           <label for="mobile" class="form-label">Mobile</label>
           <input type="text" class="form-control"formControlName = "mobile">
+          <span *ngIf="!mobile.valid && (mobile.touched||userSubmited)" class="error-block">
+            <span *ngIf="confirmPassword.hasError('required')">
+              Please confirm mobile
+            </span>
+          </span>
+          <span *ngIf="(mobile.errors?.['maxlength'] || mobile.errors?.['minlength'] )" class="error-block">
+            Phone number from 10 to 11 digits
+          </span>
+           
         </div>
-        form values:{{registerationform.value | json}}<br/>
-        form starus: {{registerationform.valid}}
+        <!-- form values:{{registerationform.value | json}}<br/>
+        form starus: {{registerationform.valid}} -->
 
-        <div class="form-group col-12">
+        <div class="form-group col-12 mt-2" >
           <button type="submit" class="btn btn-primary">Save</button>
           <button type="reset" class="btn btn-secondary ml-2">Cancel</button>
         </div>
