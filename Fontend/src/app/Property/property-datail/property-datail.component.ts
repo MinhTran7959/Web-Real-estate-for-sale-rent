@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Property } from 'src/app/model/property';
+import { HousingService } from 'src/app/services/housing.service';
 
 @Component({
   selector: 'app-property-datail',
@@ -7,17 +9,31 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./property-datail.component.css']
 })
 export class PropertyDatailComponent implements OnInit {
+[x: string]: any;
 public propertyId!: number;
-  
-  constructor( private route :ActivatedRoute , private router : Router ) { }
+  property= new Property();
+  constructor( private route :ActivatedRoute 
+              ,private router : Router
+              ,private HousingService: HousingService
+               ) { }
 
   ngOnInit() {
     this.propertyId= +this.route.snapshot.params['id'];
-    this.route.params.subscribe(
-      (parmas)=>{
-        this.propertyId =+ parmas['id'];
-      }
-    )
+    this.route.data.subscribe(
+      (data) => {
+        this.property = data['prp'];
+    })
+    // this.route.params.subscribe(
+    //   (parmas)=>{
+    //     this.propertyId =+ parmas['id'];
+    //     this.HousingService.getProperty(this.propertyId).subscribe(
+    //       (data : Property)=>{
+    //         this.property = data;
+    //       },
+    //         Error =>this.router.navigate(["/"])
+    //     )
+    //   }
+    // )
   }
   onSelectNext(){
     this.propertyId +=1;

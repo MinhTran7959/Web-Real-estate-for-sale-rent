@@ -7,6 +7,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 import { AppComponent } from './app.component';
 import { PropertyCardComponent } from './Property/property-card/property-card.component';
@@ -21,12 +22,18 @@ import { UserServiceService } from './services/user-service.service';
 import { AltertifyService } from './services/altertify.service';
 import { AuthService } from './services/auth.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PropertyDetailResolverService } from './Property/property-datail/property-details-resolver.service';
+import { FilterPipe } from './pipes/filter.pipe';
+import { SortPipe } from './pipes/sort.pipe';
+
+
 
 const appRoutes: Routes=[
   {path: '' , component: PropertyListComponent},
   {path: 'rent-property' , component: PropertyListComponent},
   {path: 'add-property' , component: AddPropertyComponent},
-  {path: 'property-detail/:id' , component: PropertyDatailComponent},
+  {path: 'property-detail/:id' , component: PropertyDatailComponent, 
+                      resolve:{prp:PropertyDetailResolverService }},
   {path: 'user/login' , component: UserLoginComponent},
   {path: 'user/register' , component: UserRegisterComponent},
 
@@ -43,7 +50,9 @@ const appRoutes: Routes=[
     AddPropertyComponent,
     PropertyDatailComponent,
     UserLoginComponent,
-    UserRegisterComponent
+    UserRegisterComponent,
+    FilterPipe,
+    SortPipe
    ],
   imports: [
     BrowserModule,
@@ -56,12 +65,14 @@ const appRoutes: Routes=[
     TabsModule.forRoot(),
     ButtonsModule.forRoot(),
     BsDatepickerModule.forRoot(),
+    CarouselModule.forRoot()
   ],
   providers: [
     HousingService,
     UserServiceService,
     AltertifyService,
-    AuthService
+    AuthService,
+    PropertyDetailResolverService
   ],
   bootstrap: [AppComponent]
 })

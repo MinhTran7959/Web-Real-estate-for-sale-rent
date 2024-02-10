@@ -31,7 +31,7 @@
     "Id":2,
     "SellRent":2,
     "Name":"Erose Flat",
-    "PType":"Aparment",
+    "PType":"Apartment",
     "BHK":3,
     "FType":"Unfurnished",
     "Price":5000,
@@ -55,7 +55,7 @@
     "PostedOn":"01-Jan-2019"
   },
   {
-    "Id":1,
+    "Id":3,
     "SellRent":1,
     "Name":"Gun Hill",
     "PType":"House",

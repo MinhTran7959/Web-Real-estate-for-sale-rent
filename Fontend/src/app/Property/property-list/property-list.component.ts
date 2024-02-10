@@ -4,7 +4,8 @@ import { HousingService } from '../../services/housing.service';
 
 import { ActivatedRoute } from '@angular/router';
 import { IProperty } from 'src/app/model/iproperty';
-
+import { IPropertyBase } from 'src/app/model/ipropertyBase';
+import { Pipe, PipeTransform } from '@angular/core';
 
 
 @Component({
@@ -15,32 +16,44 @@ import { IProperty } from 'src/app/model/iproperty';
 
 export class PropertyListComponent implements OnInit {
     SellRent=1;
-    properties!: IProperty[];
+      properties?: IPropertyBase[];
+    Today = new Date();
+    City = '';
+    SearchCity = '';
+    SortbyParam = '';
+    SortDirection = 'asc';
     constructor( private route:ActivatedRoute, private housingService: HousingService){
 
     }
     ngOnInit(): void {
-      // gọi services housing
-     if( this.route.snapshot.url.toString())
-     {
-      this.SellRent =2 ;
-     }
-   
-     
+      if (this.route.snapshot.url.toString()) {
+        this.SellRent = 2; // Means we are on rent-property URL else we are on base URL
+      }
       this.housingService.getAllproperties(this.SellRent).subscribe(
-        data=>{
-          this.properties=data;
-          const newPropertyString = localStorage.getItem('newProp');
-          const newProperty = newPropertyString ? JSON.parse(newPropertyString) : null;
-          
-          if(newProperty.SellRent === this.SellRent){
-              this.properties= [newProperty, ...this.properties];
-          }
-
-        },Error => {
-          console.log(Error);// trường hợp API không hoạt động
+          data => {
+          this.properties = data;
+          console.log(data);
+        }, error => {
+          console.log('httperror:');
+          console.log(error);
         }
-
       );
     }
+    
+  onCityFilter() {
+    this.SearchCity = this.City;
+  }
+
+  onCityFilterClear() {
+    this.SearchCity = '';
+    this.City = '';
+  }
+
+  onSortDirection() {
+    if (this.SortDirection === 'desc') {
+      this.SortDirection = 'asc';
+    } else {
+      this.SortDirection = 'desc';
+    }
+  }
 }
