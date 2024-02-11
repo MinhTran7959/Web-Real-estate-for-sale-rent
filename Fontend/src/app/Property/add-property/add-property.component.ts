@@ -25,6 +25,8 @@ export class AddPropertyComponent implements OnInit {
   // will come form master
   propertyType : Array<String>= ['House','Apartment','Duplex' ]
   furnishType : Array<String>= ['Fully','Semi','Unfurnished' ]
+  cityList?: any[];
+
   propertyPreview: IPropertyBase ={
     Id: null,
     Name : '',
@@ -35,7 +37,7 @@ export class AddPropertyComponent implements OnInit {
     BHK: null,
     RTM: null,
     BuiltArea: null,
-    City: null,
+    City: '',
     Image: null,
 
   };
@@ -51,6 +53,10 @@ export class AddPropertyComponent implements OnInit {
 
   ngOnInit() {
     this.createAddPropertyForm();
+    this.housingServe.getAllCities().subscribe(data=>{
+      // console.log(data);
+      this.cityList = data;
+    });
   }
 
   createAddPropertyForm(){
@@ -221,31 +227,31 @@ export class AddPropertyComponent implements OnInit {
     }
   }
 
-mapProperty(): void{
-  this.property.Id = this.housingServe.newPropID();
-  this.property.SellRent = +this.SellRent.value;
-  this.property.BHK = this.BHK.value;
-  this.property.PType = this.PType.value;
-  this.property.Name = this.Name.value;
-  this.property.City = this.City.value;
-  this.property.FType = this.FType.value;
-  this.property.Price = this.Price.value;
-  this.property.Security = this.Security.value;
-  this.property.Maintenance = this.Maintenance.value;
-  this.property.BuiltArea = this.BuiltArea.value;
-  this.property.CarpetArea = this.CarpetArea.value;
-  this.property.FloorNo = this.FloorNo.value;
-  this.property.TotalFloor = this.TotalFloor.value;
-  this.property.Address = this.Address.value;
-  this.property.Address2 = this.LandMark.value;
-  this.property.RTM = this.RTM.value;
-  this.property.AOP = this.AOP.value;
-  this.property.Gated = this.Gated.value;
-  this.property.MainEntrance = this.MainEntrance.value;
-  this.property.Possession = this.PossessionOn.value;
-  this.property.Description = this.Description.value;
-  this.property.PostedOn = new Date().toString();
-}
+  mapProperty(): void{
+    this.property.Id = this.housingServe.newPropID();
+    this.property.SellRent = +this.SellRent.value;
+    this.property.BHK = this.BHK.value;
+    this.property.PType = this.PType.value;
+    this.property.Name = this.Name.value;
+    this.property.City = this.City.value;
+    this.property.FType = this.FType.value;
+    this.property.Price = this.Price.value;
+    this.property.Security = this.Security.value;
+    this.property.Maintenance = this.Maintenance.value;
+    this.property.BuiltArea = this.BuiltArea.value;
+    this.property.CarpetArea = this.CarpetArea.value;
+    this.property.FloorNo = this.FloorNo.value;
+    this.property.TotalFloor = this.TotalFloor.value;
+    this.property.Address = this.Address.value;
+    this.property.Address2 = this.LandMark.value;
+    this.property.RTM = this.RTM.value;
+    this.property.AOP = this.AOP.value;
+    this.property.Gated = this.Gated.value;
+    this.property.MainEntrance = this.MainEntrance.value;
+    this.property.Possession = this.PossessionOn.value;
+    this.property.Description = this.Description.value;
+    this.property.PostedOn = new Date().toString();
+  }
 
   allTabsVaild(): boolean{
     if (this.BasicInfo.invalid) {

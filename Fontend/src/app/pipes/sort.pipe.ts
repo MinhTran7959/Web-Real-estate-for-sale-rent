@@ -13,20 +13,23 @@ export class SortPipe implements PipeTransform {
         mutiplier= -1;
       }
 
-    value.sort((a: any , b: any)=>
-      {
-        if(a[sortField]< b[sortField]){
-          return -1 * mutiplier;
+      if(value){
+        value.sort((a: any , b: any)=>
+        {
+          if(a[sortField]< b[sortField]){
+            return -1 * mutiplier;
+          }
+          else   if (a[sortField]>b[sortField]){
+            return 1* mutiplier;
+          }else{
+            return 0;
+          }
         }
-        else   if (a[sortField]>b[sortField]){
-          return 1* mutiplier;
-        }else{
-          return 0;
-        }
+      )
+  
+      return value;
+    }
       }
-    )
-
-    return value;
-  }
+    
 
 }

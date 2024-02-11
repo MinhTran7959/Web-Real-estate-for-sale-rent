@@ -32,7 +32,7 @@ export class PropertyListComponent implements OnInit {
       this.housingService.getAllproperties(this.SellRent).subscribe(
           data => {
           this.properties = data;
-          console.log(data);
+          // console.log(data);
         }, error => {
           console.log('httperror:');
           console.log(error);
