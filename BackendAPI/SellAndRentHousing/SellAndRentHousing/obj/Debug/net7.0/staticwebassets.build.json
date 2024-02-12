@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "je9Om+nKD/KJHqTB1A5hFjpD2qWEe9Z3cibaMH2BcMk=",
-  "Source": "SellAndRentHousing",
-  "BasePath": "_content/SellAndRentHousing",
+  "Hash": "7/8N/7vR8Gil4oF52j1JyaDaDh/w/bwrwTANJiMV94U=",
+  "Source": "WebAPI",
+  "BasePath": "_content/WebAPI",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],

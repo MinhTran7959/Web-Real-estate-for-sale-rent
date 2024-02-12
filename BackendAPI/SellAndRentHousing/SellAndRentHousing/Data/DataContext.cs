@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SellAndRentHousing.Models;
+using WebAPI.Models;
 
-namespace SellAndRentHousing.Data
+namespace WebAPI.Data
 {
     public class DataContext: DbContext
     {

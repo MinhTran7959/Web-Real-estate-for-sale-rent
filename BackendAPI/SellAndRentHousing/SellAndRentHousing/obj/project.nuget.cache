@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jt76UWL8kyCFa42qbwfTnIfWpNFLDfaHvSFa7OPnKcYJ+8BASdi9NM+tv6qc2wFMBBmRgGLObm95I9r4WY93ZA==",
+  "dgSpecHash": "KcWtvMDqVYrGeYBfpXXb+8TWCeXVt0q+0KefpUcIvbzkdDipRd+kZtLbdMtwWEMGQHjNxCRvnFzPGsPnkep85g==",
   "success": true,
-  "projectFilePath": "D:\\Self Learning\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\SellAndRentHousing\\SellAndRentHousing\\SellAndRentHousing.csproj",
+  "projectFilePath": "D:\\Self Learning\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\SellAndRentHousing\\SellAndRentHousing\\WebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Minh7959\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Minh7959\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

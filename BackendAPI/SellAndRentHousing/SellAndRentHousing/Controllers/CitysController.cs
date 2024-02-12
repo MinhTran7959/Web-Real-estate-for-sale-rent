@@ -1,57 +1,60 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using SellAndRentHousing.Data;
-using SellAndRentHousing.Models;
+using WebAPI.Data;
+using WebAPI.DTOs;
+using WebAPI.Interfaces;
+using WebAPI.Models;
 
-namespace SellAndRentHousing.Controllers
+namespace WebAPI.Controllers
 {
     [Route("[controller]")]
     [ApiController]
     public class CitysController : ControllerBase
     {
-        private DataContext _context;
 
-        public CitysController(DataContext context) {
-            _context = context;
+        private readonly IUnitOfWork uow;
+
+        public CitysController(IUnitOfWork uow) {
+            this.uow = uow;
         }
 
         [HttpGet("ListCiTy")]
         public async Task<IActionResult> GetCities()
         {
-            var cities = await _context.Cities.ToListAsync();
-            return Ok(cities);
+            var cities = await uow.cityRepository.GetCitiesAsync();
+            var citiesDto = from c in cities
+                            select new CityDTO
+                            {
+                                Id = c.Id,
+                                Name = c.Name,
+                            };
+            return Ok(citiesDto);
         }
 
-        [HttpPost("Add/{cityName}")]
-        public async Task<IActionResult> AddCities( string cityName)
-        {
-            City city = new City();
-             city.Name = cityName;
-             await _context.Cities.AddAsync(city);
-             await _context.SaveChangesAsync();
 
-            return Ok(city);
-        }
-        // post city = list json 
         [HttpPost("Post")]
-        public async Task<IActionResult> AddCitiesJson(City city)
-        {         
-            await _context.Cities.AddAsync(city);
-            await _context.SaveChangesAsync();
+        public async Task<IActionResult> AddCities(CityDTO cityDto)
+        {
+            var city = new City
+            {
+                Name = cityDto.Name,
+                LastUpdate = DateTime.Now,
+                LastUpdateBy = 1,
 
-            return Ok(city);
+            };
+            await uow.cityRepository.AddCitiesAsync(city);
+            await uow.SaveAsync();
+
+            return StatusCode(201);
         }
 
         [HttpDelete("Delete/{id}")]
         public async Task<IActionResult> DeleteCities(int id )
         {
-            var city = await _context.Cities.FindAsync(id);
-            if (city == null) {  return BadRequest(); }
-             _context.Cities.Remove(city);
-            await _context.SaveChangesAsync();
-
-            return Ok(id);
+            await  uow.cityRepository.DeleteCitiesAsync(id);
+            await  uow.SaveAsync();
+            return StatusCode(201);
         }
     } 
 }

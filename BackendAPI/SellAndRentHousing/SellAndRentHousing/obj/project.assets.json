@@ -3349,9 +3349,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Self Learning\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\SellAndRentHousing\\SellAndRentHousing\\SellAndRentHousing.csproj",
-      "projectName": "SellAndRentHousing",
-      "projectPath": "D:\\Self Learning\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\SellAndRentHousing\\SellAndRentHousing\\SellAndRentHousing.csproj",
+      "projectUniqueName": "D:\\Self Learning\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\SellAndRentHousing\\SellAndRentHousing\\WebAPI.csproj",
+      "projectName": "WebAPI",
+      "projectPath": "D:\\Self Learning\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\SellAndRentHousing\\SellAndRentHousing\\WebAPI.csproj",
       "packagesPath": "C:\\Users\\Minh7959\\.nuget\\packages\\",
       "outputPath": "D:\\Self Learning\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\SellAndRentHousing\\SellAndRentHousing\\obj\\",
       "projectStyle": "PackageReference",
