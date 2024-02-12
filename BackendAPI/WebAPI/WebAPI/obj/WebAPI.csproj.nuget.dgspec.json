@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Self Learning\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\SellAndRentHousing\\SellAndRentHousing\\WebAPI.csproj": {}
+    "D:\\Self Learning\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\WebAPI\\WebAPI\\WebAPI.csproj": {}
   },
   "projects": {
-    "D:\\Self Learning\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\SellAndRentHousing\\SellAndRentHousing\\WebAPI.csproj": {
+    "D:\\Self Learning\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\WebAPI\\WebAPI\\WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Self Learning\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\SellAndRentHousing\\SellAndRentHousing\\WebAPI.csproj",
+        "projectUniqueName": "D:\\Self Learning\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\WebAPI\\WebAPI\\WebAPI.csproj",
         "projectName": "WebAPI",
-        "projectPath": "D:\\Self Learning\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\SellAndRentHousing\\SellAndRentHousing\\WebAPI.csproj",
+        "projectPath": "D:\\Self Learning\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\WebAPI\\WebAPI\\WebAPI.csproj",
         "packagesPath": "C:\\Users\\Minh7959\\.nuget\\packages\\",
-        "outputPath": "D:\\Self Learning\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\SellAndRentHousing\\SellAndRentHousing\\obj\\",
+        "outputPath": "D:\\Self Learning\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\WebAPI\\WebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Minh7959\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,10 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.11, )"
