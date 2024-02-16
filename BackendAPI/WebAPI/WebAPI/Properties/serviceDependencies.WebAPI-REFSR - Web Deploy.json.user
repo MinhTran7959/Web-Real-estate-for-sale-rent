@@ -1,0 +1,64 @@
+{
+  "dependencies": {
+    "apis1": {
+      "restored": true,
+      "restoreTime": "2024-02-15T11:49:00.0687257Z"
+    },
+    "mssql1": {
+      "restored": true,
+      "restoreTime": "2024-02-15T11:56:28.0412277Z"
+    }
+  },
+  "parameters": {
+    "mssql1.subscriptionId": {
+      "Name": "mssql1.subscriptionId",
+      "Type": "subscription",
+      "Value": "7684cb09-bf11-4403-adcf-d62e6ab25663"
+    },
+    "apis1.resourceGroupName": {
+      "Name": "apis1.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "WebAPI"
+    },
+    "apis1.resourceGroupLocation": {
+      "Name": "apis1.resourceGroupLocation",
+      "Type": "location",
+      "Value": "eastus"
+    },
+    "WebAPI-REFSR.resourceGroupLocation": {
+      "Name": "WebAPI-REFSR.resourceGroupLocation",
+      "Type": null,
+      "Value": "eastus"
+    },
+    "mssql1.resourceGroupName": {
+      "Name": "mssql1.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "WebAPI"
+    },
+    "WebAPI-REFSR.resourceGroupName": {
+      "Name": "WebAPI-REFSR.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "WebAPI"
+    },
+    "WebAPI-REFSR.subscriptionId": {
+      "Name": "WebAPI-REFSR.subscriptionId",
+      "Type": "subscription",
+      "Value": "7684cb09-bf11-4403-adcf-d62e6ab25663"
+    },
+    "WebAPI-REFSR.resourceName": {
+      "Name": "WebAPI-REFSR.resourceName",
+      "Type": null,
+      "Value": "WebAPI-REFSR"
+    },
+    "mssql1.resourceGroupLocation": {
+      "Name": "mssql1.resourceGroupLocation",
+      "Type": "location",
+      "Value": "eastus"
+    },
+    "apis1.subscriptionId": {
+      "Name": "apis1.subscriptionId",
+      "Type": "subscription",
+      "Value": "7684cb09-bf11-4403-adcf-d62e6ab25663"
+    }
+  }
+}

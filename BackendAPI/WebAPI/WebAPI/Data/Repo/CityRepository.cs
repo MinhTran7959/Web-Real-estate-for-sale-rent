@@ -19,7 +19,10 @@ namespace WebAPI.Data.Repo
             await context.AddAsync(city);          
             return city;
         }
-
+        public async Task<City> FindCity(int CityId)
+        {
+          return await context.Cities.FindAsync(CityId);
+        }
         public async Task<City> DeleteCitiesAsync(int CityId)
         {
             var city= await context.Cities.FindAsync(CityId);
