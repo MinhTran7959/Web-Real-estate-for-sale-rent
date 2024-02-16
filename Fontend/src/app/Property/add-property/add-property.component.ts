@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { TabsetComponent } from 'ngx-bootstrap/tabs';
 import { IPropertyBase } from 'src/app/model/ipropertyBase';
 import { Property } from 'src/app/model/property';
@@ -23,9 +23,9 @@ export class AddPropertyComponent implements OnInit {
     property = new Property();
 
   // will come form master
-  propertyType : Array<String>= ['House','Apartment','Duplex' ]
-  furnishType : Array<String>= ['Fully','Semi','Unfurnished' ]
-  cityList?: any[];
+  propertyType : Array<string>= ['House','Apartment','Duplex' ]
+  furnishType : Array<string>= ['Fully','Semi','Unfurnished' ]
+  cityList?: unknown[];
 
   propertyPreview: IPropertyBase ={
     Id: null,

@@ -5,10 +5,10 @@ export interface IPropertyBase {
     PType?: string    | null;
     FType?: string    | null;
     Price?: number    | null;
-    BHK?:Number       | null;
-    BuiltArea?:Number | null;
+    BHK?:number       | null;
+    BuiltArea?:number | null;
     City?:string      | null;
-    RTM?:Number       | null;
+    RTM?:number       | null;
     Image?:string     | null;
    
 }

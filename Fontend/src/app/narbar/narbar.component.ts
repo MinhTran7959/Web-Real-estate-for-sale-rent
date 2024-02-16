@@ -10,9 +10,8 @@ export class NarbarComponent implements OnInit {
   loggedinUser!: string | null;
 
   constructor(private alter: AltertifyService) { }
-
-  ngOnInit() {
-  }
+  // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method, @typescript-eslint/no-empty-function
+  ngOnInit(){}
 
   login() {
     this.loggedinUser = localStorage.getItem('token');

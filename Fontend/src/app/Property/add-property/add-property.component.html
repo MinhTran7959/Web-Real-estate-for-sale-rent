@@ -120,8 +120,8 @@
                   <span class="badge badge-secondary bg-info fs-5">Pricing and Area</span>
                 </ng-template>
                   <div class="form-group col-12">
-                    <label *ngIf="SellRent.value==1">Price (in USD)</label>
-                    <label *ngIf="SellRent.value==2">Rent (in USD)</label>
+                    <label *ngIf="SellRent.value===1">Price (in USD)</label>
+                    <label *ngIf="SellRent.value===2">Rent (in USD)</label>
                     <input type="text" class="form-control" formControlName="Price" 
                     [(ngModel)]="propertyPreview.Price">
                       <div class="error-block"
@@ -129,12 +129,12 @@
 
                       >
                         Please select
-                        <span *ngIf="SellRent.value==1;else ShowRent">price</span>
+                        <span *ngIf="SellRent.value===1;else ShowRent">price</span>
                         <ng-template #ShowRent>rent</ng-template>
                       </div>
                   </div>
     
-                  <div *ngIf="SellRent.value==2">
+                  <div *ngIf="SellRent.value===2">
                     <div class="form-group col-12">
                       <label>Security (in USD)</label>
                       <input type="text"

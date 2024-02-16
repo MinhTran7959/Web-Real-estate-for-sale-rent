@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class SortPipe implements PipeTransform {
 
-  transform(value: Array<String>, args: any[]): any {
+  transform(value: Array<string>, args: any[]): any {
     const sortField = args[0];
     const sortDirection = args[1];
     let mutiplier = 1;

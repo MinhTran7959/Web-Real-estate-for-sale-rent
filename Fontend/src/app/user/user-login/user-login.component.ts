@@ -17,7 +17,7 @@ export class UserLoginComponent implements OnInit {
                private router: Router         
     ) { }
 
-  ngOnInit() {
+  ngOnInit() {undefined
   }
   onLogin(loginForm: NgForm ){
     // console.log(loginForm.value);

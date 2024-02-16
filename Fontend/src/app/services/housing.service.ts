@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
-import { Observable, pipe } from 'rxjs';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { IProperty } from '../model/iproperty';
 import { Property } from '../model/property';
-import { IPropertyBase } from '../model/ipropertyBase';
 
 @Injectable({
   providedIn: 'root'
@@ -41,7 +39,7 @@ export class HousingService {
       if(LocalProperties){
         for (const id in LocalProperties) {
           if(SellRent){
-            if (LocalProperties.hasOwnProperty(id) && LocalProperties[id].SellRent === SellRent) {
+            if (Object.prototype.hasOwnProperty.call(LocalProperties, id) && LocalProperties[id].SellRent === SellRent) {
               propertiesArray.push(LocalProperties[id]);
             }
           }
@@ -53,7 +51,7 @@ export class HousingService {
     
       for (const id in data) {
         if(SellRent){
-          if (data.hasOwnProperty(id) && data[id].SellRent === SellRent) {
+          if (Object.prototype.hasOwnProperty.call(data, id) && data[id].SellRent === SellRent) {
             propertiesArray.push(data[id]);
           }
         }

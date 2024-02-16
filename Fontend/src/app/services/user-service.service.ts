@@ -6,6 +6,7 @@ import { UserModel } from '../model/user';
 })
 export class UserServiceService {
 
+// eslint-disable-next-line @typescript-eslint/no-empty-function
 constructor() { }
     addUser(user: UserModel){
       let users = [];

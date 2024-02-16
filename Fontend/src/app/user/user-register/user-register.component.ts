@@ -20,7 +20,7 @@ show: any;
                       ) { }
   user? : UserModel;
   userSubmited?: boolean;
-  showPass: boolean = false;
+  showPass = false;
   ngOnInit() {
     // this.registerationform= new FormGroup({
     //   userName: new FormControl(null, Validators.required),
