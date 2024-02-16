@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -45,14 +44,14 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-//if (app.Environment.IsDevelopment())
-//{
-app.UseSwagger();
-app.UseSwaggerUI();
-//}
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 
-//app.ConfigureExceptionHandler(); xu ly loi
-app.UseMiddleware<ExceptionMiddlewares>();
+    //app.ConfigureExceptionHandler(); xu ly loi
+      app.UseMiddleware<ExceptionMiddlewares>();
     // app.ConfigureBuiltinExceptionHandler();
 
 
@@ -60,8 +59,6 @@ app.UseMiddleware<ExceptionMiddlewares>();
 
     app.UseHttpsRedirection();
     app.UseRouting();
-    app.UseHsts();
-    app.UseHttpsRedirection();
     app.UseCors(p=>p.AllowAnyOrigin().AllowAnyMethod());
     app.UseAuthentication();
     app.UseAuthorization();

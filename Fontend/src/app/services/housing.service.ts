@@ -15,7 +15,7 @@ export class HousingService {
 
 
   getAllCities(): Observable<string[]> {
-    return this.http.get('https://webapi-refsr.azurewebsites.net/api/Citys/GetCity') as Observable<string[]>;
+    return this.http.get('https://localhost:7035/Citys/ListCiTy') as Observable<string[]>;
   }
 
 
