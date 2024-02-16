@@ -1,10 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "f2u83RLchyeM0tlxiE8uGO2DS1R2by0aq3dQHQGwU/W5gyBqql++zCEAqvE5NVQLN2HYKF5HImSZpCqr57psDQ==",
+  "dgSpecHash": "KcWtvMDqVYrGeYBfpXXb+8TWCeXVt0q+0KefpUcIvbzkdDipRd+kZtLbdMtwWEMGQHjNxCRvnFzPGsPnkep85g==",
   "success": true,
-  "projectFilePath": "D:\\Self Learning\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\WebAPI\\WebAPI\\WebAPI.csproj",
+  "projectFilePath": "D:\\Self Learning\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\SellAndRentHousing\\SellAndRentHousing\\WebAPI.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Minh7959\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\Minh7959\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Minh7959\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
     "C:\\Users\\Minh7959\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
