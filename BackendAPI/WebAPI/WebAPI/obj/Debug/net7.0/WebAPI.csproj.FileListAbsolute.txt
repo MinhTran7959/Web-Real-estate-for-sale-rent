@@ -151,8 +151,3 @@ D:\Self Learning\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\
 D:\Self Learning\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\WebAPI\obj\Debug\net7.0\WebAPI.genruntimeconfig.cache
 D:\Self Learning\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\WebAPI\obj\Debug\net7.0\ref\WebAPI.dll
 D:\Self Learning\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\WebAPI\bin\Debug\net7.0\AutoMapper.dll
-D:\Self Learning\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\WebAPI\bin\Debug\net7.0\Microsoft.AspNetCore.JsonPatch.dll
-D:\Self Learning\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\WebAPI\bin\Debug\net7.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
-D:\Self Learning\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\WebAPI\bin\Debug\net7.0\Newtonsoft.Json.dll
-D:\Self Learning\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\WebAPI\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll
-D:\Self Learning\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\WebAPI\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

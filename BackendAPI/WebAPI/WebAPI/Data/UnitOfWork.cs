@@ -7,18 +7,14 @@ namespace WebAPI.Data
     {
         private DataContext context;
 
-    
+        public ICityRepository cityRepository =>  new CityRepository(context);
 
         public UnitOfWork(DataContext context) {
             this.context= context;
         }
-
-        public ICityRepository cityRepository => new CityRepository(context);
-
-        public IUsersRepository UsersRepository => new UsersRepository(context);
         public async Task<bool> SaveAsync()
         {
-            return await this.context.SaveChangesAsync()>0  ; 
+            return await this.context.SaveChangesAsync()>0  ;
         }
     }
 }
