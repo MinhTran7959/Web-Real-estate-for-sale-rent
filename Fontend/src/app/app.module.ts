@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule} from'@angular/common/http';
-import { Routes, Router, RouterModule } from '@angular/router';
+import {HTTP_INTERCEPTORS, HttpClientModule} from'@angular/common/http';
+import { Routes,  RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
@@ -18,13 +18,13 @@ import { AddPropertyComponent } from './Property/add-property/add-property.compo
 import { PropertyDatailComponent } from './Property/property-datail/property-datail.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
-import { UserServiceService } from './services/user-service.service';
 import { AltertifyService } from './services/altertify.service';
 import { AuthService } from './services/auth.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PropertyDetailResolverService } from './Property/property-datail/property-details-resolver.service';
 import { FilterPipe } from './pipes/filter.pipe';
 import { SortPipe } from './pipes/sort.pipe';
+import { HttperrorInterceptorService } from './services/httperror-interceptor.service';
 
 
 
@@ -68,8 +68,12 @@ const appRoutes: Routes=[
     CarouselModule.forRoot()
   ],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttperrorInterceptorService,
+      multi: true,
+    },
     HousingService,
-    UserServiceService,
     AltertifyService,
     AuthService,
     PropertyDetailResolverService

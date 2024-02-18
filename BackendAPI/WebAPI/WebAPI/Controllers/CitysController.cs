@@ -43,8 +43,8 @@ namespace WebAPI.Controllers
                 return BadRequest(ModelState);
             }
             var city = mapper.Map<City>(cityDto);
-            city.LastUpdate = DateTime.UtcNow;
-            city.LastUpdateBy = 1;
+            //city.LastUpdate = DateTime.UtcNow;
+            //city.LastUpdateBy = 1;
          
             await uow.cityRepository.AddCitiesAsync(city);
             await uow.SaveAsync();
@@ -68,8 +68,8 @@ namespace WebAPI.Controllers
                 }
                 else
                 {
-                    cityFromDB.LastUpdate = DateTime.UtcNow;
-                    cityFromDB.LastUpdateBy = 1;
+                    //cityFromDB.LastUpDateon = DateTime.Now;
+                   // cityFromDB.LastUpdateBy = 1;
                     mapper.Map(cityDto, cityFromDB);
                     //throw new Exception("Some unknown error occured");
                     await uow.SaveAsync();

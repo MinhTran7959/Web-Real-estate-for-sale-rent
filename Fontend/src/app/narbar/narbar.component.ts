@@ -14,11 +14,13 @@ export class NarbarComponent implements OnInit {
   ngOnInit(){}
 
   login() {
-    this.loggedinUser = localStorage.getItem('token');
+    this.loggedinUser = localStorage.getItem('userName');
     return this.loggedinUser;
   }
   onLogout(){
-    localStorage.removeItem('token')
-    this.alter.success("Logout successful")
+    localStorage.removeItem('userName');
+    localStorage.removeItem('token');
+
+    this.alter.warning("Logged out!!");
   }
 }

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
-import { UserModel } from 'src/app/model/user';
-import { UserServiceService } from 'src/app/services/user-service.service';
+import { UserForRegisterModel } from 'src/app/model/user';
 
 // import * as alertyfy from 'alertifyjs';
 import { AltertifyService } from 'src/app/services/altertify.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-user-register',
@@ -13,22 +13,16 @@ import { AltertifyService } from 'src/app/services/altertify.service';
 })
 export class  UserRegisterComponent implements OnInit {
   registerationform!: FormGroup;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 show: any;
           constructor( private fb: FormBuilder ,
-                       private userService: UserServiceService , 
+                       private authservice: AuthService , 
                        private altertify: AltertifyService
                       ) { }
-  user? : UserModel;
+  user? : UserForRegisterModel;
   userSubmited?: boolean;
   showPass = false;
   ngOnInit() {
-    // this.registerationform= new FormGroup({
-    //   userName: new FormControl(null, Validators.required),
-    //   email: new FormControl(null, [Validators.required , Validators.email]),
-    //   password: new FormControl(null , [Validators.required , Validators.minLength(8)]),
-    //   confirmPassword: new FormControl(null , [Validators.required]),
-    //   mobile: new FormControl(null,[Validators.required, Validators.maxLength(10) ])
-    // }, 
     this.createRegisterationForm();
   }
 
@@ -38,7 +32,7 @@ show: any;
 
   createRegisterationForm() {
     this.registerationform = this.fb.group({
-      userName: [null, Validators.required],
+      name: [null, Validators.required],
       email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required, Validators.minLength(8)]],
       confirmPassword: [null, Validators.required],
@@ -52,8 +46,8 @@ show: any;
 
 
 
-  get userName(){
-    return this.registerationform.get('userName') as FormControl;
+  get name(){
+    return this.registerationform.get('name') as FormControl;
   }
   get email(){
     return this.registerationform.get('email') as FormControl;
@@ -73,19 +67,24 @@ show: any;
 
     this.userSubmited=true;
     if(this.registerationform.valid){
-      //this.user = Object.assign(this.user || {}, this.registerationform.value);
-      this.userService.addUser(this.userData());
-      this.registerationform.reset();
-      this.userSubmited= false;
-      this.altertify.success('Congrats, you are successfully registered');
-    }
-    else{
-      this.altertify.error('kindly provide the required fields');
+      this.authservice.registerUser(this.userData()).subscribe(()=>
+      {
+        this.onReset();
+       this.altertify.success('Congrats, you are successfully registered');
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      });
+   
     }
   }
-  userData(): UserModel{
+
+  onReset(){
+    this.registerationform.reset();
+        this.userSubmited= false;
+  }
+
+  userData(): UserForRegisterModel{
     return this.user = {
-      userName : this.userName.value,
+      name : this.name.value,
       email: this.email.value,
       password: this.password.value,
       mobile: this.mobile.value

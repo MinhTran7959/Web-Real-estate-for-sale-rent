@@ -25,7 +25,7 @@ export class AddPropertyComponent implements OnInit {
   // will come form master
   propertyType : Array<string>= ['House','Apartment','Duplex' ]
   furnishType : Array<string>= ['Fully','Semi','Unfurnished' ]
-  cityList?: unknown[];
+  cityList?: any[];
 
   propertyPreview: IPropertyBase ={
     Id: null,
