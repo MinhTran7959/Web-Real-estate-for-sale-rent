@@ -22,7 +22,9 @@ public propertyId!: number;
     this.route.data.subscribe(
       (data) => {
         this.property = data['prp'];
-    })
+    });
+    this.property.age = this.HousingService.getPropertyAge(this.property.estPossessionOn);
+   
     // this.route.params.subscribe(
     //   (parmas)=>{
     //     this.propertyId =+ parmas['id'];

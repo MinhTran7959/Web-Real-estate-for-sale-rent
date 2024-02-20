@@ -1,12 +1,12 @@
 
 <div class="card">    
     <div class="card-img-wrapper">
-        <img *ngIf="property2.Image" class="card-img-top" src="assets/Images/{{property2.Image}}.png">
-        <img *ngIf="!property2.Image" class="card-img-top" src="assets/Images/house_default.png">
+        <img *ngIf="property2.photos" class="card-img-top" src="assets/Images/{{property2.photos}}.png">
+        <img *ngIf="!property2.photos" class="card-img-top" src="assets/Images/house_default.png">
 
         <ul *ngIf="!hideIcons" class="list-inline text-center member-icon animate">
             <li class="list-inline-item">
-                <button class="btn btn-primary" routerLink="/property-detail/{{property2.Id}}">
+                <button class="btn btn-primary" routerLink="/property-detail/{{property2.id}}">
                     <i class="fa-regular fa-pen-to-square"></i>
                 </button> 
             </li>
@@ -18,18 +18,23 @@
         </ul>
     </div>
     <div class="card-body p-1">
-        <h1 class="mb-0"> {{property2.BHK}} BHK {{property2.PType}} </h1>
+        <h1 class="mb-0"> {{property2.bhk}} BHK {{property2.propertyType}} </h1>
     
-        In {{property2.Name}}
-        <span *ngIf="property2.Name">,</span>
-        {{property2.City}}
+        In {{property2.name}}
+        <span *ngIf="property2.name">,</span>
+        {{property2.city}}
     
-        <h6  class="mt-2">{{property2.FType}}
-        <span *ngIf="property2.FType !== 'Unfurnished'">Furnished</span> | Ready to Move</h6>
+        <h6  class="mt-2">{{property2.furnishingType}}
+            <span *ngIf="property2.furnishingType !== 'Unfurnished'">Furnished </span> 
+            <span *ngIf="property2.readyToMove">| Ready to Move</span> 
+            <span *ngIf="!property2.readyToMove">Posession: {{ property2.estPossessionOn | date: 'dd-MM-yyyy' }}</span>
+
+
+        </h6>
     
         <hr class="mt-0 mb-2">
     
-        <h6 class="mb-0">Price: <span class="text-success font-highlight">{{property2.Price}} USD.</span> |
-          Area:  <span class="font-highlight text-danger">{{property2.BuiltArea}} Sq Ft </span> </h6>
+        <h6 class="mb-0">Price: <span class="text-success font-highlight">{{property2.price}} USD.</span> |
+          Area:  <span class="font-highlight text-danger">{{property2.builtArea}} Sq Ft </span> </h6>
       </div>
 </div>

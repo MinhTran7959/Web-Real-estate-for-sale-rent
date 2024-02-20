@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TabsetComponent } from 'ngx-bootstrap/tabs';
+import { IKeyValuePair } from 'src/app/model/IKeyValuePair';
 import { IPropertyBase } from 'src/app/model/ipropertyBase';
 import { Property } from 'src/app/model/property';
 import { AltertifyService } from 'src/app/services/altertify.service';
@@ -23,27 +24,25 @@ export class AddPropertyComponent implements OnInit {
     property = new Property();
 
   // will come form master
-  propertyType : Array<string>= ['House','Apartment','Duplex' ]
-  furnishType : Array<string>= ['Fully','Semi','Unfurnished' ]
+  propertyType! : IKeyValuePair[] ;
+  furnishType!: IKeyValuePair[];
   cityList?: any[];
 
   propertyPreview: IPropertyBase ={
-    Id: null,
-    Name : '',
-    Price: null,
-    SellRent: null,
-    PType: null,
-    FType: null,
-    BHK: null,
-    RTM: null,
-    BuiltArea: null,
-    City: '',
-    Image: null,
-
+    id: null,
+    name : '',
+    price: null,
+    sellRent: null,
+    propertyType: null,
+    furnishingType: null,
+    bhk: null,
+    readyToMove: null,
+    builtArea: null,
+    city: '',
+    photos: null,
+   
   };
-
-
-
+  datePipe: any;
 
   constructor(  private fb: FormBuilder
                ,private route: Router
@@ -57,6 +56,14 @@ export class AddPropertyComponent implements OnInit {
       // console.log(data);
       this.cityList = data;
     });
+
+    this.housingServe.getPropertyType().subscribe(data=>{
+      this.propertyType= data;
+    })
+
+    this.housingServe.getFurnishingType().subscribe(data=>{
+      this.furnishType= data;
+    })
   }
 
   createAddPropertyForm(){
@@ -228,29 +235,29 @@ export class AddPropertyComponent implements OnInit {
   }
 
   mapProperty(): void{
-    this.property.Id = this.housingServe.newPropID();
-    this.property.SellRent = +this.SellRent.value;
-    this.property.BHK = this.BHK.value;
-    this.property.PType = this.PType.value;
-    this.property.Name = this.Name.value;
-    this.property.City = this.City.value;
-    this.property.FType = this.FType.value;
-    this.property.Price = this.Price.value;
-    this.property.Security = this.Security.value;
-    this.property.Maintenance = this.Maintenance.value;
-    this.property.BuiltArea = this.BuiltArea.value;
-    this.property.CarpetArea = this.CarpetArea.value;
-    this.property.FloorNo = this.FloorNo.value;
-    this.property.TotalFloor = this.TotalFloor.value;
-    this.property.Address = this.Address.value;
-    this.property.Address2 = this.LandMark.value;
-    this.property.RTM = this.RTM.value;
-    this.property.AOP = this.AOP.value;
-    this.property.Gated = this.Gated.value;
-    this.property.MainEntrance = this.MainEntrance.value;
-    this.property.Possession = this.PossessionOn.value;
-    this.property.Description = this.Description.value;
-    this.property.PostedOn = new Date().toString();
+    this.property.id = this.housingServe.newPropID();
+    this.property.sellRent = +this.SellRent.value;
+    this.property.bhk = this.BHK.value;
+    this.property.propertyType = this.PType.value;
+    this.property.name = this.Name.value;
+    this.property.city = this.City.value;
+    this.property.furnishingType = this.FType.value;
+    this.property.price = this.Price.value;
+    this.property.security = this.Security.value;
+    this.property.maintenance = this.Maintenance.value;
+    this.property.builtArea = this.BuiltArea.value;
+    this.property.carpetArea = this.CarpetArea.value;
+    this.property.floorNo = this.FloorNo.value;
+    this.property.totalFloors = this.TotalFloor.value;
+    this.property.address = this.Address.value;
+    this.property.address2 = this.LandMark.value;
+    this.property.readyToMove = this.RTM.value;
+    this.property.age = this.AOP.value;
+    this.property.gated = this.Gated.value;
+    this.property.mainEntrance = this.MainEntrance.value;
+    this.property.estPossessionOn = this.PossessionOn.value;
+    this.property.description = this.Description.value;
+    //this.property.PostedOn = new Date().toString();
   }
 
   allTabsVaild(): boolean{

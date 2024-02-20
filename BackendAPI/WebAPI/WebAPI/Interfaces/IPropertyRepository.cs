@@ -1,0 +1,13 @@
+﻿using WebAPI.Models;
+
+namespace WebAPI.Interfaces
+{
+    public interface IPropertyRepository
+    {
+        Task<IEnumerable<Property>> GetPropertiesAsync(int SellRent);
+        Task<Property> GetPropertiesDetailsAsync(int id);
+
+        void AddPropertiesAsync(Property property);
+        void DeletePropertiesAsync(int id);
+    }
+}

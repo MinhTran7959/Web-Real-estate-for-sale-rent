@@ -19,8 +19,8 @@ namespace WebAPI.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Country = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    LastUpDateOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    LastUpDateBy = table.Column<int>(type: "int", nullable: false)
+                    LastUpdatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    LastUpdatedBy = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -34,8 +34,8 @@ namespace WebAPI.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    LastUpDateOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    LastUpDateBy = table.Column<int>(type: "int", nullable: false)
+                    LastUpdatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    LastUpdatedBy = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -49,8 +49,8 @@ namespace WebAPI.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    LastUpDateOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    LastUpDateBy = table.Column<int>(type: "int", nullable: false)
+                    LastUpdatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    LastUpdatedBy = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -65,7 +65,9 @@ namespace WebAPI.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Password = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
-                    PasswordKey = table.Column<byte[]>(type: "varbinary(max)", nullable: false)
+                    PasswordKey = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
+                    LastUpdatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    LastUpdatedBy = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -101,8 +103,8 @@ namespace WebAPI.Migrations
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PostedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     PostedBy = table.Column<int>(type: "int", nullable: false),
-                    LastUpDateOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    LastUpDateBy = table.Column<int>(type: "int", nullable: false)
+                    LastUpdatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    LastUpdatedBy = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -142,8 +144,8 @@ namespace WebAPI.Migrations
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsPrimary = table.Column<bool>(type: "bit", nullable: false),
                     PropertyId = table.Column<int>(type: "int", nullable: false),
-                    LastUpDateOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    LastUpDateBy = table.Column<int>(type: "int", nullable: false)
+                    LastUpdatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    LastUpdatedBy = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
