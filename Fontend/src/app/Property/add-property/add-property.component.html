@@ -96,19 +96,22 @@
                 
                   <div class="form-group col-12">
                     <label>City</label>
-                    <select  class="form-select" 
-                      #city 
-                      (change)="propertyPreview.city= city.options[city.options.selectedIndex].text"
-                   
-                    >
-                      <option  value="">--Select--</option>
-                      <option  *ngFor="let city of cityList" value="{{city.id}}"> {{city.name}}</option>
+                    <select #city
+                    (change)="propertyPreview.city=city.options[city.options.selectedIndex].text"
+                    class="form-control"
+                    formControlName="City">
+                      <option value=''>--Select City--</option>
+                      <option *ngFor="let city of cityList" value={{city.id}}>
+                        {{city.name}}
+                      </option>
                     </select>
-                     <div class="error-block"
-                      *ngIf="City.invalid && (nextClicked || City.touched)">
-                        Please select city
-                      </div>
+                    <div class="error-block"
+                    *ngIf="City.invalid && (nextClicked || City.touched)">
+                      Please select city
+                    </div>
                   </div>
+                  <!-- form values:{{addPropertyForm.value | json}}<br/>
+                  form starus: {{addPropertyForm.valid}} -->
                   <div class="form-group col-12 mt-2">
                       <button type="button"  class="btn btn-primary btn-block"
                       (click)="selectTab(1 , BasicInfo.valid)" >Next</button>
@@ -121,29 +124,30 @@
                   <div class="form-group col-12">
                     <label *ngIf="SellRent.value==1">Price (in USD)</label>
                     <label *ngIf="SellRent.value==2">Rent (in USD)</label>
-                    <input type="text" class="form-control" formControlName="Price" 
-                    #rice (keyup)="propertyPreview.price= Price.value"
+                    <input type="number" class="form-control" formControlName="Price" 
+                    #price (keyup)="propertyPreview.price= Price.value"
                     >
-                      <div class="error-block"
-                      *ngIf="Price.invalid && (nextClicked || Price.touched)"
-
-                      >
+                      <div class="error-block" *ngIf="Price.invalid && (nextClicked || Price.touched)">
                         Please select
                         <span *ngIf="SellRent.value===1;else ShowRent">price</span>
                         <ng-template #ShowRent>rent</ng-template>
                       </div>
+                      <div class="error-block" *ngIf="Price.errors?.['max']">
+                       Max 99.999.999.999.999$$$
+                       
+                      </div>
                   </div>
     
-                  <div *ngIf="SellRent.value===2">
+                  <div *ngIf="SellRent.value==2">
                     <div class="form-group col-12">
-                      <label>Security (in USD)</label>
+                      <label>Security (in USD, cost per year)</label>
                       <input type="text"
                       formControlName="Security"
                       class="form-control">
                     </div>
 
                     <div class="form-group col-12">
-                      <label>Maintenance (in USD)</label>
+                      <label>Maintenance (in USD , cost per year)</label>
                       <input type="text"
                       formControlName="Maintenance"
                       class="form-control">
@@ -231,12 +235,12 @@
                   <p>Ready to Move</p>
                   <div class="btn-group" btnRadioGroup
                   formControlName="RTM">
-                    <label class="btn btn-outline-primary mr-2" btnRadio=1 tabindex="0" role="button"
+                    <label class="btn btn-outline-primary mr-2" btnRadio=true tabindex="0" role="button"
                       name="RTM"  (click)="propertyPreview.readyToMove = true" >
                         Yes
                     </label>
                     <label class="btn btn-outline-primary"
-                      btnRadio=2  tabindex="0" role="button" name="RTM" (click)="propertyPreview.readyToMove = false">No
+                      btnRadio=false  tabindex="0" role="button" name="RTM" (click)="propertyPreview.readyToMove = false">No
                     </label>
                   </div>
                   <div class="error-block" *ngIf="RTM.invalid && nextClicked">
@@ -255,7 +259,10 @@
                    bsDatepicker 
                    [bsConfig]="{containerClass: 'theme-dark-blue', dateInputFormat: 'DD-MM-YYYY'}"
                    >
-                   
+                   <div class="error-block" *ngIf="PossessionOn.invalid
+                   && (nextClicked || PossessionOn.touched)">
+                   Please select date
+                 </div>
                 </div>
     
                 <!-- <div class="form-group col-12">
@@ -269,9 +276,9 @@
                   btnRadioGroup
                   formControlName="Gated">
                     <label class="btn btn-outline-primary mr-2"
-                    btnRadio=1 tabindex="0" role="button" name="Gated">Yes</label>
+                    btnRadio=true tabindex="0" role="button" name="Gated">Yes</label>
                     <label class="btn btn-outline-primary"
-                    btnRadio=2  tabindex="0" role="button" name="Gated">No</label>
+                    btnRadio=false  tabindex="0" role="button" name="Gated">No</label>
                   </div>
                 </div>
 
@@ -280,13 +287,13 @@
                   <div class="btn-group" btnRadioGroup
                   formControlName="MainEntrance">
                     <label class="btn btn-outline-primary mr-2"
-                    btnRadio=1 tabindex="0" role="button" name="Entrance">East</label>
+                    btnRadio=East tabindex="0" role="button" name="Entrance">East</label>
                     <label class="btn btn-outline-primary"
-                    btnRadio=2  tabindex="0" role="button" name="Entrance">West</label>
+                    btnRadio=West  tabindex="0" role="button" name="Entrance">West</label>
                     <label class="btn btn-outline-primary"
-                    btnRadio=3  tabindex="0" role="button" name="Entrance">South</label>
+                    btnRadio=South  tabindex="0" role="button" name="Entrance">South</label>
                     <label class="btn btn-outline-primary"
-                    btnRadio=4  tabindex="0" role="button" name="Entrance">North</label>
+                    btnRadio=North  tabindex="0" role="button" name="Entrance">North</label>
                   </div>
                 </div>
     
@@ -304,7 +311,7 @@
                   (click)="selectTab(4, OtherInfo.valid)">Next</button>
               </div>
               </tab>
-    
+
               <tab >
                 <ng-template tabHeading>
                   <span class="badge badge-secondary bg-info fs-5" >Photos</span>

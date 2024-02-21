@@ -13,7 +13,7 @@ export class HttperrorInterceptorService implements HttpInterceptor {
   constructor(private altertify: AltertifyService) { }
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 intercept(request: HttpRequest<any>, next: HttpHandler){
-  console.log("http requesr started")
+ // console.log("http requesr started")
     return next.handle(request)
     .pipe(
       retryWhen(error=>this.retryRequest(error,5)),
@@ -48,7 +48,12 @@ setError(error: HttpErrorResponse): string{
     if(error.error instanceof ErrorEvent){
       errorMessage= error.error.message;
     }else{
-      if(error.status!==0){
+
+      if(error.status===401){
+      const text= "Login to continue";
+        return text;
+        }
+      if(error.error.errorMessage && error.status!==0){
       errorMessage=error.error.errorMessage;
       }
     }

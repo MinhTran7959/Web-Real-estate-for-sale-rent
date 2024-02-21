@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -26,11 +27,12 @@ export class AddPropertyComponent implements OnInit {
   // will come form master
   propertyType! : IKeyValuePair[] ;
   furnishType!: IKeyValuePair[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   cityList?: any[];
 
   propertyPreview: IPropertyBase ={
     id: null,
-    name : '',
+    name: '',
     price: null,
     sellRent: null,
     propertyType: null,
@@ -40,17 +42,22 @@ export class AddPropertyComponent implements OnInit {
     builtArea: null,
     city: '',
     photos: null,
-   
+    estPossessionOn: ''
   };
-  datePipe: any;
+
 
   constructor(  private fb: FormBuilder
                ,private route: Router
                ,private housingServe: HousingService
                ,private alertify: AltertifyService
+               , private datePipe: DatePipe
               ) { }
 
   ngOnInit() {
+    if(!localStorage.getItem('userName')){
+      this.alertify.error('You must be looged in to add aproperty');
+      this.route.navigate(['/user/login'])
+    }
     this.createAddPropertyForm();
     this.housingServe.getAllCities().subscribe(data=>{
       // console.log(data);
@@ -77,7 +84,7 @@ export class AddPropertyComponent implements OnInit {
           City: [null, Validators.required]
         }),
         PriceInfo: this.fb.group({
-          Price: [null, Validators.required],
+          Price: [null, [Validators.max(999999999999999), Validators.required]],
           BuiltArea: [null, Validators.required],
           CarpetArea: [null],
           Security: [null],
@@ -93,7 +100,7 @@ export class AddPropertyComponent implements OnInit {
 
       OtherInfo: this.fb.group({
         RTM: [null, Validators.required],
-        PossessionOn: [null],
+        PossessionOn: [null, Validators.required],
         AOP: [null],
         Gated: [null],
         MainEntrance: [null],
@@ -218,16 +225,21 @@ export class AddPropertyComponent implements OnInit {
     this.nextClicked=true;
     if(this.allTabsVaild()){
       this.mapProperty();
-      this.housingServe.addProperty(this.property)
-      this.alertify.success('Congrats, your property listed successfully on our website');
-      console.log(this.addPropertyForm);
+      this.housingServe.addProperty(this.property).subscribe(
+        ()=>{
+          this.alertify.success('Congrats, your property listed successfully on our website');
+          console.log(this.addPropertyForm);
+    
+            if(this.SellRent.value==='2'){
+                this.route.navigate(['/rent-property'])
+            }
+            else{
+              this.route.navigate(['/'])
+            }
+        }
+      
+      );
 
-        if(this.SellRent.value==='2'){
-            this.route.navigate(['/rent-property'])
-        }
-        else{
-          this.route.navigate(['/'])
-        }
     }
     else{
       this.alertify.error('Pls!! review the form provide all vaild entries');
@@ -235,13 +247,13 @@ export class AddPropertyComponent implements OnInit {
   }
 
   mapProperty(): void{
-    this.property.id = this.housingServe.newPropID();
+    //this.property.id = this.housingServe.newPropID();
     this.property.sellRent = +this.SellRent.value;
     this.property.bhk = this.BHK.value;
-    this.property.propertyType = this.PType.value;
+    this.property.propertyTypeId = this.PType.value;
     this.property.name = this.Name.value;
-    this.property.city = this.City.value;
-    this.property.furnishingType = this.FType.value;
+    this.property.CityId = this.City.value;
+    this.property.furnishingTypeId = this.FType.value;
     this.property.price = this.Price.value;
     this.property.security = this.Security.value;
     this.property.maintenance = this.Maintenance.value;
@@ -255,8 +267,10 @@ export class AddPropertyComponent implements OnInit {
     this.property.age = this.AOP.value;
     this.property.gated = this.Gated.value;
     this.property.mainEntrance = this.MainEntrance.value;
-    this.property.estPossessionOn = this.PossessionOn.value;
-    this.property.description = this.Description.value;
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    this.property.estPossessionOn = this.datePipe.transform(this.PossessionOn.value,'MM-dd-YYYY')!;
+
+    this.property.description =this.Description.value;
     //this.property.PostedOn = new Date().toString();
   }
 

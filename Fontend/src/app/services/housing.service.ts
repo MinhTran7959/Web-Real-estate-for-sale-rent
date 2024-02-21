@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Property } from '../model/property';
 import { environment } from '../../environments/environment';
@@ -36,26 +36,28 @@ import { IKeyValuePair } from '../model/IKeyValuePair';
 
     }
     addProperty(property: Property) {
-      let newProp = [property];
-      const storedProp = localStorage.getItem('newProp');
-      if (storedProp !== null) {
-          newProp = [property, ...JSON.parse(storedProp)];
-      }
-      localStorage.setItem('newProp', JSON.stringify(newProp));
-    }
 
-    newPropID() {
-      let pid: number;
-      const storedPid = localStorage.getItem('PID');
-      if (storedPid !== null) {
-        pid = +storedPid + 1;
-        localStorage.setItem('PID', String(pid));
-      } else {
-        pid = 101;
-        localStorage.setItem('PID', '101');
-      }
-      return pid;
+      const httpOptions={
+        headers: new HttpHeaders({
+          Authorization: 'Bearer '+ localStorage.getItem("token")
+        })
+      };
+      return this.http.post<Property[]>(this.baseUrl+"Property/Add ", property, httpOptions);
     }
+   
+    
+    // newPropID() {
+    //   let pid: number;
+    //   const storedPid = localStorage.getItem('PID');
+    //   if (storedPid !== null) {
+    //     pid = +storedPid + 1;
+    //     localStorage.setItem('PID', String(pid));
+    //   } else {
+    //     pid = 101;
+    //     localStorage.setItem('PID', '101');
+    //   }
+    //   return pid;
+    // }
 
     getPropertyAge(dateofestablishment: Date | string | undefined): string {
       if (!dateofestablishment) {

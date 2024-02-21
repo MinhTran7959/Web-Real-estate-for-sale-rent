@@ -9,6 +9,9 @@ namespace WebAPI.Helpers
         public AutoMapperProfiles()
         {
             CreateMap<City, CityDTO>().ReverseMap();
+            CreateMap<PropertyType, KeyValuePairDTO>().ReverseMap();
+            CreateMap<FurnishingType, KeyValuePairDTO>().ReverseMap();
+            CreateMap<Property, PropertyDTO>().ReverseMap();
             CreateMap<Property, PropertyListDTO>()
                 .ForMember(x=>x.City,opt=> opt.MapFrom(src=>src.City.Name))
                 .ForMember(x => x.Country, opt => opt.MapFrom(src => src.City.Country))
@@ -22,8 +25,7 @@ namespace WebAPI.Helpers
                .ForMember(x => x.FurnishingType, opt => opt.MapFrom(src => src.FurnishingType.Name))
                .ReverseMap();
 
-            CreateMap<PropertyType, KeyValuePairDTO>().ReverseMap();
-            CreateMap<FurnishingType, KeyValuePairDTO>().ReverseMap();
+
 
         }
     }

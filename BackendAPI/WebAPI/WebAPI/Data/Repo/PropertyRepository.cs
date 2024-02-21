@@ -14,9 +14,10 @@ namespace WebAPI.Data.Repo
             this.context = context;
         }
 
-        public void AddPropertiesAsync(Property property)
+        public async Task<Property> AddPropertiesAsync(Property property)
         {
-            throw new NotImplementedException();
+           await context.properties.AddAsync(property);
+            return property;
         }
 
         public void DeletePropertiesAsync(int id)

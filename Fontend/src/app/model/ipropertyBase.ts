@@ -10,5 +10,5 @@ export interface IPropertyBase {
     city: string| null;
     readyToMove?: boolean| null;
     photos?: string| null;
-    estPossessionOn?: Date| null;
+    estPossessionOn: string;
 }

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebAPI.DTOs;
 using WebAPI.Interfaces;
+using WebAPI.Models;
 
 namespace WebAPI.Controllers
 {
@@ -36,6 +37,21 @@ namespace WebAPI.Controllers
             var property = await uow.PropertyRepository.GetPropertiesDetailsAsync(id);
             var propertyDTO = mapper.Map<PropertyDetailsDTO>(property);
             return Ok(propertyDTO);
+        }     
+        
+        [HttpPost("Add")]
+        [Authorize]
+        public async Task<IActionResult> AddProperty(PropertyDTO propertyDTO)
+        {
+         var property = mapper.Map<Property>(propertyDTO);
+            var userId= GetUserId();
+            property.PostedBy = userId;
+            property.LastUpdatedBy = userId;
+            await uow.PropertyRepository.AddPropertiesAsync(property);
+            await uow.SaveAsync();
+            return StatusCode(201);
+
+
         }
     }
 }
