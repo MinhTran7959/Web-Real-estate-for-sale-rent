@@ -41,7 +41,7 @@ export class AddPropertyComponent implements OnInit {
     readyToMove: null,
     builtArea: null,
     city: '',
-    photos: null,
+    photo: null,
     estPossessionOn: ''
   };
 

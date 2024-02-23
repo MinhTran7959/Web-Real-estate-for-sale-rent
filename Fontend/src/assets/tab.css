@@ -3,7 +3,7 @@
     padding: 10px;
     border-radius: 4px;
     min-height: 600px;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
   }
   
   .nav-tabs > li.open, .member-tabset > .nav-tabs > li:hover {
@@ -12,8 +12,8 @@
   
   .member-tabset > .nav-tabs > li.open > a, .member-tabset > .nav-tabs > li:hover > a {
     border: 0;
-    background: none !important;
-    color: #333333;
+    background: #5169d4;
+    color: #ffffff;
   }
   
   .member-tabset > .nav-tabs > li.open > a > i, .member-tabset > .nav-tabs > li:hover > a > i {
@@ -31,7 +31,8 @@
   
   .member-tabset > .nav-tabs > li.active > a {
     border: 0 !important;
-    color: #333333;
+    color: #5169d4;
+    font-weight: 900;
   }
   
   .member-tabset > .nav-tabs > li.active > a > i {
@@ -45,3 +46,8 @@
     border-top: 1px solid #eee;
     padding: 15px 0;
   }
+  .navCustom >.nav{
+    border: solid 4px #5169d4;
+    
+  }
+ 

@@ -11,6 +11,7 @@ using WebAPI.Extensions;
 using WebAPI.Helpers;
 using WebAPI.Interfaces;
 using WebAPI.Middlewares;
+using WebAPI.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,7 +23,7 @@ builder.Services.AddControllers().AddNewtonsoftJson();
 builder.Services.AddCors();
 builder.Services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-
+builder.Services.AddScoped<IPhotoService, PhotoService>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

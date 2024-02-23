@@ -1,3 +1,4 @@
+import { photos } from "./Photo";
 import { IPropertyBase } from "./ipropertyBase";
 
 export class Property implements IPropertyBase {
@@ -25,8 +26,7 @@ export class Property implements IPropertyBase {
   gated?: boolean;
   maintenance?: number;
   estPossessionOn!: string;
-  photos?: string;
+  photo?: string;
   description?: string;
-
- // photos?: Photo[];
+  photos?: photos[];
 }

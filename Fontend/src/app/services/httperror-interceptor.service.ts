@@ -43,21 +43,16 @@ retryRequest(error: Observable<HttpErrorResponse>, retryCount: number): Observab
   );
 }
 
-setError(error: HttpErrorResponse): string{
-    let errorMessage ="Unknow error occured";
-    if(error.error instanceof ErrorEvent){
-      errorMessage= error.error.message;
-    }else{
-
-      if(error.status===401){
-      const text= "Login to continue";
-        return text;
-        }
-      if(error.error.errorMessage && error.status!==0){
-      errorMessage=error.error.errorMessage;
+setError(error: HttpErrorResponse): string {
+  if (error.error instanceof ErrorEvent) {
+      return error.error.message;
+  } else {
+      if (error.status === 401) {
+          return "Login to continue";
       }
-    }
-    return errorMessage;
-}
 
+      const errorMessage = error.error?.errorMessage || error.error || "Unknown error occurred";
+      return error.status !== 0 ? errorMessage : "Network error occurred";
+  }
+}
 }

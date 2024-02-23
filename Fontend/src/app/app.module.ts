@@ -26,6 +26,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { SortPipe } from './pipes/sort.pipe';
 import { HttperrorInterceptorService } from './services/httperror-interceptor.service';
 import { DatePipe } from '@angular/common';
+import { PhotoEditorComponent } from './Property/photo-editor/photo-editor.component';
 
 
 
@@ -53,7 +54,8 @@ const appRoutes: Routes=[
     UserLoginComponent,
     UserRegisterComponent,
     FilterPipe,
-    SortPipe
+    SortPipe,
+    PhotoEditorComponent
    ],
   imports: [
     BrowserModule,

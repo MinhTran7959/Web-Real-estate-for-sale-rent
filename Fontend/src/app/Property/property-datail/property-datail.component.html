@@ -2,10 +2,11 @@
   <div class="col-sm-4 p-0">
     <div class="card ">
         <div class="card-img-wrapper">
-          <img *ngIf="property.photos" class="card-img-top" src="assets/Images/{{property.photos}}.png">
-          <img *ngIf="!property.photos" class="card-img-top" src="assets/Images/house_default.png">
+          <img *ngIf="getPrimaryPhotoUrl()" class="card-img-top" [src]="getPrimaryPhotoUrl()">
+          <img *ngIf="!getPrimaryPhotoUrl()" class="card-img-top" src="assets/Images/house_default.png">
+
         </div>
-        <div class="card-body">
+        <div class="card-body" >
           <h1 class="card-title">{{property.name}}</h1>
           <div>
               <strong>{{property.bhk}} BHK {{property.propertyType}} : ${{property.price}}</strong>
@@ -46,8 +47,8 @@
      
   </div>
   <div class="col-sm-8 p-0">
-    <div class="tab-panel">
-      <tabset class="member-tabset">
+    <div class="tab-panel" >
+      <tabset class="member-tabset navCustom">
         <tab heading="Overview">
           <h1>Overview</h1>
           <div class="row">
@@ -108,24 +109,26 @@
           <div class="col-sm-12">
             <h1>Address</h1>
             <div class="heading">
-                <strong>{{property.address}}</strong><br/>
-                <strong>{{property.address2}}</strong><br/>
-                <strong>{{property.city}}</strong>
+                <strong>address: {{property.address}}</strong><br/>
+                <strong>Address2: {{property.address2}}</strong><br/>
+                <strong>City: {{property.city}}</strong>
             </div>
         </div>
 
         </tab>
         <tab heading="Photos">
-          <h1>Photos</h1>
-          <carousel [isAnimated]="true" >
-            <slide>
-              <img  src="assets/Images/{{property.photos}}.png" alt="first slide" style="display: block; height: 500px; width: 100%;">
-            </slide>
-            <slide>
-              <img  src="assets/Images/{{property.photos}}.png" alt="first slide" style="display: block; height: 500px; width: 100%;">
-            </slide>
-          </carousel>
+        
+        <carousel [isAnimated]="true">
+          <slide *ngFor="let photos of property.photos">
+            <img src="{{photos.imageUrl}}" alt="slide image" style="display: block; border: solid 2px #6ab4ff;">
+          </slide>
+        </carousel>
         </tab>
+
+        <tab heading="Upload/Edit Photos">
+          <app-photo-editor [property]="property"></app-photo-editor>
+        </tab>
+
         <tab heading="Contact">
           <h1>Contact Detail</h1>
           This should be restricted area and only registered user should be able to see seller contact details

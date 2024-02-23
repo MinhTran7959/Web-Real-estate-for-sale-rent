@@ -44,21 +44,6 @@ import { IKeyValuePair } from '../model/IKeyValuePair';
       };
       return this.http.post<Property[]>(this.baseUrl+"Property/Add ", property, httpOptions);
     }
-   
-    
-    // newPropID() {
-    //   let pid: number;
-    //   const storedPid = localStorage.getItem('PID');
-    //   if (storedPid !== null) {
-    //     pid = +storedPid + 1;
-    //     localStorage.setItem('PID', String(pid));
-    //   } else {
-    //     pid = 101;
-    //     localStorage.setItem('PID', '101');
-    //   }
-    //   return pid;
-    // }
-
     getPropertyAge(dateofestablishment: Date | string | undefined): string {
       if (!dateofestablishment) {
         return 'Date not provided';
@@ -89,5 +74,21 @@ import { IKeyValuePair } from '../model/IKeyValuePair';
       return age.toString();
     }
     
+    setPrimaryPhoto(propertyId: number , propertyPhotoId : string){
+      const httpOptions={
+        headers: new HttpHeaders({
+          Authorization: 'Bearer '+ localStorage.getItem("token")
+        })
+      };
+      return this.http.post(this.baseUrl+"Property/set-primary-photo/"+ propertyId+"/"+ propertyPhotoId, {},httpOptions )
+    }
+
+    deletePhoto(propertyId: number , propertyPhotoId : string){
+      const httpOptions={
+        headers: new HttpHeaders({
+          Authorization: 'Bearer '+ localStorage.getItem("token")
+        })
+      };
+      return this.http.delete(this.baseUrl+"Property/delete-photo/"+ propertyId+"/"+ propertyPhotoId, httpOptions )
+    }
   }
-// lệnh tạo: (1)cd src/app/services  (2)ng g service housing ; 

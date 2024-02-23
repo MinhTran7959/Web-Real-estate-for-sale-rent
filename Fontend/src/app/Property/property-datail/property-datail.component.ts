@@ -9,8 +9,9 @@ import { HousingService } from 'src/app/services/housing.service';
   styleUrls: ['./property-datail.component.css']
 })
 export class PropertyDatailComponent implements OnInit {
-[x: string]: any;
+
 public propertyId!: number;
+public photoList: any[] = [];
   property= new Property();
   constructor( private route :ActivatedRoute 
               ,private router : Router
@@ -22,6 +23,7 @@ public propertyId!: number;
     this.route.data.subscribe(
       (data) => {
         this.property = data['prp'];
+       //console.log(this.property.photos);
     });
     this.property.age = this.HousingService.getPropertyAge(this.property.estPossessionOn);
   
@@ -30,5 +32,28 @@ public propertyId!: number;
     this.propertyId +=1;
     this.router.navigate(['property-detail', this.propertyId]);
   }
+
+  getPropertyPhotos() {
+    if (this.property.photos ) {
+      // Nếu property.photos tồn tại và không phải là undefined, thực hiện map và gán giá trị
+      this.photoList = this.property.photos.map(photos => ({
+        src: photos.imageUrl
+      }));
+    } else {
+      // Nếu property.photos là undefined, gán photoList với một giá trị mặc định
+      this.photoList = [{
+        src: 'assets/Images/default.png' // Đường dẫn tới ảnh mặc định
+      }];
+    }
+  
+  }
+  getPrimaryPhotoUrl(): string | undefined {
+    if (this.property.photos) {
+      const primaryPhoto = this.property.photos.find(photo => photo.isPrimary === true);
+      return primaryPhoto ? primaryPhoto.imageUrl : undefined;
+    }
+    return undefined;
+  }
+  
 }
 
