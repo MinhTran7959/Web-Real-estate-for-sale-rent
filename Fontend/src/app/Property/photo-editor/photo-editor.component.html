@@ -1,15 +1,26 @@
 <div class="row">
-  <div class="col-2 mb-3" *ngFor="let photo of property.photos">
-
-      <img src="{{photo.imageUrl}}" alt="{{photo.imageUrl}}" class="img-thumbnail p-1" style="border: solid 2px #6ab4ff;">
+    <div class="col-2 mb-3" *ngFor="let photo of property.photos">
+      <img src="{{ photo.imageUrl }}" alt="{{ photo.imageUrl }}" class="img-thumbnail p-1" style="border: solid 2px #6ab4ff;">
       <div class="text-center mt-sm-1">
-          <button class="btn btn-sm" [disabled]="photo.isPrimary"
-              [ngClass]='photo.isPrimary ? "btn-success active" : "btn-outline-success"'
-             ><i class="fa-solid fa-house-circle-check" style="color: #63E6BE;" (click)="setPrimaryPhoto(property.id, photo)"></i></button>
-
-          <button class="btn btn-sm  btn-danger" [disabled]="photo.isPrimary"  (click)="deletePhoto(property.id, photo)"><i class="fa fa-trash"></i></button>
+        <button class="btn btn-sm" [disabled]="photo.isPrimary" [ngClass]='photo.isPrimary ? "btn-success active" : "btn-outline-success"' (click)="setPrimaryPhoto(property.id, photo)">
+          <i class="fa-solid fa-house-circle-check" style="color: #63E6BE;"></i>
+        </button>
+        <button class="btn btn-sm btn-danger" [disabled]="photo.isPrimary" (click)="openModal(template, photo)">
+          <i class="fa fa-trash"></i>
+        </button>
       </div>
+    </div>
   </div>
+  
+  <ng-template #template>
+    <div class="modal-body text-center">
+      <p>Do you want to delete?</p>
+      <button type="button" class="btn btn-danger me-2" (click)="confirm()">Yes</button>
+      <button type="button" class="btn btn-warning " (click)="decline()">No</button>
+    </div>
+  </ng-template>
+  
+
 <!-- 
   <div ng2FileDrop [ngClass]="{'nv-file-over': hasBaseDropZoneOver}" (fileOver)="fileOverBase($event)"
       [uploader]="uploader" class="card bg-faded p-3 text-center mb-3 drop-zone">

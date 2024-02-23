@@ -26,7 +26,7 @@ public photoList: any[] = [];
        //console.log(this.property.photos);
     });
     this.property.age = this.HousingService.getPropertyAge(this.property.estPossessionOn);
-  
+ 
   }
   onSelectNext(){
     this.propertyId +=1;

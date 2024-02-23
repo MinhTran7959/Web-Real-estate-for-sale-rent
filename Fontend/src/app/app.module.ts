@@ -8,7 +8,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
-
+import { ModalModule } from 'ngx-bootstrap/modal';
 import { AppComponent } from './app.component';
 import { PropertyCardComponent } from './Property/property-card/property-card.component';
 import { PropertyListComponent } from './Property/property-list/property-list.component';
@@ -68,6 +68,7 @@ const appRoutes: Routes=[
     TabsModule.forRoot(),
     ButtonsModule.forRoot(),
     BsDatepickerModule.forRoot(),
+    ModalModule.forRoot(),
     CarouselModule.forRoot()
   ],
   providers: [
