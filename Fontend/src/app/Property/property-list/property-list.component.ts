@@ -16,9 +16,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 export class PropertyListComponent implements OnInit {
     SellRent=1;
-      properties?: IPropertyBase[];
+    properties?: IPropertyBase[];
     Today = new Date();
-    City = '';
+    city = '';
     SearchCity = '';
     SortbyParam = '';
     SortDirection = 'asc';
@@ -41,12 +41,12 @@ export class PropertyListComponent implements OnInit {
     }
     
   onCityFilter() {
-    this.SearchCity = this.City;
+    this.SearchCity = this.city;
   }
 
   onCityFilterClear() {
     this.SearchCity = '';
-    this.City = '';
+    this.city = '';
   }
 
   onSortDirection() {

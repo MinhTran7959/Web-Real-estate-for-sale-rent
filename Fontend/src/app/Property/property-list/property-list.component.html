@@ -1,7 +1,7 @@
 <div class="row mb-2">
   <div class="col-6" style="display: contents;"> 
   <div class="col-3">
-    <input [(ngModel)]="City" class="form-control" placeholder="Search City...">
+    <input [(ngModel)]="city" class="form-control" placeholder="Search City...">
   </div>
   <div class="col-3">
     <button type="button" (click)="onCityFilter()" class="btn btn-primary me-2">
@@ -18,8 +18,8 @@
       <div class="col-3">
         <select [(ngModel)]="SortbyParam" class="form-select" > 
           <option  value="">--Select--</option>
-          <option  value="City">City</option>
-          <option value="Price">Price</option>
+          <option  value="city">City</option>
+          <option value="price">Price</option>
         </select>
       </div>
       <div class="col-3">
@@ -35,7 +35,7 @@
 
 
 <div class="row" *ngIf="properties">
-    <div *ngFor="let property2 of properties | filter:SearchCity:'City' | sort:[SortbyParam,SortDirection]" class="col-sm-4">
+    <div *ngFor="let property2 of properties | filter:SearchCity:'city' | sort:[SortbyParam,SortDirection]" class="col-sm-4">
       <div class="shadow-lg p-3 mb-4">
         <app-property-card [property2]="property2"></app-property-card>
       </div>
