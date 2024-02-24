@@ -11,6 +11,7 @@ import { HousingService } from 'src/app/services/housing.service';
 export class PropertyDatailComponent implements OnInit {
 
 public propertyId!: number;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 public photoList: any[] = [];
   property= new Property();
   constructor( private route :ActivatedRoute 

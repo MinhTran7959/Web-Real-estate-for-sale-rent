@@ -1,16 +1,24 @@
+<!-- eslint-disable @angular-eslint/template/eqeqeq -->
 <div class="row mb-2">
   <div class="col-6" style="display: contents;"> 
   <div class="col-3">
-    <input [(ngModel)]="city" class="form-control" placeholder="Search City...">
+    <input [(ngModel)]="city" class="form-control" (input)="onInputChange()"placeholder="Search City...">
+    
   </div>
-  <div class="col-3">
-    <button type="button" (click)="onCityFilter()" class="btn btn-primary me-2">
+  <div class="col-3 ps-1">
+
+    <button *ngIf="searching" class="btn btn-light" type="button" disabled>
+      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>    
+    </button>
+
+    <button type="button" (click)="onCityFilter()" class="btn btn-primary ms-2 me-2">
       <i class="fas fa-search"></i>
     </button>
     <button type="button" (click)="onCityFilterClear()" class="btn btn-primary">
       <i class="fas fa-undo"></i>
     </button>
   </div>
+
 </div>
   <div class="col-6">
     <div class="row">
@@ -33,12 +41,13 @@
 
 
 
-
-<div class="row" *ngIf="properties">
-    <div *ngFor="let property2 of properties | filter:SearchCity:'city' | sort:[SortbyParam,SortDirection]" class="col-sm-4">
-      <div class="shadow-lg p-3 mb-4">
-        <app-property-card [property2]="property2"></app-property-card>
-      </div>
+<div class="row" *ngIf="properties ">
+  <div *ngFor="let property2 of properties | filter:SearchCity:'city' | sort:[SortbyParam,SortDirection]" class="col-sm-4">
+    <div class="shadow-lg p-3 mb-4">
+      <app-property-card [property2]="property2"></app-property-card>
     </div>
   </div>
-  
+</div>
+<div class="row" *ngIf="!searching">
+<h1>Not found</h1>
+</div>

@@ -22,6 +22,9 @@ export class PropertyListComponent implements OnInit {
     SearchCity = '';
     SortbyParam = '';
     SortDirection = 'asc';
+    timeout: any;
+    // eslint-disable-next-line @typescript-eslint/no-inferrable-types
+    searching: boolean = false;
     constructor( private route:ActivatedRoute, private housingService: HousingService){
 
     }
@@ -31,18 +34,34 @@ export class PropertyListComponent implements OnInit {
       }
       this.housingService.getAllproperties(this.SellRent).subscribe(
           data => {
-          this.properties = data;
-          // console.log(data);
+            if(data && data.length>0){
+              this.properties = data;
+              // console.log(data);
+            }
+         else{
+          this.properties= [];
+         }
         }, error => {
           console.log('httperror:');
           console.log(error);
         }
       );
     }
-    
-  onCityFilter() {
-    this.SearchCity = this.city;
-  }
+    onInputChange() {
+      this.searching = true; // Bắt đầu tìm kiếm, hiển thị thanh tải
+      if (this.timeout) {
+        clearTimeout(this.timeout);
+      }
+      this.timeout = setTimeout(() => {
+        this.onCityFilter();
+      }, 500);
+    }
+  
+    onCityFilter() {
+      // Thực hiện tìm kiếm ở đây
+      this.SearchCity = this.city;
+      this.searching = false; // Kết thúc tìm kiếm, ẩn thanh tải
+    }
 
   onCityFilterClear() {
     this.SearchCity = '';

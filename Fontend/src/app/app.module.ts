@@ -69,7 +69,8 @@ const appRoutes: Routes=[
     ButtonsModule.forRoot(),
     BsDatepickerModule.forRoot(),
     ModalModule.forRoot(),
-    CarouselModule.forRoot()
+    CarouselModule.forRoot(),
+   
   ],
   providers: [
     {

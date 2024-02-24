@@ -44,7 +44,7 @@ export class PhotoEditorComponent implements OnInit {
     this.housingService.deletePhoto(propertyId, photo.publicId).subscribe(() => {
       this.property.photos = this.property.photos?.filter(p => p.publicId !== photo.publicId);
     });
-    this.alertify.success('Change success');
+    //this.alertify.success('Change success');
   }
 
   openModal(template: TemplateRef<void>, photo: photos) {
