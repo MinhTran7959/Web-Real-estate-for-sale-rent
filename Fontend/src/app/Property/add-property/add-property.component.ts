@@ -42,7 +42,8 @@ export class AddPropertyComponent implements OnInit {
     builtArea: null,
     city: '',
     photo: null,
-    estPossessionOn: ''
+    estPossessionOn: '',
+    postByName:''
   };
 
 

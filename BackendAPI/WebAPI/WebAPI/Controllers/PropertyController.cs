@@ -41,6 +41,14 @@ namespace WebAPI.Controllers
             return Ok(propertyDTO);
         }
 
+        [HttpGet("MyProperty/{UserName}")]
+        [Authorize]
+        public async Task<IActionResult> GetMyPropertiesAsync(string UserName)
+        {
+            var property = await uow.PropertyRepository.GetMyListPropertiesAsync(UserName);
+            var propertyDTO = mapper.Map<IEnumerable<PropertyListDTO>>(property);
+            return Ok(propertyDTO);
+        }
         [HttpPost("Add")]
         [Authorize]
         public async Task<IActionResult> AddProperty(PropertyDTO propertyDTO)
@@ -57,7 +65,7 @@ namespace WebAPI.Controllers
         }
         [HttpPost("Add/photo/{propid}")]
         [Authorize]
-        public async Task<IActionResult> AddPropertyPhoto(IFormFile file, int propid)
+        public async Task<ActionResult<PhotoDTO>> AddPropertyPhoto(IFormFile file, int propid)
         {
             var result = await photoService.UploadPhotoAsync(file);
             if (result.Error != null)
@@ -80,11 +88,15 @@ namespace WebAPI.Controllers
             }
 
             property.Photos.Add(photo);
-            await uow.SaveAsync();
-            //if (await uow.SaveAsync()) return mapper.Map<PhotoDto>(photo);
-
-            //return BadRequest("Some problem occured in uploading photo..");
-            return Ok(201);
+            //await uow.SaveAsync();
+            if (await uow.SaveAsync())
+            { return mapper.Map<PhotoDTO>(photo); }
+            else
+            {
+                return BadRequest("Some problem occured in uploading photo..");
+            }
+          
+            //return Ok(201);
         }
 
 
@@ -96,13 +108,13 @@ namespace WebAPI.Controllers
 
             var property = await uow.PropertyRepository.GetPropertyByIdAsync(propId);
 
-            if (property == null || property.PostedBy != userId)
-                return BadRequest("No such property or photo exists");
+          
 
             if (property.PostedBy != userId)
                 return BadRequest("You are not authorised to change the photo");
+            if (property == null || property.PostedBy != userId)
+                return BadRequest("No such property or photo exists");
 
-            
 
             var photo = property.Photos.FirstOrDefault(p => p.PublicId == photoPublicId);
 

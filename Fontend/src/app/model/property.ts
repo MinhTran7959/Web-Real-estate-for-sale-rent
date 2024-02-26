@@ -29,4 +29,5 @@ export class Property implements IPropertyBase {
   photo?: string;
   description?: string;
   photos?: photos[];
+  postByName!: string;
 }

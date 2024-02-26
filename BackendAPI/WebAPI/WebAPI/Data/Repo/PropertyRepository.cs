@@ -30,9 +30,22 @@ namespace WebAPI.Data.Repo
             var properties= await context.properties
                 .Include(x=>x.PropertyType)
                 .Include(x=>x.City)
+                .Include(x => x.User)
                 .Include(x=>x.FurnishingType)
                  .Include(x => x.Photos)
                 .Where(x=>x.SellRent == SellRent).ToListAsync();
+            return properties;
+        }
+         public async Task<IEnumerable<Property>> GetMyListPropertiesAsync( string UserName)
+        {
+            var properties= await context.properties
+                .Include(x=>x.PropertyType)
+                .Include(x=>x.User)
+                .Include(x=>x.City)
+                .Include(x=>x.FurnishingType)
+                 .Include(x => x.Photos)
+                .Where(x=> x.User.Name == UserName)
+                .ToListAsync();
             return properties;
         }
 
@@ -56,5 +69,7 @@ namespace WebAPI.Data.Repo
 
             return properties;
         }
+
+      
     }
 }

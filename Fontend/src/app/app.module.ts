@@ -27,7 +27,8 @@ import { SortPipe } from './pipes/sort.pipe';
 import { HttperrorInterceptorService } from './services/httperror-interceptor.service';
 import { DatePipe } from '@angular/common';
 import { PhotoEditorComponent } from './Property/photo-editor/photo-editor.component';
-
+import { FileUploadModule } from 'ng2-file-upload';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 
 const appRoutes: Routes=[
@@ -70,7 +71,8 @@ const appRoutes: Routes=[
     BsDatepickerModule.forRoot(),
     ModalModule.forRoot(),
     CarouselModule.forRoot(),
-   
+    FileUploadModule,
+    PaginationModule.forRoot()
   ],
   providers: [
     {

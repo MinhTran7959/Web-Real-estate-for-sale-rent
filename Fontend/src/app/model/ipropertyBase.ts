@@ -11,4 +11,5 @@ export interface IPropertyBase {
     readyToMove?: boolean| null;
     photo?: string| null;
     estPossessionOn: string;
+    postByName: string;
 }
