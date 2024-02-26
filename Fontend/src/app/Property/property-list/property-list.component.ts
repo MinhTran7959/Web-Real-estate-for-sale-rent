@@ -1,11 +1,9 @@
 // import { HttpClient} from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { HousingService } from '../../services/housing.service';
-
 import { ActivatedRoute } from '@angular/router';
-import { IProperty } from 'src/app/model/iproperty';
 import { IPropertyBase } from 'src/app/model/ipropertyBase';
-import { Pipe, PipeTransform } from '@angular/core';
+import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 
 
 @Component({
@@ -25,6 +23,11 @@ export class PropertyListComponent implements OnInit {
     timeout: any;
     // eslint-disable-next-line @typescript-eslint/no-inferrable-types
     searching: boolean = false;
+    //
+    contentArray = new Array(90).fill('');
+    returnedArray?: string[];
+    total!: number;
+    pageNumber=6;
     constructor( private route:ActivatedRoute, private housingService: HousingService){
 
     }
@@ -35,8 +38,11 @@ export class PropertyListComponent implements OnInit {
       this.housingService.getAllproperties(this.SellRent).subscribe(
           data => {
             if(data && data.length>0){
-              this.properties = data;
-              // console.log(data);
+             this.properties = data;
+
+             this.contentArray = this.properties;
+             this.total=  this.contentArray.length;
+             this.returnedArray = this.contentArray.slice(0, this.pageNumber);            
             }
          else{
           this.properties= [];
@@ -46,7 +52,14 @@ export class PropertyListComponent implements OnInit {
           console.log(error);
         }
       );
+
     }
+    pageChanged(event: PageChangedEvent): void {
+      const startItem = (event.page - 1) * event.itemsPerPage;
+      const endItem = event.page * event.itemsPerPage;
+      this.returnedArray = this.contentArray.slice(startItem, endItem);
+    }
+
     onInputChange() {
       this.searching = true; // Bắt đầu tìm kiếm, hiển thị thanh tải
       if (this.timeout) {

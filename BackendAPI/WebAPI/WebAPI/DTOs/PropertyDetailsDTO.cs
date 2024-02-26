@@ -13,6 +13,7 @@
         public int Maintenance { get; set; }
         public int Age { get; set; }
         public string Description { get; set; }
+        public string PostByName { get; set; }
         public ICollection<PhotoDTO> Photos { get; set; }
     }
 }

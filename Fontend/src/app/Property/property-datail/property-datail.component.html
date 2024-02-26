@@ -29,10 +29,9 @@
           </div>
           <div>
             <strong>Available for: </strong>
-           <span *ngIf="property.sellRent ===1">Purchase</span>
-           <span *ngIf="property.sellRent ===2">Rent</span>
-
-        </div>
+              <span *ngIf="property.sellRent ===1">Purchase</span>
+              <span *ngIf="property.sellRent ===2">Rent</span>
+          </div>
 
 
         </div>
@@ -125,7 +124,7 @@
         </carousel>
         </tab>
 
-        <tab heading="Upload/Edit Photos">
+        <tab *ngIf="loggedInUserMatchesPostByName" heading="Upload/Edit Photos">
           <app-photo-editor [property]="property"></app-photo-editor>
         </tab>
 

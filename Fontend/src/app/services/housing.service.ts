@@ -35,6 +35,19 @@ import { IKeyValuePair } from '../model/IKeyValuePair';
       return this.http.get<Property[]>(this.baseUrl+"Property/list/"+ SellRent?.toString());
 
     }
+
+
+    getMyproperties(UserName?:string): Observable<Property[]> {
+      const httpOptions={
+        headers: new HttpHeaders({
+          Authorization: 'Bearer '+ localStorage.getItem("token")
+        })
+      };
+      return this.http.get<Property[]>(this.baseUrl+"Property/MyProperty/"+ UserName?.toString(),httpOptions);
+     
+    }
+
+   
     addProperty(property: Property) {
 
       const httpOptions={

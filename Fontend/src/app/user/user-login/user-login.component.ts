@@ -29,6 +29,9 @@ export class UserLoginComponent implements OnInit {
         //console.log(user);
       this.alertify.success('Login successful');
       this.router.navigate(['/']);
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
    });
 
 

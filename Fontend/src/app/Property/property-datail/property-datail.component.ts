@@ -13,6 +13,9 @@ export class PropertyDatailComponent implements OnInit {
 public propertyId!: number;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 public photoList: any[] = [];
+loggedInUserMatchesPostByName !: boolean ;
+
+
   property= new Property();
   constructor( private route :ActivatedRoute 
               ,private router : Router
@@ -20,6 +23,7 @@ public photoList: any[] = [];
                ) { }
 
   ngOnInit() {
+    this.loggedInUserMatchesPostByName= false;
     this.propertyId= +this.route.snapshot.params['id'];
     this.route.data.subscribe(
       (data) => {
@@ -27,7 +31,11 @@ public photoList: any[] = [];
        //console.log(this.property.photos);
     });
     this.property.age = this.HousingService.getPropertyAge(this.property.estPossessionOn);
- 
+    const nameUserLogged = localStorage.getItem('userName');
+    if(this.property.postByName === nameUserLogged){
+      this.loggedInUserMatchesPostByName= true;
+    }
+   
   }
   onSelectNext(){
     this.propertyId +=1;

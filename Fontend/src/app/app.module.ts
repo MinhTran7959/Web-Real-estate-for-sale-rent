@@ -29,6 +29,7 @@ import { DatePipe } from '@angular/common';
 import { PhotoEditorComponent } from './Property/photo-editor/photo-editor.component';
 import { FileUploadModule } from 'ng2-file-upload';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { MyPropertyComponent } from './Property/my-property/my-property.component';
 
 
 const appRoutes: Routes=[
@@ -39,7 +40,7 @@ const appRoutes: Routes=[
                       resolve:{prp:PropertyDetailResolverService }},
   {path: 'user/login' , component: UserLoginComponent},
   {path: 'user/register' , component: UserRegisterComponent},
-
+  {path: 'myProperty/:userName' , component: MyPropertyComponent},
   {path: '**' , component: PropertyListComponent}
 
 ]
@@ -56,7 +57,8 @@ const appRoutes: Routes=[
     UserRegisterComponent,
     FilterPipe,
     SortPipe,
-    PhotoEditorComponent
+    PhotoEditorComponent,
+    MyPropertyComponent
    ],
   imports: [
     BrowserModule,

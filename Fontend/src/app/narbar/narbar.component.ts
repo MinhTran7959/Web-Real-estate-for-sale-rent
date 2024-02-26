@@ -8,10 +8,16 @@ import { AltertifyService } from '../services/altertify.service';
 })
 export class NarbarComponent implements OnInit {
   loggedinUser!: string | null;
-
+  ShowMyProperty!: boolean;
+  userLogged?:string;
   constructor(private alter: AltertifyService) { }
   // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method, @typescript-eslint/no-empty-function
-  ngOnInit(){}
+  ngOnInit(){
+    //this.ShowMyProperty= false;
+    const userLogged= localStorage.getItem('userName');
+    if(userLogged != null){ this.userLogged = userLogged}
+    
+  }
 
   login() {
     this.loggedinUser = localStorage.getItem('userName');
@@ -20,7 +26,7 @@ export class NarbarComponent implements OnInit {
   onLogout(){
     localStorage.removeItem('userName');
     localStorage.removeItem('token');
-
     this.alter.warning("Logged out!!");
+    window.location.reload();
   }
 }

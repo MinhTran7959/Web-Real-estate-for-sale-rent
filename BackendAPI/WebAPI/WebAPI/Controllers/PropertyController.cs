@@ -70,12 +70,12 @@ namespace WebAPI.Controllers
             var result = await photoService.UploadPhotoAsync(file);
             if (result.Error != null)
                 return BadRequest(result.Error.Message);
-            //var userId = GetUserId();
+            var userId = GetUserId();
 
             var property = await uow.PropertyRepository.GetPropertyByIdAsync(propid);
 
-            //if (property.PostedBy != userId)
-            //    return BadRequest("You are not authorised to upload photo for this property");
+            if (property.PostedBy != userId)
+                return BadRequest("You are not authorised to upload photo for this property");
 
             var photo = new Photo
             {
