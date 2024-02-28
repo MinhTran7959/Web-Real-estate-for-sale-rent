@@ -28,6 +28,13 @@ namespace WebAPI.Helpers
                .ForMember(x => x.FurnishingType, opt => opt.MapFrom(src => src.FurnishingType.Name))
                 .ForMember(x => x.PostByName, opt => opt.MapFrom(src => src.User.Name))
                .ReverseMap();
+             CreateMap<Property, PropertyDetailsUpdateDTO>()
+               .ForMember(x => x.City, opt => opt.MapFrom(src => src.City.Id))
+             
+               .ForMember(x => x.PropertyType, opt => opt.MapFrom(src => src.PropertyType.Id))
+               .ForMember(x => x.FurnishingType, opt => opt.MapFrom(src => src.FurnishingType.Id))
+                .ForMember(x => x.PostByName, opt => opt.MapFrom(src => src.User.Name))
+               .ReverseMap();
 
 
 

@@ -21,7 +21,7 @@ import { UserRegisterComponent } from './user/user-register/user-register.compon
 import { AltertifyService } from './services/altertify.service';
 import { AuthService } from './services/auth.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PropertyDetailResolverService } from './Property/property-datail/property-details-resolver.service';
+
 import { FilterPipe } from './pipes/filter.pipe';
 import { SortPipe } from './pipes/sort.pipe';
 import { HttperrorInterceptorService } from './services/httperror-interceptor.service';
@@ -30,6 +30,8 @@ import { PhotoEditorComponent } from './Property/photo-editor/photo-editor.compo
 import { FileUploadModule } from 'ng2-file-upload';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { MyPropertyComponent } from './Property/my-property/my-property.component';
+import { UpdatePropertyComponent } from './Property/update-property/update-property.component';
+import { PropertyDetailResolverService, PropertyUpdateResolverService } from './services/property-details-resolver.service';
 
 
 const appRoutes: Routes=[
@@ -40,7 +42,12 @@ const appRoutes: Routes=[
                       resolve:{prp:PropertyDetailResolverService }},
   {path: 'user/login' , component: UserLoginComponent},
   {path: 'user/register' , component: UserRegisterComponent},
-  {path: 'myProperty/:userName' , component: MyPropertyComponent},
+  {path: 'myProperty' , component: MyPropertyComponent},
+  {path: 'update-Property/:id' , component: UpdatePropertyComponent
+                                ,resolve: {
+                                  prp: PropertyDetailResolverService,
+                                  prp2: PropertyUpdateResolverService
+                                }},
   {path: '**' , component: PropertyListComponent}
 
 ]
@@ -58,7 +65,8 @@ const appRoutes: Routes=[
     FilterPipe,
     SortPipe,
     PhotoEditorComponent,
-    MyPropertyComponent
+    MyPropertyComponent,
+    UpdatePropertyComponent
    ],
   imports: [
     BrowserModule,

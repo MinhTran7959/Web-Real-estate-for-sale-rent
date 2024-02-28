@@ -40,6 +40,14 @@ namespace WebAPI.Controllers
             var propertyDTO = mapper.Map<PropertyDetailsDTO>(property);
             return Ok(propertyDTO);
         }
+        [HttpGet("DetailsUpdate/{id}")]
+        [Authorize]
+        public async Task<IActionResult> GetPropertyDetailsUpdate(int id)
+        {
+            var property = await uow.PropertyRepository.GetPropertiesDetailsAsync(id);
+            var propertyDTO = mapper.Map<PropertyDetailsUpdateDTO>(property);
+            return Ok(propertyDTO);
+        }
 
         [HttpGet("MyProperty/{UserName}")]
         [Authorize]
@@ -95,7 +103,7 @@ namespace WebAPI.Controllers
             {
                 return BadRequest("Some problem occured in uploading photo..");
             }
-          
+
             //return Ok(201);
         }
 
@@ -108,7 +116,7 @@ namespace WebAPI.Controllers
 
             var property = await uow.PropertyRepository.GetPropertyByIdAsync(propId);
 
-          
+
 
             if (property.PostedBy != userId)
                 return BadRequest("You are not authorised to change the photo");
@@ -147,7 +155,7 @@ namespace WebAPI.Controllers
             if (property.PostedBy != userId)
                 return BadRequest("You are not authorised to delete the photo");
 
-          
+
 
             var photo = property.Photos.FirstOrDefault(p => p.PublicId == photoPublicId);
 
@@ -169,6 +177,31 @@ namespace WebAPI.Controllers
 
             return BadRequest("Failed to delete photo");
         }
+        [HttpPut("Update/{id}")]
+        public async Task<IActionResult> UpdateProperty(int id, PropertyDTO propertyDTO)
+        {
+            try
+            {
 
+                var propertyFromDB = await uow.PropertyRepository.FindProperties(id);
+                if (propertyFromDB == null)
+                {
+                    return BadRequest("Update error occured");
+                }
+                else
+                {
+                    //cityFromDB.LastUpDateon = DateTime.Now;
+                    // cityFromDB.LastUpdateBy = 1;
+                    mapper.Map(propertyDTO, propertyFromDB);
+
+                    await uow.SaveAsync();
+                    return StatusCode(200);
+                }
+            }
+            catch
+            {
+                return StatusCode(500, "Some unknown error occured");
+            }
+        }
     }
 }

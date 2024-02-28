@@ -30,15 +30,18 @@ export class MyPropertyComponent implements OnInit {
   //end list
   constructor(private houseService: HousingService 
     ,private alertify: AltertifyService 
-    ,private route: Router) { }
+    ,private router: Router) { }
 
     ngOnInit() {
-      this.UserNameLogged = localStorage.getItem('userName'); // Lấy giá trị userName từ localStorage
+      this.UserNameLogged = localStorage.getItem('userName') || ''; // Đặt giá trị mặc định là chuỗi rỗng
+
   
-      if (!this.UserNameLogged) { // Kiểm tra nếu không có giá trị userName
-        this.alertify.error('You must be logged in'); // Hiển thị thông báo lỗi
-        this.route.navigate(['/user/login']); // Chuyển hướng đến trang đăng nhập
-      } else {
+      if(!localStorage.getItem('userName')){
+        this.alertify.error('You must be looged in to add aproperty');
+        this.router.navigate(['/user/login'])
+      }
+      else 
+      {
         this.houseService.getMyproperties(this.UserNameLogged).subscribe(data => {
           if(data && data.length>0){
             this.properties = data;
@@ -47,13 +50,13 @@ export class MyPropertyComponent implements OnInit {
             this.total=  this.contentArray.length;
             this.returnedArray = this.contentArray.slice(0, this.pageNumber);            
            }
-        else{
-         this.properties= [];
+            else{
+            this.properties= [];
+            }
+        }, error => {
+          console.log('httperror:');
+          console.log(error);
         }
-       }, error => {
-         console.log('httperror:');
-         console.log(error);
-       }
      );}
     }
     pageChanged(event: PageChangedEvent): void {

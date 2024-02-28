@@ -28,9 +28,10 @@ loggedInUserMatchesPostByName !: boolean ;
     this.route.data.subscribe(
       (data) => {
         this.property = data['prp'];
-       //console.log(this.property.photos);
+     
     });
     this.property.age = this.HousingService.getPropertyAge(this.property.estPossessionOn);
+    
     const nameUserLogged = localStorage.getItem('userName');
     if(this.property.postByName === nameUserLogged){
       this.loggedInUserMatchesPostByName= true;

@@ -16,7 +16,7 @@ export class NarbarComponent implements OnInit {
     //this.ShowMyProperty= false;
     const userLogged= localStorage.getItem('userName');
     if(userLogged != null){ this.userLogged = userLogged}
-    
+    else{this.userLogged=''}
   }
 
   login() {

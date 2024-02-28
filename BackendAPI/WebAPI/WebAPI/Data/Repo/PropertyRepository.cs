@@ -19,7 +19,10 @@ namespace WebAPI.Data.Repo
            await context.properties.AddAsync(property);
             return property;
         }
-
+        public async Task<Property> FindProperties(int PropId)
+        {
+            return await context.properties.FindAsync(PropId);
+        }
         public void DeletePropertiesAsync(int id)
         {
             throw new NotImplementedException();
@@ -54,7 +57,7 @@ namespace WebAPI.Data.Repo
             var properties = await context.properties
                .Include(x => x.PropertyType)
                .Include(x => x.City)
-                 .Include(x => x.User)
+               .Include(x => x.User)
                .Include(x => x.Photos)
                .Include(x => x.FurnishingType)
                .Where(x => x.Id == id).FirstOrDefaultAsync();

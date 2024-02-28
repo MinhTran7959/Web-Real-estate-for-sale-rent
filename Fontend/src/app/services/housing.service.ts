@@ -31,6 +31,15 @@ import { IKeyValuePair } from '../model/IKeyValuePair';
     getProperty(id: number){
       return this.http.get<Property>(this.baseUrl+"Property/Details/"+ id?.toString());
     }
+    getPropertyUpdate(id: number){
+      const httpOptions={
+        headers: new HttpHeaders({
+          Authorization: 'Bearer '+ localStorage.getItem("token")
+        })
+      };
+      return this.http.get<Property>(this.baseUrl+"Property/DetailsUpdate/"+ id?.toString(),httpOptions);
+    }
+    
     getAllproperties(SellRent?:number): Observable<Property[]> {
       return this.http.get<Property[]>(this.baseUrl+"Property/list/"+ SellRent?.toString());
 
@@ -56,6 +65,15 @@ import { IKeyValuePair } from '../model/IKeyValuePair';
         })
       };
       return this.http.post<Property[]>(this.baseUrl+"Property/Add ", property, httpOptions);
+    }
+
+    updateProperty(property: Property , propertyId: number){
+      const httpOptions={
+        headers: new HttpHeaders({
+          Authorization: 'Bearer '+ localStorage.getItem("token")
+        })
+      };
+      return this.http.put<Property[]>(this.baseUrl+"Property/Update/"+propertyId, property, httpOptions);
     }
     getPropertyAge(dateofestablishment: Date | string | undefined): string {
       if (!dateofestablishment) {

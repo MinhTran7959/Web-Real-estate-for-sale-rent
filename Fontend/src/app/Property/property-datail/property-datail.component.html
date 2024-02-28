@@ -38,8 +38,8 @@
 
         <div class="card-footer">
           <div class="btn-group d-flex">
-            <button class="btn btn-primary me-2">Like</button>
-            <button class="btn btn-success">Message</button>
+            <button *ngIf="loggedInUserMatchesPostByName"routerLink="/update-Property/{{property.id}}" class="btn btn-primary me-2">Edit</button>
+            <!-- <button class="btn btn-success">Message</button> -->
           </div>           
         </div>
     </div>

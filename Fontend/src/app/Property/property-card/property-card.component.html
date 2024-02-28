@@ -5,11 +5,11 @@
         <img *ngIf="!property2.photo" class="card-img-top" src="assets/Images/house_default.png">
 
         <ul *ngIf="!hideIcons" class="list-inline text-center member-icon animate">
-            <li class="list-inline-item">
+            <!-- <li class="list-inline-item">
                 <button class="btn btn-primary" >
                     <i class="fa-regular fa-heart"></i>
                 </button> 
-            </li>
+            </li> -->
             <li class="list-inline-item">
                 <button class="btn btn-primary" routerLink="/property-detail/{{property2.id}}">
                     <i class="fa-regular fa-address-book"></i>
@@ -42,7 +42,7 @@
            
                 <strong> || Available for: </strong>
                   <span class="text-bg-success" *ngIf="property2.sellRent ===1">Purchase</span>
-                  <span class="text-bg-warning  "*ngIf="property2.sellRent ===2">Rent</span>
+                  <span class="text-bg-warning"*ngIf="property2.sellRent ===2">Rent</span>
              
              <i  class="fa-regular fa-heart" style="padding-left: 10%; color: red;"></i> <span class="text-danger"> 10</span>
         </h6>
