@@ -7,6 +7,7 @@ D:\Self Learning\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\
 D:\Self Learning\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\WebAPI\obj\Release\net7.0\PubTmp\Out\AutoMapper.dll
 D:\Self Learning\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\WebAPI\obj\Release\net7.0\PubTmp\Out\Azure.Core.dll
 D:\Self Learning\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\WebAPI\obj\Release\net7.0\PubTmp\Out\Azure.Identity.dll
+D:\Self Learning\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\WebAPI\obj\Release\net7.0\PubTmp\Out\CloudinaryDotNet.dll
 D:\Self Learning\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\WebAPI\obj\Release\net7.0\PubTmp\Out\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\Self Learning\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\WebAPI\obj\Release\net7.0\PubTmp\Out\Microsoft.AspNetCore.JsonPatch.dll
 D:\Self Learning\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\WebAPI\obj\Release\net7.0\PubTmp\Out\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll

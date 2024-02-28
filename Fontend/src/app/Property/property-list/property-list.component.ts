@@ -17,6 +17,7 @@ export class PropertyListComponent implements OnInit {
     properties?: IPropertyBase[];
     Today = new Date();
     city = '';
+    name='';
     SearchCity = '';
     SortbyParam = '';
     SortDirection = 'asc';
@@ -79,6 +80,8 @@ export class PropertyListComponent implements OnInit {
   onCityFilterClear() {
     this.SearchCity = '';
     this.city = '';
+    this.name = '';
+
   }
 
   onSortDirection() {

@@ -50,11 +50,6 @@
       "Type": null,
       "Value": "WebAPI-REFSR"
     },
-    "mssql1.resourceGroupLocation": {
-      "Name": "mssql1.resourceGroupLocation",
-      "Type": "location",
-      "Value": "eastus"
-    },
     "apis1.subscriptionId": {
       "Name": "apis1.subscriptionId",
       "Type": "subscription",

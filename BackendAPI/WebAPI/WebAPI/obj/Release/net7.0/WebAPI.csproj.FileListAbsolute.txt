@@ -80,3 +80,4 @@ D:\Self Learning\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\
 D:\Self Learning\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\WebAPI\obj\Release\net7.0\WebAPI.pdb
 D:\Self Learning\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\WebAPI\obj\Release\net7.0\WebAPI.genruntimeconfig.cache
 D:\Self Learning\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\WebAPI\obj\Release\net7.0\ref\WebAPI.dll
+D:\Self Learning\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\WebAPI\bin\Release\net7.0\CloudinaryDotNet.dll

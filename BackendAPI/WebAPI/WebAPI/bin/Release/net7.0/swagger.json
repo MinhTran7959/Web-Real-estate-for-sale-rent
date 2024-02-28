@@ -152,6 +152,265 @@
           }
         }
       }
+    },
+    "/api/FurnishingType/List": {
+      "get": {
+        "tags": [
+          "FurnishingType"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Property/list/{SellRent}": {
+      "get": {
+        "tags": [
+          "Property"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "SellRent",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Property/Details/{id}": {
+      "get": {
+        "tags": [
+          "Property"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Property/DetailsUpdate/{id}": {
+      "get": {
+        "tags": [
+          "Property"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Property/MyProperty/{UserName}": {
+      "get": {
+        "tags": [
+          "Property"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "UserName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Property/Add": {
+      "post": {
+        "tags": [
+          "Property"
+        ],
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/PropertyDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Property/Add/photo/{propid}": {
+      "post": {
+        "tags": [
+          "Property"
+        ],
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "propid",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "formData",
+            "name": "file",
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PhotoDTO"
+            }
+          }
+        }
+      }
+    },
+    "/api/Property/set-primary-photo/{propId}/{photoPublicId}": {
+      "post": {
+        "tags": [
+          "Property"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "propId",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "path",
+            "name": "photoPublicId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Property/delete-photo/{propId}/{photoPublicId}": {
+      "delete": {
+        "tags": [
+          "Property"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "propId",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "path",
+            "name": "photoPublicId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Property/Update/{id}": {
+      "put": {
+        "tags": [
+          "Property"
+        ],
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/PropertyDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/PropertyType/List": {
+      "get": {
+        "tags": [
+          "PropertyType"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -192,6 +451,104 @@
         },
         "password": {
           "minLength": 1,
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "PhotoDTO": {
+      "type": "object",
+      "properties": {
+        "imageUrl": {
+          "type": "string"
+        },
+        "publicId": {
+          "type": "string"
+        },
+        "isPrimary": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "PropertyDTO": {
+      "type": "object",
+      "properties": {
+        "sellRent": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "propertyTypeId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "furnishingTypeId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "price": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "bhk": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "builtArea": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "cityId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "readyToMove": {
+          "type": "boolean"
+        },
+        "carpetArea": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "address": {
+          "type": "string"
+        },
+        "address2": {
+          "type": "string"
+        },
+        "floorNo": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "totalFloors": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "mainEntrance": {
+          "type": "string"
+        },
+        "security": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "gated": {
+          "type": "boolean"
+        },
+        "maintenance": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "estPossessionOn": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "age": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "description": {
           "type": "string"
         }
       },
