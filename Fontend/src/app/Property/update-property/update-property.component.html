@@ -17,7 +17,8 @@
     
                 <h4 class="mt-1">I want to </h4>
                 <div class="form-group col-12">
-                      <div class="btn-group mt-1" btnRadioGroup formControlName="SellRent" required  >
+                      <div class="btn-group mt-1" btnRadioGroup formControlName="SellRent" required  (click)="propertyPreview.sellRent = SellRent.getRawValue()"
+                      >
                         <label  class="btn btn-outline-primary me-2" [btnRadio]="1" role="button" >
                             Sell
                         </label>

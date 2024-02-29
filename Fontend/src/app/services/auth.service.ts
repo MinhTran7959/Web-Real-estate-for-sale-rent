@@ -15,7 +15,7 @@ constructor( private http: HttpClient) { }
     baseUrl = environment.baseUrl;
     baseUrlPublic = environmentPublic.baseUrl;
       authUser(user: UserLoginModel): Observable<UserLoginModel> {
-    return this.http.post<UserLoginModel>(this.baseUrl +"Account/Login", user);
+    return this.http.post<UserLoginModel>(this.baseUrlPublic +"Account/Login", user);
     //return this.http.post<UserLoginModel>("https://webapi-refsr.azurewebsites.net/api/Account/Login", user);
 
     
@@ -23,7 +23,7 @@ constructor( private http: HttpClient) { }
 
   registerUser(user: UserForRegisterModel){
    // return this.http.post<UserForRegisterModel>("https://webapi-refsr.azurewebsites.net/api/Account/Register", user)
-   return this.http.post<UserForRegisterModel>(this.baseUrl +"Account/Register", user)
+   return this.http.post<UserForRegisterModel>(this.baseUrlPublic +"Account/Register", user)
   }
 
 }
