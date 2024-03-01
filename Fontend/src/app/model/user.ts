@@ -2,7 +2,8 @@ export interface UserForRegisterModel {
     name: string;
     email?: string;
     password: string;
-    mobile?: string;
+    phonenumber?: string;
+    otherContactInformation?: string;
 }
 export interface UserLoginModel {
     userName: string;  

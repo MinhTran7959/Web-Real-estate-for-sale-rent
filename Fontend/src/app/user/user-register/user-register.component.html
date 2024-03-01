@@ -1,7 +1,7 @@
 <div class="row">
-  <div class="col-6 m-auto">
+  <div class="col-12 m-auto" style="min-width: 380px; max-width: 800px;">
   <div class="card m-auto shadow-lg">
-    <div class="card-header bg-primary text-white p-2">
+    <div class="card-header bg-primary text-white p-2  text-lg-center">
       Register
     </div>
     <div class="card-body ">
@@ -72,14 +72,23 @@
 
         <div class="form-group col-12">
           <label for="mobile" class="form-label">Mobile</label>
-          <input type="text" class="form-control"formControlName = "mobile">
-          <span *ngIf="!mobile.valid && (mobile.touched||userSubmited)" class="error-block">
+          <input type="text" class="form-control"formControlName = "phonenumber">
+          <span *ngIf="!phonenumber.valid && (phonenumber.touched||userSubmited)" class="error-block">
             <span *ngIf="confirmPassword.hasError('required')">
               Please confirm mobile
             </span>
           </span>
-          <span *ngIf="(mobile.errors?.['maxlength'] || mobile.errors?.['minlength'] )" class="error-block">
+          <span *ngIf="(phonenumber.errors?.['maxlength'] || phonenumber.errors?.['minlength'] )" class="error-block">
             Phone number from 10 to 11 digits
+          </span>
+           
+        </div>
+        <div class="form-group col-12">
+          <label for="mobile" class="form-label">other contacts</label>
+          <textarea type="text" class="form-control"formControlName = "otherContactInformation"></textarea>
+
+          <span *ngIf="(otherContactInformation.errors?.['maxlength'] )" class="error-block">
+            Other contacts max length 300
           </span>
            
         </div>

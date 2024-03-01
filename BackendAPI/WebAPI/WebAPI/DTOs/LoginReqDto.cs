@@ -9,5 +9,9 @@ namespace WebAPI.DTOs
         [Required]
 
         public string Password { get; set; }
+        public string? Email { get; set; }
+        public string? Phonenumber { get; set; }
+        [MaxLength(300)]
+        public string? OtherContactInformation { get; set; }
     }
 }

@@ -8,6 +8,7 @@ namespace WebAPI.Helpers
     {
         public AutoMapperProfiles()
         {
+            CreateMap<User, UserDto>().ReverseMap();
             CreateMap<City, CityDTO>().ReverseMap();
             CreateMap<PropertyType, KeyValuePairDTO>().ReverseMap();
             CreateMap<FurnishingType, KeyValuePairDTO>().ReverseMap();
@@ -27,6 +28,9 @@ namespace WebAPI.Helpers
                .ForMember(x => x.PropertyType, opt => opt.MapFrom(src => src.PropertyType.Name))
                .ForMember(x => x.FurnishingType, opt => opt.MapFrom(src => src.FurnishingType.Name))
                 .ForMember(x => x.PostByName, opt => opt.MapFrom(src => src.User.Name))
+                .ForMember(x => x.Email, opt => opt.MapFrom(src => src.User.Email))
+                .ForMember(x => x.Phonenumber, opt => opt.MapFrom(src => src.User.Phonenumber))
+                .ForMember(x => x.OtherContactInformation, opt => opt.MapFrom(src => src.User.OtherContactInformation))
                .ReverseMap();
              CreateMap<Property, PropertyDetailsUpdateDTO>()
                .ForMember(x => x.City, opt => opt.MapFrom(src => src.City.Id))

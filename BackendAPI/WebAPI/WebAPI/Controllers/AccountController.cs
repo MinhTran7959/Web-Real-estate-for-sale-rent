@@ -60,7 +60,7 @@ namespace WebAPI.Controllers
                 apiError.ErrorMessage = "User already exsist, pls!!! try somthing else";
                 return BadRequest(apiError);
             }
-            uow.UsersRepository.Register(loginReqDto.Name, loginReqDto.Password);
+            uow.UsersRepository.Register(loginReqDto.Name, loginReqDto.Password, loginReqDto.Email, loginReqDto.Phonenumber ,loginReqDto.OtherContactInformation );
             await uow.SaveAsync();
             return StatusCode(201);
         }

@@ -14,7 +14,7 @@ public propertyId!: number;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 public photoList: any[] = [];
 loggedInUserMatchesPostByName !: boolean ;
-
+CheckLogin!: boolean;
 
   property= new Property();
   constructor( private route :ActivatedRoute 
@@ -36,7 +36,7 @@ loggedInUserMatchesPostByName !: boolean ;
     if(this.property.postByName === nameUserLogged){
       this.loggedInUserMatchesPostByName= true;
     }
-   
+   this.checkLoginUser();
   }
   onSelectNext(){
     this.propertyId +=1;
@@ -64,6 +64,13 @@ loggedInUserMatchesPostByName !: boolean ;
     }
     return undefined;
   }
+  checkLoginUser(){
+    this.CheckLogin= false;
+    if(localStorage.getItem('userName')){
+      this.CheckLogin= true;
+    }
+  }
+
   
 }
 

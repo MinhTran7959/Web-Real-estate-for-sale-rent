@@ -36,7 +36,8 @@ show: any;
       email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required, Validators.minLength(8)]],
       confirmPassword: [null, Validators.required],
-      mobile: [null, [Validators.required, Validators.maxLength(11),Validators.minLength(10)]]
+      phonenumber: [null, [Validators.required, Validators.maxLength(11),Validators.minLength(10)]],
+      otherContactInformation: [null, [ Validators.maxLength(300)]]
     }, { validators: this.passwordMatchingValidator });
   }
   passwordMatchingValidator(fc: AbstractControl): ValidationErrors | null {
@@ -58,10 +59,12 @@ show: any;
   get confirmPassword(){
     return this.registerationform.get('confirmPassword') as FormControl;
   }
-  get mobile(){
-    return this.registerationform.get('mobile') as FormControl;
+  get phonenumber(){
+    return this.registerationform.get('phonenumber') as FormControl;
   }
-
+  get otherContactInformation(){
+    return this.registerationform.get('otherContactInformation') as FormControl;
+  }
   onSubmit(){
     console.log(this.registerationform);
 
@@ -87,7 +90,8 @@ show: any;
       name : this.name.value,
       email: this.email.value,
       password: this.password.value,
-      mobile: this.mobile.value
+      phonenumber: this.phonenumber.value,
+      otherContactInformation: this.otherContactInformation.value
     }
   }
  

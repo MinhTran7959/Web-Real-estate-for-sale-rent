@@ -48,7 +48,7 @@ namespace WebAPI.Data.Repo
             }
         }
 
-        public void Register(string userName, string userPassword)
+        public void Register(string userName, string userPassword, string email, string phonenumber, string otherContactInformation)
         {
             byte[] passWordhash, passwordKey;
             using ( var hmac = new HMACSHA512())
@@ -62,6 +62,9 @@ namespace WebAPI.Data.Repo
             user.Name = userName;
             user.Password = passWordhash;
             user.PasswordKey = passwordKey;
+            user.OtherContactInformation = otherContactInformation; 
+            user.Phonenumber = phonenumber;
+            user.Email = email;
             context.Users.Add(user);
         }
 
@@ -69,5 +72,7 @@ namespace WebAPI.Data.Repo
         {
             return await context.Users.AnyAsync(x=>x.Name == userName);
         }
+
+      
     }
 }

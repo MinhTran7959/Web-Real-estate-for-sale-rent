@@ -452,6 +452,16 @@
         "password": {
           "minLength": 1,
           "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "phonenumber": {
+          "type": "string"
+        },
+        "otherContactInformation": {
+          "maxLength": 300,
+          "type": "string"
         }
       },
       "additionalProperties": false
