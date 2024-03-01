@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebAPI.DTOs;
 using WebAPI.Interfaces;
+using WebAPI.Models;
 
 namespace WebAPI.Controllers
 {
@@ -26,5 +28,33 @@ namespace WebAPI.Controllers
             var furnishingDTO = mapper.Map<IEnumerable<KeyValuePairDTO>>(furnishing);
             return Ok(furnishingDTO);
         }
+       // [Authorize]
+        [HttpGet("Details/{id}")]
+        public async Task<ActionResult> GetdetailsFurnishing(int id )
+        {
+            var furnishing = await uow.furnishingRepository.GetByIdFurnishing(id);
+            var furnishingDTO = mapper.Map<KeyValuePairDTO>(furnishing);
+            return Ok(furnishingDTO);
+        }
+        [Authorize]
+        [HttpDelete("Delete/{id}")]
+        public async Task<ActionResult> DeleteFurnishing(int id )
+        {
+            await uow.furnishingRepository.DeleteFurnishingAsync(id);
+            await uow.SaveAsync();
+            return StatusCode(201);
+        }
+        [Authorize]
+        [HttpPost("AddFurnishing")]
+        public async Task<ActionResult> AddFurnishing(FurnishingType furnishingType )
+        {
+            await uow.furnishingRepository.AddCFurnishingAsync(furnishingType);
+            await uow.SaveAsync();
+            return StatusCode(201);
+        }
+
+
+
+
     }
 }
