@@ -144,7 +144,6 @@ D:\Self Learning\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\
 D:\Self Learning\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\WebAPI\obj\Debug\net7.0\staticwebassets.build.json
 D:\Self Learning\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\WebAPI\obj\Debug\net7.0\staticwebassets.development.json
 D:\Self Learning\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\WebAPI\obj\Debug\net7.0\scopedcss\bundle\WebAPI.styles.css
-D:\Self Learning\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\WebAPI\obj\Debug\net7.0\WebAPI.csproj.CopyComplete
 D:\Self Learning\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\WebAPI\obj\Debug\net7.0\WebAPI.dll
 D:\Self Learning\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\WebAPI\obj\Debug\net7.0\refint\WebAPI.dll
 D:\Self Learning\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\WebAPI\obj\Debug\net7.0\WebAPI.pdb
@@ -157,3 +156,5 @@ D:\Self Learning\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\
 D:\Self Learning\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\WebAPI\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll
 D:\Self Learning\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\WebAPI\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\Self Learning\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\WebAPI\bin\Debug\net7.0\CloudinaryDotNet.dll
+D:\Self Learning\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\WebAPI\obj\Debug\net7.0\WebAPI.sourcelink.json
+D:\Self Learning\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\WebAPI\obj\Debug\net7.0\WebAPI.csproj.Up2Date

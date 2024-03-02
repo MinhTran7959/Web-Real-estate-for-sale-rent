@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebAPI.DTOs;
 using WebAPI.Interfaces;
+using WebAPI.Models;
 
 namespace WebAPI.Controllers
 {
@@ -26,5 +27,31 @@ namespace WebAPI.Controllers
             var propertyTypesDTO = mapper.Map<IEnumerable<KeyValuePairDTO>>(propertyTypes);
             return Ok(propertyTypesDTO);
         }
+
+        [HttpGet("Details/{id}")]
+        public async Task<ActionResult> GetdetailsFurnishing(int id)
+        {
+            var furnishing = await uow.propertyTypeRepository.GetByIdProperty(id);
+            var furnishingDTO = mapper.Map<KeyValuePairDTO>(furnishing);
+            return Ok(furnishingDTO);
+        }
+        [Authorize]
+        [HttpDelete("Delete/{id}")]
+        public async Task<ActionResult> DeletePropertyAsync(int id)
+        {
+            await uow.propertyTypeRepository.DeletePropertyAsync(id);
+            await uow.SaveAsync();
+            return StatusCode(201);
+        }
+        [Authorize]
+        [HttpPost("AddCPropertyAsync")]
+        public async Task<ActionResult> AddCPropertyAsync(PropertyType propertyType)
+        {
+            await uow.propertyTypeRepository.AddCPropertyAsync(propertyType);
+            await uow.SaveAsync();
+            return StatusCode(201);
+        }
+
+
     }
 }

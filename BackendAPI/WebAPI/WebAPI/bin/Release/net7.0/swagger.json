@@ -165,6 +165,75 @@
         }
       }
     },
+    "/api/FurnishingType/Details/{id}": {
+      "get": {
+        "tags": [
+          "FurnishingType"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/FurnishingType/Delete/{id}": {
+      "delete": {
+        "tags": [
+          "FurnishingType"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/FurnishingType/AddFurnishing": {
+      "post": {
+        "tags": [
+          "FurnishingType"
+        ],
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/FurnishingType"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/Property/list/{SellRent}": {
       "get": {
         "tags": [
@@ -432,6 +501,31 @@
           "type": "string"
         },
         "country": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "FurnishingType": {
+      "required": [
+        "name"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "lastUpdatedOn": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "lastUpdatedBy": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
           "minLength": 1,
           "type": "string"
         }

@@ -1,0 +1,200 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Self Learning\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\WebAPI\\WebAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2BA4A0B1-D0C5-4B96-87E3-E95427535468}|WebAPI.csproj|d:\\self learning\\webapi_angular\\web-real-estate-for-sale-rent\\backendapi\\webapi\\webapi\\controllers\\propertytypecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BA4A0B1-D0C5-4B96-87E3-E95427535468}|WebAPI.csproj|solutionrelative:controllers\\propertytypecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BA4A0B1-D0C5-4B96-87E3-E95427535468}|WebAPI.csproj|d:\\self learning\\webapi_angular\\web-real-estate-for-sale-rent\\backendapi\\webapi\\webapi\\data\\repo\\propertytyperepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BA4A0B1-D0C5-4B96-87E3-E95427535468}|WebAPI.csproj|solutionrelative:data\\repo\\propertytyperepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BA4A0B1-D0C5-4B96-87E3-E95427535468}|WebAPI.csproj|d:\\self learning\\webapi_angular\\web-real-estate-for-sale-rent\\backendapi\\webapi\\webapi\\controllers\\furnishingtypecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BA4A0B1-D0C5-4B96-87E3-E95427535468}|WebAPI.csproj|solutionrelative:controllers\\furnishingtypecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BA4A0B1-D0C5-4B96-87E3-E95427535468}|WebAPI.csproj|d:\\self learning\\webapi_angular\\web-real-estate-for-sale-rent\\backendapi\\webapi\\webapi\\data\\repo\\furnishingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BA4A0B1-D0C5-4B96-87E3-E95427535468}|WebAPI.csproj|solutionrelative:data\\repo\\furnishingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BA4A0B1-D0C5-4B96-87E3-E95427535468}|WebAPI.csproj|d:\\self learning\\webapi_angular\\web-real-estate-for-sale-rent\\backendapi\\webapi\\webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{2BA4A0B1-D0C5-4B96-87E3-E95427535468}|WebAPI.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BA4A0B1-D0C5-4B96-87E3-E95427535468}|WebAPI.csproj|d:\\self learning\\webapi_angular\\web-real-estate-for-sale-rent\\backendapi\\webapi\\webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BA4A0B1-D0C5-4B96-87E3-E95427535468}|WebAPI.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BA4A0B1-D0C5-4B96-87E3-E95427535468}|WebAPI.csproj|d:\\self learning\\webapi_angular\\web-real-estate-for-sale-rent\\backendapi\\webapi\\webapi\\data\\repo\\cityrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BA4A0B1-D0C5-4B96-87E3-E95427535468}|WebAPI.csproj|solutionrelative:data\\repo\\cityrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BA4A0B1-D0C5-4B96-87E3-E95427535468}|WebAPI.csproj|d:\\self learning\\webapi_angular\\web-real-estate-for-sale-rent\\backendapi\\webapi\\webapi\\interfaces\\ifurnishingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BA4A0B1-D0C5-4B96-87E3-E95427535468}|WebAPI.csproj|solutionrelative:interfaces\\ifurnishingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BA4A0B1-D0C5-4B96-87E3-E95427535468}|WebAPI.csproj|d:\\self learning\\webapi_angular\\web-real-estate-for-sale-rent\\backendapi\\webapi\\webapi\\helpers\\automapperprofiles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BA4A0B1-D0C5-4B96-87E3-E95427535468}|WebAPI.csproj|solutionrelative:helpers\\automapperprofiles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BA4A0B1-D0C5-4B96-87E3-E95427535468}|WebAPI.csproj|d:\\self learning\\webapi_angular\\web-real-estate-for-sale-rent\\backendapi\\webapi\\webapi\\interfaces\\icityrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BA4A0B1-D0C5-4B96-87E3-E95427535468}|WebAPI.csproj|solutionrelative:interfaces\\icityrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PropertyTypeController.cs",
+              "DocumentMoniker": "D:\\Self Learning\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\WebAPI\\WebAPI\\Controllers\\PropertyTypeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\PropertyTypeController.cs",
+              "ToolTip": "D:\\Self Learning\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\WebAPI\\WebAPI\\Controllers\\PropertyTypeController.cs",
+              "RelativeToolTip": "Controllers\\PropertyTypeController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACkAAABFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-02T06:58:16.189Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PropertyTypeRepository.cs",
+              "DocumentMoniker": "D:\\Self Learning\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\WebAPI\\WebAPI\\Data\\Repo\\PropertyTypeRepository.cs",
+              "RelativeDocumentMoniker": "Data\\Repo\\PropertyTypeRepository.cs",
+              "ToolTip": "D:\\Self Learning\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\WebAPI\\WebAPI\\Data\\Repo\\PropertyTypeRepository.cs",
+              "RelativeToolTip": "Data\\Repo\\PropertyTypeRepository.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAzwA8AAABTAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-02T06:55:59.567Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FurnishingRepository.cs",
+              "DocumentMoniker": "D:\\Self Learning\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\WebAPI\\WebAPI\\Data\\Repo\\FurnishingRepository.cs",
+              "RelativeDocumentMoniker": "Data\\Repo\\FurnishingRepository.cs",
+              "ToolTip": "D:\\Self Learning\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\WebAPI\\WebAPI\\Data\\Repo\\FurnishingRepository.cs",
+              "RelativeToolTip": "Data\\Repo\\FurnishingRepository.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAQwCoAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-01T15:21:26.476Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Self Learning\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\WebAPI\\WebAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "D:\\Self Learning\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\WebAPI\\WebAPI\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-03-02T06:51:36.859Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Self Learning\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\WebAPI\\WebAPI\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\Self Learning\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\WebAPI\\WebAPI\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAADMAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-02T06:51:31.543Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FurnishingTypeController.cs",
+              "DocumentMoniker": "D:\\Self Learning\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\WebAPI\\WebAPI\\Controllers\\FurnishingTypeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\FurnishingTypeController.cs",
+              "ToolTip": "D:\\Self Learning\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\WebAPI\\WebAPI\\Controllers\\FurnishingTypeController.cs",
+              "RelativeToolTip": "Controllers\\FurnishingTypeController.cs",
+              "ViewState": "AQIAABsAAAAAAAAAAAAYwDUAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-01T15:26:13.819Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CityRepository.cs",
+              "DocumentMoniker": "D:\\Self Learning\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\WebAPI\\WebAPI\\Data\\Repo\\CityRepository.cs",
+              "RelativeDocumentMoniker": "Data\\Repo\\CityRepository.cs",
+              "ToolTip": "D:\\Self Learning\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\WebAPI\\WebAPI\\Data\\Repo\\CityRepository.cs",
+              "RelativeToolTip": "Data\\Repo\\CityRepository.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAQwCEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-01T15:21:39.58Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IFurnishingRepository.cs",
+              "DocumentMoniker": "D:\\Self Learning\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\WebAPI\\WebAPI\\Interfaces\\IFurnishingRepository.cs",
+              "RelativeDocumentMoniker": "Interfaces\\IFurnishingRepository.cs",
+              "ToolTip": "D:\\Self Learning\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\WebAPI\\WebAPI\\Interfaces\\IFurnishingRepository.cs",
+              "RelativeToolTip": "Interfaces\\IFurnishingRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-01T15:20:41.276Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AutoMapperProfiles.cs",
+              "DocumentMoniker": "D:\\Self Learning\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\WebAPI\\WebAPI\\Helpers\\AutoMapperProfiles.cs",
+              "RelativeDocumentMoniker": "Helpers\\AutoMapperProfiles.cs",
+              "ToolTip": "D:\\Self Learning\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\WebAPI\\WebAPI\\Helpers\\AutoMapperProfiles.cs",
+              "RelativeToolTip": "Helpers\\AutoMapperProfiles.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAAwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-01T15:53:30.459Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ICityRepository.cs",
+              "DocumentMoniker": "D:\\Self Learning\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\WebAPI\\WebAPI\\Interfaces\\ICityRepository.cs",
+              "RelativeDocumentMoniker": "Interfaces\\ICityRepository.cs",
+              "ToolTip": "D:\\Self Learning\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\WebAPI\\WebAPI\\Interfaces\\ICityRepository.cs",
+              "RelativeToolTip": "Interfaces\\ICityRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-01T15:20:39.739Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
