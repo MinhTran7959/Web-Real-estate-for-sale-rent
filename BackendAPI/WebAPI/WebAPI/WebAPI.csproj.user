@@ -4,7 +4,7 @@
     <ActiveDebugProfile>https</ActiveDebugProfile>
     <Controller_SelectedScaffolderID>ApiControllerEmptyScaffolder</Controller_SelectedScaffolderID>
     <Controller_SelectedScaffolderCategoryPath>root/Common/Api</Controller_SelectedScaffolderCategoryPath>
-    <NameOfLastUsedPublishProfile>D:\Self Learning\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\WebAPI\Properties\PublishProfiles\WebAPI-REFSR - Web Deploy.pubxml</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>D:\ProjectGit\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\WebAPI\Properties\PublishProfiles\WebAPI-REFSR - Web Deploy.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>

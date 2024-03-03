@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
+﻿using CloudinaryDotNet;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Cryptography;
@@ -48,7 +49,7 @@ namespace WebAPI.Data.Repo
             }
         }
 
-        public void Register(string userName, string userPassword)
+        public void Register(string userName, string userPassword, string email, string phonenumber, string otherContactInformation)
         {
             byte[] passWordhash, passwordKey;
             using ( var hmac = new HMACSHA512())
@@ -62,6 +63,9 @@ namespace WebAPI.Data.Repo
             user.Name = userName;
             user.Password = passWordhash;
             user.PasswordKey = passwordKey;
+            user.OtherContactInformation = otherContactInformation; 
+            user.Phonenumber = phonenumber;
+            user.Email = email;
             context.Users.Add(user);
         }
 
@@ -69,5 +73,46 @@ namespace WebAPI.Data.Repo
         {
             return await context.Users.AnyAsync(x=>x.Name == userName);
         }
+
+        public async Task<IEnumerable<User>> ListAccount()
+        {
+           return await context.Users.ToListAsync();
+        }
+
+
+       public void ResetPassword(User user, string newPassWord)
+        {
+            byte[] passWordhash, passwordKey;
+            using (var hmac = new HMACSHA512())
+            {
+                passwordKey = hmac.Key;
+                passWordhash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(newPassWord));
+
+            }
+            user.Password = passWordhash;
+            user.PasswordKey = passwordKey;
+           
+            
+        }
+
+        public async Task<User> DeleteAccount(string name)
+        {
+            var userToDelete = await context.Users.FirstOrDefaultAsync(x => x.Name == name);
+            if (userToDelete != null)
+            {
+                context.Users.Remove(userToDelete);
+            }
+            return userToDelete;
+        }
+
+
+        public async Task<bool> CheckNameAsync(string name)
+        {
+            var user = await context.Users.FirstOrDefaultAsync(x => x.Name == name && name == "Admin");
+            return user != null; // Trả về true nếu user tồn tại, ngược lại trả về false
+        }
+
+
+
     }
 }

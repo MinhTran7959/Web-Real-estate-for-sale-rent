@@ -7,6 +7,11 @@ namespace WebAPI.Models
         [Required]
         public string Name { get; set; }
         [Required]
+        public string? Email { get; set; }
+        public string? Phonenumber { get; set; }
+        [MaxLength(300)]
+        public string? OtherContactInformation { get; set; }
+
         public byte[] Password { get; set; }
 
         public byte[] PasswordKey { get; set; }

@@ -1,4 +1,6 @@
-﻿namespace WebAPI.DTOs
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace WebAPI.DTOs
 {
     public class PropertyDetailsDTO: PropertyListDTO
     {
@@ -14,6 +16,11 @@
         public int Age { get; set; }
         public string Description { get; set; }
         public string PostByName { get; set; }
+     
+        public string? Email { get; set; }
+        public string? Phonenumber { get; set; }
+        [MaxLength(300)]
+        public string? OtherContactInformation { get; set; }
         public ICollection<PhotoDTO> Photos { get; set; }
     }
 }

@@ -128,9 +128,14 @@
           <app-photo-editor [property]="property"></app-photo-editor>
         </tab>
 
-        <tab heading="Contact">
+        <tab heading="Contact"*ngIf="!CheckLogin">
           <h1>Contact Detail</h1>
           This should be restricted area and only registered user should be able to see seller contact details
+        </tab>
+        <tab heading="Contact" *ngIf="CheckLogin">
+            <span style="font-size: 30px; font-weight: bold;"> <i class="fa-regular fa-envelope" style="color: #74C0FC;"></i> {{property.email}}</span><br>
+            <span style="font-size: 30px; font-weight: bold;"> <i class="fa-solid fa-square-phone-flip" style="color: #c4b0ff;"></i> {{property.phonenumber}}</span>><br>
+            <span style="font-size: 30px; font-weight: bold;"> <i class="fa-regular fa-address-card" style="color: #63E6BE;"></i> {{property.otherContactInformation}}</span>
         </tab>
       </tabset>
     </div>

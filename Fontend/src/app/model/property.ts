@@ -30,4 +30,7 @@ export class Property implements IPropertyBase {
   description?: string;
   photos?: photos[];
   postByName!: string;
+  email!: string;
+  phonenumber!: string;
+  otherContactInformation!: string;
 }

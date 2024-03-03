@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gT/jbv6ONXx4Mbn1cKy8JMinG2ZR4IiXBJVjdSGR6niRdH/dg9fneAOkjVi5QV61yprlUw3XGFGlEGtr+hP4kg==",
+  "dgSpecHash": "vzaZu7OCChA1D0mhCCOl7L8gZhztDYRzpQmngKMOroiVpYx4NtR3kf8d0KuA3o0lmFRvGXXuPYpaevi2baRHRA==",
   "success": true,
-  "projectFilePath": "D:\\Self Learning\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\WebAPI\\WebAPI\\WebAPI.csproj",
+  "projectFilePath": "D:\\ProjectGit\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\WebAPI\\WebAPI\\WebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Minh7959\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\Minh7959\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",

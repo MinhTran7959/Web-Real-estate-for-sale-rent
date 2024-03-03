@@ -46,7 +46,7 @@ namespace WebAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Cities", (string)null);
+                    b.ToTable("Cities");
                 });
 
             modelBuilder.Entity("WebAPI.Models.FurnishingType", b =>
@@ -69,7 +69,7 @@ namespace WebAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("furnishingTypes", (string)null);
+                    b.ToTable("furnishingTypes");
                 });
 
             modelBuilder.Entity("WebAPI.Models.Photo", b =>
@@ -104,7 +104,7 @@ namespace WebAPI.Migrations
 
                     b.HasIndex("PropertyId");
 
-                    b.ToTable("Photos", (string)null);
+                    b.ToTable("Photos");
                 });
 
             modelBuilder.Entity("WebAPI.Models.Property", b =>
@@ -191,6 +191,9 @@ namespace WebAPI.Migrations
                     b.Property<int?>("TotalFloors")
                         .HasColumnType("int");
 
+                    b.Property<int?>("View")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CityId");
@@ -201,7 +204,7 @@ namespace WebAPI.Migrations
 
                     b.HasIndex("PropertyTypeId");
 
-                    b.ToTable("properties", (string)null);
+                    b.ToTable("properties");
                 });
 
             modelBuilder.Entity("WebAPI.Models.PropertyType", b =>
@@ -224,7 +227,7 @@ namespace WebAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("propertyTypes", (string)null);
+                    b.ToTable("propertyTypes");
                 });
 
             modelBuilder.Entity("WebAPI.Models.User", b =>
@@ -234,6 +237,10 @@ namespace WebAPI.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("LastUpdatedBy")
                         .HasColumnType("int");
@@ -245,6 +252,10 @@ namespace WebAPI.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("OtherContactInformation")
+                        .HasMaxLength(300)
+                        .HasColumnType("nvarchar(300)");
+
                     b.Property<byte[]>("Password")
                         .IsRequired()
                         .HasColumnType("varbinary(max)");
@@ -253,9 +264,12 @@ namespace WebAPI.Migrations
                         .IsRequired()
                         .HasColumnType("varbinary(max)");
 
+                    b.Property<string>("Phonenumber")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
-                    b.ToTable("Users", (string)null);
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("WebAPI.Models.Photo", b =>

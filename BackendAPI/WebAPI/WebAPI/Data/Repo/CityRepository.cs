@@ -30,6 +30,7 @@ namespace WebAPI.Data.Repo
             {
                 context.Remove(city);
             }
+            context.SaveChanges();
             return city;
         }
 

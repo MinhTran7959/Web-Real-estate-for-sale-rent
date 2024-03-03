@@ -1,0 +1,460 @@
+[
+  {
+    "ContainingType": "WebAPI.Controllers.AccountController",
+    "Method": "DeleteAccount",
+    "RelativePath": "api/Account/DeleteAccount",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "nameToDelete",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.AccountController",
+    "Method": "ListAccount",
+    "RelativePath": "api/Account/ListAccount",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.AccountController",
+    "Method": "Login",
+    "RelativePath": "api/Account/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginReqDto",
+        "Type": "WebAPI.DTOs.LoginReqDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.AccountController",
+    "Method": "Register",
+    "RelativePath": "api/Account/Register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginReqDto",
+        "Type": "WebAPI.DTOs.LoginReqDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.AccountController",
+    "Method": "ResetPassword",
+    "RelativePath": "api/Account/ResetPassword",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "formReset",
+        "Type": "WebAPI.DTOs.FormResetDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.CitysController",
+    "Method": "DeleteCities",
+    "RelativePath": "api/Citys/DeleteCity/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.CitysController",
+    "Method": "GetCities",
+    "RelativePath": "api/Citys/GetCity",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.CitysController",
+    "Method": "AddCities",
+    "RelativePath": "api/Citys/PostCity",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cityDto",
+        "Type": "WebAPI.DTOs.CityDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.CitysController",
+    "Method": "UpdateCity",
+    "RelativePath": "api/Citys/Update/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "cityDto",
+        "Type": "WebAPI.DTOs.CityDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.FurnishingTypeController",
+    "Method": "AddFurnishing",
+    "RelativePath": "api/FurnishingType/AddFurnishing",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "furnishingType",
+        "Type": "WebAPI.Models.FurnishingType",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.FurnishingTypeController",
+    "Method": "DeleteFurnishing",
+    "RelativePath": "api/FurnishingType/Delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.FurnishingTypeController",
+    "Method": "GetdetailsFurnishing",
+    "RelativePath": "api/FurnishingType/Details/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.FurnishingTypeController",
+    "Method": "GetListFurnishing",
+    "RelativePath": "api/FurnishingType/List",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.PropertyController",
+    "Method": "AddProperty",
+    "RelativePath": "api/Property/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "propertyDTO",
+        "Type": "WebAPI.DTOs.PropertyDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.PropertyController",
+    "Method": "AddPropertyPhoto",
+    "RelativePath": "api/Property/Add/photo/{propid}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "file",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "propid",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "WebAPI.DTOs.PhotoDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.PropertyController",
+    "Method": "DeletePhoto",
+    "RelativePath": "api/Property/delete-photo/{propId}/{photoPublicId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "propId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "photoPublicId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.PropertyController",
+    "Method": "GetPropertyDetails",
+    "RelativePath": "api/Property/Details/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.PropertyController",
+    "Method": "GetPropertyDetailsUpdate",
+    "RelativePath": "api/Property/DetailsUpdate/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.PropertyController",
+    "Method": "GetPropertyList",
+    "RelativePath": "api/Property/list/{SellRent}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "SellRent",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.PropertyController",
+    "Method": "GetMyPropertiesAsync",
+    "RelativePath": "api/Property/MyProperty/{UserName}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.PropertyController",
+    "Method": "SetPrimaryPhoto",
+    "RelativePath": "api/Property/set-primary-photo/{propId}/{photoPublicId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "propId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "photoPublicId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.PropertyController",
+    "Method": "TopView",
+    "RelativePath": "api/Property/TopView",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.PropertyController",
+    "Method": "UpdateProperty",
+    "RelativePath": "api/Property/Update/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "propertyDTO",
+        "Type": "WebAPI.DTOs.PropertyDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.PropertyController",
+    "Method": "View",
+    "RelativePath": "api/Property/View/{PropId}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PropId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.PropertyTypeController",
+    "Method": "AddCPropertyAsync",
+    "RelativePath": "api/PropertyType/AddCPropertyAsync",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "propertyType",
+        "Type": "WebAPI.Models.PropertyType",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.PropertyTypeController",
+    "Method": "DeletePropertyAsync",
+    "RelativePath": "api/PropertyType/Delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.PropertyTypeController",
+    "Method": "GetdetailsFurnishing",
+    "RelativePath": "api/PropertyType/Details/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.PropertyTypeController",
+    "Method": "GetPropertyType",
+    "RelativePath": "api/PropertyType/List",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]
