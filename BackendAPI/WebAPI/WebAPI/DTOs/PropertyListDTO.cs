@@ -16,7 +16,7 @@
         public DateTime EstPossessionOn { get; set; }
         public string Photo { get; set; }
         public string PostByName { get; set; }
-
+        public int? View { get; set; }
 
     }
 }

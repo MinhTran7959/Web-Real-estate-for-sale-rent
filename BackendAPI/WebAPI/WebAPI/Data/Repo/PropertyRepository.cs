@@ -19,6 +19,7 @@ namespace WebAPI.Data.Repo
            await context.properties.AddAsync(property);
             return property;
         }
+
         public async Task<Property> FindProperties(int PropId)
         {
             return await context.properties.FindAsync(PropId);
@@ -74,6 +75,23 @@ namespace WebAPI.Data.Repo
             return properties;
         }
 
-      
+        public async Task View(int PropId)
+        {
+            var property = await context.properties.FindAsync(PropId);
+             if(property != null)
+            {
+                property.View += 1;
+             
+            }    
+        }
+
+        public async Task<IEnumerable<Property>> TopView()
+        {
+           return await context.properties.Include(x => x.PropertyType)
+                .Include(x => x.City)
+                .Include(x => x.User)
+                .Include(x => x.FurnishingType)
+                 .Include(x => x.Photos).OrderByDescending(x => x.View).Take(10).ToListAsync();
+        }
     }
 }
