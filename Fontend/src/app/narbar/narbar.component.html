@@ -1,62 +1,58 @@
-<nav class="navbar navbar-expand-lg navbar-dark shadow-lg" style="background-color: #5169d4;">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#"><i class="fa-solid fa-house-chimney fa-2xl"></i> REFSR</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+
+<div class="container-fluid">
+  <ul class="nav-links  navbar-expand-lg">
+    <a class="navbar-brand pe-5" href="#" style="font-size: 30px; font-weight: 700;color: #74c0fc;"> REFSR</a>
+    <button class="navbar-toggler" 
+    (click)="isCollapsed = !isCollapsed"type="button" data-bs-toggle="collapse"
+     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="#74C0FC" d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
     </button>
+
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav me-5 mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active" routerLink="/"><i class="fa-solid fa-cart-shopping"></i> Buy</a>
+          <a class="nav-link" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active" routerLink="/"> Buy</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" routerLink="/rent-property"><i class="fa-solid fa-truck-ramp-box"></i> Rent</a>
+          <a class="nav-link" routerLinkActive="active" routerLink="/rent-property"> Rent</a>
         </li>
         
         <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" routerLink="/add-property" ><i class="fa-solid fa-list-check"></i> List Property (Free)</a>
+          <a class="nav-link" routerLinkActive="active" routerLink="/add-property" > List Property (Free)</a>
         </li>
 
         <li  class="nav-item">
-          <a class="nav-link" routerLinkActive="active" routerLink="/myProperty" ><i class="fa-solid fa-file-pen"></i> My property</a>
+          <a class="nav-link" routerLinkActive="active" routerLink="/myProperty" > My property</a>
         </li>
       </ul>
-      <!-- <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form> -->
-      <div>
-        <ul class="nav navbar-nav">
-          <li class="nav-item" *ngIf="!login()">
-            <a class="nav-link" routerLink="user/register" routerLinkActive="active">Register</a>
-          </li>
-          <li class="nav navbar-nav" *ngIf="!login()">
-            <a class="nav-link"routerLink="user/login" routerLinkActive="active">Login</a>
-          </li>
 
-          <!-- <li class="nav navbar-nav" *ngIf="login()">
-            <a class="nav-link text-bg-danger " (click)="onLogout()">Logout</a>
-          </li> -->
+          <div class=" collapse navbar-collapse text-black" style="margin-left: 40%;">
+            <li class="nav-item" *ngIf="!login()">
+              <a class="nav-link" routerLink="user/register" routerLinkActive="active">Register</a>
+            </li>
+            <li class="nav navbar-nav" *ngIf="!login()">
+              <a class="nav-link"routerLink="user/login" routerLinkActive="active">Login</a>
+            </li>
 
           <div *ngIf="login()" class="dropdown me-5 pe-2" dropdown>
-            <a href="#" class="nav-link dropdown-toggle text-light" dropdownToggle (click)="false">
-              <i class="fa-solid fa-layer-group"></i>
-                Welcome 
-                {{loggedinUser}}
-            </a>
-            <div class="dropdown-menu" *dropdownMenu>
-                <a href="#"class="dropdown-item">
-                  <i class="fas fa-tachometer-alt"></i> View Dashboard</a>
-                <a href="#" class="dropdown-item">
-                  <i class="far fa-user-circle"></i> My Profile</a>
-                <a href="#" class="dropdown-item">
-                  <i class="fas fa-key"></i> Change Password</a>
-                <a (click)='onLogout()' class="dropdown-item text-danger">
-                  <i class="fas fa-sign-out-alt"></i> Logout</a>
-            </div>
+              <a href="#" class="nav-link dropdown-toggle text-black" dropdownToggle (click)="false">
+              
+                  Welcome 
+                  {{loggedinUser}}
+              </a>
+              <div class="dropdown-menu ps-2" *dropdownMenu>
+                <li class="nav-item"><a href="#"class="dropdown-item">View Dashboard</a></li>
+                <li class="nav-item"><a href="#" class="dropdown-item">My Profile</a></li>
+                <li class="nav-item"><a href="#" class="dropdown-item">Change Password</a></li>
+                <li class="nav-item"> <a (click)='onLogout()' class="dropdown-item text-danger">Logout</a></li>
+              </div>
           </div>
-        </ul>
       </div>
-    </div>
   </div>
-</nav>
+</ul>
+</div>
+
+
+
+ 

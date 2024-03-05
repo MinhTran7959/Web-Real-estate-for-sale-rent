@@ -84,6 +84,7 @@ namespace WebAPI.Controllers
             var userId = GetUserId();
             property.PostedBy = userId;
             property.LastUpdatedBy = userId;
+            property.View = 1;
             await uow.PropertyRepository.AddPropertiesAsync(property);
             await uow.SaveAsync();
             return StatusCode(201);

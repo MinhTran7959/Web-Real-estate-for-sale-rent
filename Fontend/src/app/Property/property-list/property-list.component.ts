@@ -1,9 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // import { HttpClient} from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HousingService } from '../../services/housing.service';
 import { ActivatedRoute } from '@angular/router';
 import { IPropertyBase } from 'src/app/model/ipropertyBase';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
+
 
 
 @Component({
@@ -13,8 +15,11 @@ import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 })
 
 export class PropertyListComponent implements OnInit {
+
+  @ViewChild('pageTop') pageTop: any;
     SellRent=1;
     properties?: IPropertyBase[];
+    propertiesView?: IPropertyBase[];
     Today = new Date();
     city = '';
     name='';
@@ -53,12 +58,28 @@ export class PropertyListComponent implements OnInit {
           console.log(error);
         }
       );
-
+      this.housingService.getAllpropertiesView().subscribe(
+        data => {
+          if(data && data.length>0){
+           this.propertiesView = data; 
+          }
+       else{
+        this.propertiesView= [];
+       }
+      }, error => {
+        console.log('httperror:');
+        console.log(error);
+      }
+    );
     }
     pageChanged(event: PageChangedEvent): void {
       const startItem = (event.page - 1) * event.itemsPerPage;
       const endItem = event.page * event.itemsPerPage;
+      if (this.pageTop) {
+        this.pageTop.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start', duration: 3500 });
+      }
       this.returnedArray = this.contentArray.slice(startItem, endItem);
+     
     }
 
     onInputChange() {

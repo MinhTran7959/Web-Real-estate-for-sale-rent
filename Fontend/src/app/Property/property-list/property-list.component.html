@@ -1,58 +1,61 @@
 <!-- eslint-disable @angular-eslint/template/eqeqeq -->
-<div class="row mb-2">
-  <div class="col-6" style="display: contents;"> 
-  <div class="col-3">
-    <input [(ngModel)]="city" class="form-control" (input)="onInputChange()"placeholder="Search City...">
-    
+
+
+   
+  <div #pageTop class="row mb-2">
+    <div class="col-6" style="display: contents;"> 
+    <div class="col-3">
+      <input [(ngModel)]="city" class="form-control" (input)="onInputChange()"placeholder="Search City...">
+      
+    </div>
+    <div class="col-3 ">
+
+      <button *ngIf="searching" class="btn btn-light" type="button" disabled>
+        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>    
+      </button>
+
+      <button type="button" (click)="onCityFilter()" class="btn btn-primary ms-2 me-2">
+        <i class="fas fa-search"></i>
+      </button>
+      <button type="button" (click)="onCityFilterClear()" class="btn btn-primary">
+        <i class="fas fa-undo"></i>
+      </button>
+    </div>
+
   </div>
-  <div class="col-3 ps-1">
-
-    <button *ngIf="searching" class="btn btn-light" type="button" disabled>
-      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>    
-    </button>
-
-    <button type="button" (click)="onCityFilter()" class="btn btn-primary ms-2 me-2">
-      <i class="fas fa-search"></i>
-    </button>
-    <button type="button" (click)="onCityFilterClear()" class="btn btn-primary">
-      <i class="fas fa-undo"></i>
-    </button>
-  </div>
-
-</div>
-  <div class="col-6">
-    <div class="row">
-      <label class="col-form-label" style="width: 80px;">Sort by:</label>
-      <div class="col-3">
-        <select [(ngModel)]="SortbyParam" class="form-select" > 
-          <option  value="">--Select--</option>
-          <option  value="city">City</option>
-          <option value="price">Price</option>
-          
-        </select>
-      </div>
-      <div class="col-3">
-        <button type="button" (click)="onSortDirection()" class="btn btn-secondary">
-          <i class="fas" [ngClass]="{'fa-sort-alpha-down': SortDirection === 'asc', 'fa-sort-alpha-up': SortDirection === 'desc'}"></i>
-        </button>
+    <div class="col-6">
+      <div class="row">
+        <label class="col-form-label" style="width: 80px;">Sort by:</label>
+        <div class="col-3">
+          <select [(ngModel)]="SortbyParam" class="form-select" > 
+            <option  value="">--Select--</option>
+            <option  value="city">City</option>
+            <option value="price">Price</option>
+            
+          </select>
+        </div>
+        <div class="col-3">
+          <button type="button" (click)="onSortDirection()" class="btn btn-secondary">
+            <i class="fas" [ngClass]="{'fa-sort-alpha-down': SortDirection === 'asc', 'fa-sort-alpha-up': SortDirection === 'desc'}"></i>
+          </button>
+        </div>
       </div>
     </div>
   </div>
-</div>
-
-
-
-<div class="row" *ngIf="returnedArray ">
-  <div *ngFor="let property2 of returnedArray | filter:SearchCity:'city' | sort:[SortbyParam,SortDirection]  "   class="col-sm-4">
-    <div class="shadow-lg p-3 mb-4">
-      <app-property-card [property2]="property2"></app-property-card>
+  <div class="row" *ngIf="returnedArray ">
+    <div *ngFor="let property2 of returnedArray | filter:SearchCity:'city' | sort:[SortbyParam,SortDirection]  "   class="col-sm-4">
+      <div class="shadow-lg p-3 mb-4">
+        <app-property-card [property2]="property2"></app-property-card>
+      </div>
     </div>
+    <div class="d-flex justify-content-center">
+      <!-- <pagination  *ngIf="returnedArray" [totalItems]="total" [itemsPerPage]="pageNumber" (pageChanged)="pageChanged($event)"></pagination> -->
+      <pagination *ngIf="returnedArray"[boundaryLinks]="true" [totalItems]="total"[itemsPerPage]="pageNumber" (pageChanged)="pageChanged($event)" previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+
+      </pagination>
+    </div>
+  
   </div>
-  <div class="d-flex justify-content-center">
-    <pagination *ngIf="returnedArray" [totalItems]="total" [itemsPerPage]="pageNumber" (pageChanged)="pageChanged($event)"></pagination>
- </div>
- 
-</div>
 
 
 

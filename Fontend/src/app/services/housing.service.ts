@@ -31,6 +31,15 @@ import { IKeyValuePair } from '../model/IKeyValuePair';
     getProperty(id: number){
       return this.http.get<Property>(this.baseUrlPublic+"Property/Details/"+ id?.toString());
     }
+
+    getPropertyView(id: number){
+      return this.http.get<Property>(this.baseUrlPublic+"Property/TopView/"+ id?.toString());
+    }
+
+    getView(property: Property,PropId: number){
+      return this.http.patch<Property>(this.baseUrlPublic+"Property/View/"+ PropId?.toString(),property );
+    }
+    
     getPropertyUpdate(id: number){
       const httpOptions={
         headers: new HttpHeaders({
@@ -44,6 +53,11 @@ import { IKeyValuePair } from '../model/IKeyValuePair';
       return this.http.get<Property[]>(this.baseUrlPublic+"Property/list/"+ SellRent?.toString());
 
     }
+    getAllpropertiesView(): Observable<Property[]> {
+      return this.http.get<Property[]>(this.baseUrlPublic+"Property/TopView");
+
+    }
+
 
 
     getMyproperties(UserName?:string): Observable<Property[]> {

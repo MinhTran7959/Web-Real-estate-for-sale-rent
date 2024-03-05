@@ -7,6 +7,7 @@ import { AltertifyService } from '../services/altertify.service';
   styleUrls: ['./narbar.component.css']
 })
 export class NarbarComponent implements OnInit {
+  public isCollapsed! : boolean;
   loggedinUser!: string | null;
   ShowMyProperty!: boolean;
   userLogged?:string;

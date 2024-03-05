@@ -12,4 +12,5 @@ export interface IPropertyBase {
     photo?: string| null;
     estPossessionOn: string;
     postByName: string;
+    view?: number;
 }

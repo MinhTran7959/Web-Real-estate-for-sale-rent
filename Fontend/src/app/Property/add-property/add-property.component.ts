@@ -43,7 +43,8 @@ export class AddPropertyComponent implements OnInit {
     city: '',
     photo: null,
     estPossessionOn: '',
-    postByName:''
+    postByName:'',
+    view :undefined,
   };
 
 

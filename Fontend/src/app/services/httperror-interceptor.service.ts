@@ -48,7 +48,8 @@ setError(error: HttpErrorResponse): string {
       return error.error.message;
   } else {
       if (error.status === 401) {
-          return "An error occurred. Try logging in again";
+          //return "An error occurred. Try logging in again";
+          return error.error.errorMessage;
       }
 
       const errorMessage = error.error?.errorMessage || error.error || "Unknown error occurred";

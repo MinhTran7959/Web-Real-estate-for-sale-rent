@@ -33,4 +33,5 @@ export class Property implements IPropertyBase {
   email!: string;
   phonenumber!: string;
   otherContactInformation!: string;
+  view? : number;
 }

@@ -37,6 +37,13 @@ CheckLogin!: boolean;
       this.loggedInUserMatchesPostByName= true;
     }
    this.checkLoginUser();
+   this.HousingService.getView(this.property, this.propertyId).subscribe(data => {
+    // Làm gì đó với dữ liệu nhận được
+  }, error => {
+    console.log('httperror:');
+    console.log(error);
+  });
+  
   }
   onSelectNext(){
     this.propertyId +=1;
