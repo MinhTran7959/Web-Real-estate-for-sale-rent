@@ -218,6 +218,74 @@
         }
       }
     },
+    "/api/FavoritesList/FacvoritesList/{name}": {
+      "get": {
+        "tags": [
+          "FavoritesList"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/FavoritesList/AddFacvoritesList/{name}/{proID}": {
+      "post": {
+        "tags": [
+          "FavoritesList"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "proID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/FavoritesList/DeleteFacvoritesList/{FavId}": {
+      "delete": {
+        "tags": [
+          "FavoritesList"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "FavId",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/FurnishingType/List": {
       "get": {
         "tags": [

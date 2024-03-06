@@ -5,9 +5,10 @@ namespace WebAPI.Models
 {
     public class FavoritesList:BaseEntity
     {
+        public int? IdProperty { get; set; }
 
         [ForeignKey("IdProperty")]
-        //public int? IdProperty { get; set; }
         public virtual Property? PropertyList { get; set; }
     }
 }
+//[ForeignKey("IdProperty")]

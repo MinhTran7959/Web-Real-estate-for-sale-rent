@@ -26,9 +26,34 @@ namespace WebAPI.Data.Repo
                 .Include(x => x.PropertyList!.FurnishingType)
                 .Include(x => x.PropertyList!.City)
                 
-               .Where(x =>x.PropertyList!.User!.Name == name)
+               .Where(x =>x.IdProperty == x.PropertyList.Id && x.LastUpdatedBy == user.Id)
               
                .ToListAsync();
         }
+
+
+        public async Task<FavoritesList> AddFavoritesLists(string name, int proID)
+        {
+            var favoritesList = new FavoritesList();
+            var user = await context.Users.FirstOrDefaultAsync(u => u.Name == name);
+            if (user == null) return null;
+            favoritesList.IdProperty = proID;
+            favoritesList.LastUpdatedOn = DateTime.Now;
+            favoritesList.LastUpdatedBy = user.Id;
+
+            await context.favoritesLists.AddAsync(favoritesList);
+            return favoritesList;
+        }
+        public async Task<FavoritesList> DeleteFavoritesLists(int FavId)
+        {
+           
+           
+            var favoritesList = await context.favoritesLists.FirstOrDefaultAsync(x=>x.Id == FavId);
+            if (favoritesList == null) return null;
+             context.favoritesLists.Remove(favoritesList);
+            return favoritesList;
+        }
+
     }
 }
+

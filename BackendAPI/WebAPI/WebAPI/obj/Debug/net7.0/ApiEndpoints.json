@@ -143,6 +143,43 @@
   },
   {
     "ContainingType": "WebAPI.Controllers.FavoritesListController",
+    "Method": "AddFacvoritesList",
+    "RelativePath": "api/FavoritesList/AddFacvoritesList/{name}/{proID}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "proID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.FavoritesListController",
+    "Method": "DeleteFacvoritesList",
+    "RelativePath": "api/FavoritesList/DeleteFacvoritesList/{FavId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "FavId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.FavoritesListController",
     "Method": "Index",
     "RelativePath": "api/FavoritesList/FacvoritesList/{name}",
     "HttpMethod": "GET",
