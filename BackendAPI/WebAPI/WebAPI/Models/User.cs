@@ -15,5 +15,6 @@ namespace WebAPI.Models
         public byte[] Password { get; set; }
 
         public byte[] PasswordKey { get; set; }
+        public virtual ICollection<Property> PropertyList { get; set; } = new List<Property>();
     }
 }

@@ -35,7 +35,11 @@ namespace WebAPI.Models
 
 
         [ForeignKey("User")]
-        public int PostedBy { get; set; }
-        public User User { get; set; }
+        public int PostedBy { get; set; } // Khóa ngoại của người dùng đăng bài
+        public virtual User? User { get; set; }
+
+        public virtual ICollection<FavoritesList> favoritesList { get; set; } = new List<FavoritesList>();
+        
+
     }
 }

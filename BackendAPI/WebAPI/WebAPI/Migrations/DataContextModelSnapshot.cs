@@ -49,6 +49,30 @@ namespace WebAPI.Migrations
                     b.ToTable("Cities");
                 });
 
+            modelBuilder.Entity("WebAPI.Models.FavoritesList", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("IdProperty")
+                        .HasColumnType("int");
+
+                    b.Property<int>("LastUpdatedBy")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("LastUpdatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdProperty");
+
+                    b.ToTable("favoritesLists");
+                });
+
             modelBuilder.Entity("WebAPI.Models.FurnishingType", b =>
                 {
                     b.Property<int>("Id")
@@ -272,6 +296,15 @@ namespace WebAPI.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("WebAPI.Models.FavoritesList", b =>
+                {
+                    b.HasOne("WebAPI.Models.Property", "PropertyList")
+                        .WithMany("favoritesList")
+                        .HasForeignKey("IdProperty");
+
+                    b.Navigation("PropertyList");
+                });
+
             modelBuilder.Entity("WebAPI.Models.Photo", b =>
                 {
                     b.HasOne("WebAPI.Models.Property", "Property")
@@ -298,7 +331,7 @@ namespace WebAPI.Migrations
                         .IsRequired();
 
                     b.HasOne("WebAPI.Models.User", "User")
-                        .WithMany()
+                        .WithMany("PropertyList")
                         .HasForeignKey("PostedBy")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -321,6 +354,13 @@ namespace WebAPI.Migrations
             modelBuilder.Entity("WebAPI.Models.Property", b =>
                 {
                     b.Navigation("Photos");
+
+                    b.Navigation("favoritesList");
+                });
+
+            modelBuilder.Entity("WebAPI.Models.User", b =>
+                {
+                    b.Navigation("PropertyList");
                 });
 #pragma warning restore 612, 618
         }

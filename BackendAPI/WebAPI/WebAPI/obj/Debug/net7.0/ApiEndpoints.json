@@ -142,6 +142,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "WebAPI.Controllers.FavoritesListController",
+    "Method": "Index",
+    "RelativePath": "api/FavoritesList/FacvoritesList/{name}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "WebAPI.Controllers.FurnishingTypeController",
     "Method": "AddFurnishing",
     "RelativePath": "api/FurnishingType/AddFurnishing",

@@ -8,5 +8,7 @@ public interface IUnitOfWork
     IPropertyRepository PropertyRepository { get; }
     IPropertyTypeRepository propertyTypeRepository { get; }
     IFurnishingRepository furnishingRepository { get; }
+    IFavoritesListRepository favoritesListRepository { get; }
+   
     Task<bool> SaveAsync();
 }

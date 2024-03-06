@@ -11,5 +11,6 @@ namespace WebAPI.Data
         public DbSet<Property> properties { get; set; }
         public DbSet<PropertyType> propertyTypes { get; set; }
         public DbSet<FurnishingType> furnishingTypes { get; set; }
+        public DbSet<FavoritesList> favoritesLists { get; set; }
     }
 }
