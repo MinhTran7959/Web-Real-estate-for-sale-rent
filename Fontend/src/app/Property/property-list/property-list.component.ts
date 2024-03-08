@@ -23,13 +23,17 @@ export class PropertyListComponent implements OnInit {
     Today = new Date();
     city = '';
     name='';
+    postByName='';
+    price=''
     SearchCity = '';
     SortbyParam = '';
     SortDirection = 'asc';
     timeout: any;
+    search:any;
     //load
     searching = false;
     dataLoaded = false;
+    Btnclear = false
     //load
     
     contentArray = new Array(6).fill('');
@@ -40,40 +44,45 @@ export class PropertyListComponent implements OnInit {
 
     }
     ngOnInit(): void {
-      if (this.route.snapshot.url.toString()) {
-        this.SellRent = 2; // Means we are on rent-property URL else we are on base URL
-      }
-    
-      this.housingService.getAllproperties(this.SellRent).subscribe(
-          data => {
-            if(data && data.length>0){        
-                this.properties = data;           
-                this.contentArray = this.properties;
-                this.total=  this.contentArray.length;
-                this.returnedArray = this.contentArray.slice(0, this.pageNumber);
-                this.dataLoaded = true;
+            if (this.route.snapshot.url.toString()) {
+              this.SellRent = 2; // Means we are on rent-property URL else we are on base URL
             }
-         else{
-          this.properties= [];
-         }
-        }, error => {
-          console.log('httperror:');
-          console.log(error);
-        }
-      );
-      this.housingService.getAllpropertiesView().subscribe(
-        data => {
-          if(data && data.length>0){
-           this.propertiesView = data; 
-          }
-       else{
-        this.propertiesView= [];
-       }
-      }, error => {
-        console.log('httperror:');
-        console.log(error);
-      }
-    );
+          
+            this.housingService.getAllproperties(this.SellRent).subscribe(
+                data => {
+                  if(data && data.length>0){        
+                      this.properties = data;           
+                      this.contentArray = this.properties;
+                      this.total=  this.contentArray.length;
+                      this.returnedArray = this.contentArray.slice(0, this.pageNumber);
+                      this.dataLoaded = true;
+                      
+                      //console.log(this.returnedArray);
+                  }
+              else{
+                this.properties= [];
+              }
+              }, error => {
+                console.log('httperror:');
+                console.log(error);
+              }
+            );
+            this.housingService.getAllpropertiesView().subscribe(
+              data => {
+                if(data && data.length>0){
+                this.propertiesView = data; 
+                }
+            else{
+              this.propertiesView= [];
+            }
+            }, error => {
+              console.log('httperror:');
+              console.log(error);
+            }
+          );
+
+         
+
     }
     pageChanged(event: PageChangedEvent): void {
       const startItem = (event.page - 1) * event.itemsPerPage;
@@ -87,6 +96,8 @@ export class PropertyListComponent implements OnInit {
 
     onInputChange() {
       this.searching = true; // Bắt đầu tìm kiếm, hiển thị thanh tải
+      
+      this.Btnclear = true;
       if (this.timeout) {
         clearTimeout(this.timeout);
       }
@@ -97,7 +108,8 @@ export class PropertyListComponent implements OnInit {
   
     onCityFilter() {
       // Thực hiện tìm kiếm ở đây
-      this.SearchCity = this.city;
+      this.SearchCity = this.search;
+      
       this.searching = false; // Kết thúc tìm kiếm, ẩn thanh tải
     }
 
@@ -105,7 +117,7 @@ export class PropertyListComponent implements OnInit {
     this.SearchCity = '';
     this.city = '';
     this.name = '';
-
+    this.Btnclear = false;
   }
 
   onSortDirection() {

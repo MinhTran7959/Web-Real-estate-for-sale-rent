@@ -43,3 +43,13 @@
 .animate{
     transition: all 0.3s ease-in-out;
 }
+
+.card-img-top{
+    height: auto;
+    max-width: 383px;
+}
+/* .size_text_all .h .span {
+    font-size: auto; 
+    max-size: 18px; 
+  }
+   */

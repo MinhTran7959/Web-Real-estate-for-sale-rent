@@ -2,77 +2,75 @@
 
 
    
-  <div #pageTop class="row mb-2">
-    <div class="col-6" style="display: contents;"> 
-    <div class="col-3">
-      <input [(ngModel)]="city" class="form-control" (input)="onInputChange()"placeholder="Search City...">
-      
-    </div>
-    <div class="col-3 ">
-
-      <button *ngIf="searching" class="btn btn-light" type="button" disabled>
-        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>    
-      </button>
-
-      <button type="button" (click)="onCityFilter()" class="btn btn-primary ms-2 me-2">
-        <i class="fas fa-search"></i>
-      </button>
-      <button type="button" (click)="onCityFilterClear()" class="btn btn-primary">
-        <i class="fas fa-undo"></i>
-      </button>
-    </div>
-
-  </div>
-    <div class="col-6">
-      <div class="row">
-        <label class="col-form-label" style="width: 80px;">Sort by:</label>
-        <div class="col-3">
-          <select [(ngModel)]="SortbyParam" class="form-select" > 
-            <option  value="">--Select--</option>
-            <option value="view">View</option>
-            <option  value="city">City</option>
-            <option value="price">Price</option>
-           
-          </select>
-        </div>
-        <div class="col-3">
-          <button type="button" (click)="onSortDirection()" class="btn btn-secondary">
-            <i class="fas" [ngClass]="{'fa-sort-alpha-down': SortDirection === 'asc', 'fa-sort-alpha-up': SortDirection === 'desc'}"></i>
-          </button>
-        </div>
+<div #pageTop class="row mb-2 shadow-sm p-3" style="border-radius:30px ; border: solid 1px #74c0fc;" >
+  <div class="col-lg-6 col-md-12">
+    <div class="row">
+      <div class="col-md-6">
+        <input [(ngModel)]="search" class="form-control" (input)="onInputChange()" placeholder="Search City...">
+      </div>
+      <div class="col-md-6">
+        <button *ngIf="searching" class="btn btn-light" type="button" disabled>
+          <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        </button>
+        <button type="button" (click)="onCityFilter()" class="btn btn-primary ms-2">
+          <i class="fas fa-search"></i>
+        </button>
+        <button *ngIf="Btnclear" type="button" (click)="onCityFilterClear()" class="btn btn-danger">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
       </div>
     </div>
   </div>
+  <div class="col-lg-6 col-md-12">
+    <div class="row align-items-center">
+      <label class="col-lg-3 col-md-4 col-form-label">Sort by:</label>
+      <div class="col-lg-3 col-md-4">
+        <select [(ngModel)]="SortbyParam" class="form-select">
+          <option value="">--Select--</option>
+          <option value="view">View</option>
+          <option value="city">City</option>
+          <option value="price">Price</option>
+        </select>
+      </div>
+      <div class="col-lg-3 col-md-4">
+        <button type="button" (click)="onSortDirection()" class="btn btn-secondary">
+          <i class="fas" [ngClass]="{'fa-sort-alpha-down': SortDirection === 'asc', 'fa-sort-alpha-up': SortDirection === 'desc'}"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
   <div class="row" *ngIf="returnedArray">
-    
-    <div *ngFor="let property2 of returnedArray | filter:SearchCity:'city' | sort:[SortbyParam,SortDirection]  "   class="col-sm-4">
-      <div class="shadow-lg p-3 mb-4">
-        <div *ngIf="!dataLoaded">
-          <div class="card" aria-hidden="true" >       
-            <div class="card-body">
-              <h5 class="card-title placeholder-glow">
-                <span class="placeholder col-6"></span>
-              </h5>
-              <p class="card-text placeholder-glow">
-                <span class="placeholder col-7"></span>
-                <span class="placeholder col-4"></span>
-                <span class="placeholder col-4"></span>
-                <span class="placeholder col-6"></span>
-                <span class="placeholder col-8"></span>
-              </p>
-              <a class="btn btn-primary disabled placeholder col-6" aria-disabled="true"></a>
+      <div *ngFor="let property2 of returnedArray | filter:SearchCity:'search' | sort:[SortbyParam,SortDirection]  "   class="col-sm-4">
+        <div class="shadow-lg p-3 mb-4">
+          <div *ngIf="!dataLoaded">
+            <div class="card" aria-hidden="true" >       
+              <div class="card-body">
+                <h5 class="card-title placeholder-glow">
+                  <span class="placeholder col-6"></span>
+                </h5>
+                <p class="card-text placeholder-glow">
+                  <span class="placeholder col-7"></span>
+                  <span class="placeholder col-4"></span>
+                  <span class="placeholder col-4"></span>
+                  <span class="placeholder col-6"></span>
+                  <span class="placeholder col-8"></span>
+                </p>
+                <a class="btn btn-primary disabled placeholder col-6" aria-disabled="true"></a>
+              </div>
             </div>
-          </div>
-        </div>
-        
-
+          </div>       
         <app-property-card *ngIf="properties" [property2]="property2"></app-property-card>
-
+      </div>
+      <div class="row" *ngIf="!returnedArray" >
+        <span class="bg-danger">Not found</span>
       </div>
     </div>
     
     <div class="d-flex justify-content-center">
-      <!-- <pagination  *ngIf="returnedArray" [totalItems]="total" [itemsPerPage]="pageNumber" (pageChanged)="pageChanged($event)"></pagination> -->
+      
       <pagination *ngIf="returnedArray"[boundaryLinks]="true" [totalItems]="total"[itemsPerPage]="pageNumber" (pageChanged)="pageChanged($event)" previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
 
       </pagination>
