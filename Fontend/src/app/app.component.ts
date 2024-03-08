@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'FristApp';
+
+
+  constructor(private router: Router) { }
+
+  isBuyRouteActive(): boolean {
+    return this.router.url === '/'|| this.router.url === '/rent-property';
+     
+  }
+
 }

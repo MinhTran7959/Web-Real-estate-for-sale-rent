@@ -8,7 +8,7 @@ using WebAPI.Interfaces;
 
 namespace WebAPI.Controllers
 {
-   
+    [Authorize]
     public class FavoritesListController : BaseController
     {
        
@@ -22,7 +22,7 @@ namespace WebAPI.Controllers
             _uow = uow;
         }
         [HttpGet("FacvoritesList/{name}")]
-       // [Authorize]
+  
         public async Task< IActionResult> Index( string name)
         {
             var favoritesList = await _uow.favoritesListRepository.GetFavoritesLists(name);
@@ -31,6 +31,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("AddFacvoritesList/{name}/{proID}")]
+        
         public async Task<IActionResult> AddFacvoritesList(string name, int proID)
         {
             var favoritesList = await _uow.favoritesListRepository.AddFavoritesLists(name, proID);

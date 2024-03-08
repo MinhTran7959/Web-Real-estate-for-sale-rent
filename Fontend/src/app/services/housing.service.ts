@@ -55,10 +55,25 @@ import { IKeyValuePair } from '../model/IKeyValuePair';
     }
     getAllpropertiesView(): Observable<Property[]> {
       return this.http.get<Property[]>(this.baseUrlPublic+"Property/TopView");
-
     }
 
+    getFavoritesList(name: string): Observable<Property[]> {
+      const httpOptions={
+        headers: new HttpHeaders({
+          Authorization: 'Bearer '+ localStorage.getItem("token")
+        })
+      };
+      return this.http.get<Property[]>(this.baseUrlPublic+"FavoritesList/FacvoritesList/"+ name ,httpOptions);
+    }
 
+    AddFavoritesList(name: string ,  propId: number): Observable<Property[]> {
+      const httpOptions={
+        headers: new HttpHeaders({
+          Authorization: 'Bearer '+ localStorage.getItem("token")
+        })
+      };
+      return this.http.get<Property[]>(this.baseUrlPublic+"FavoritesList/FacvoritesList/"+ name +'/'+propId ,httpOptions);
+    }
 
     getMyproperties(UserName?:string): Observable<Property[]> {
       const httpOptions={

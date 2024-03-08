@@ -1,7 +1,7 @@
 
-<div class="container-fluid">
-  <ul class="nav-links  navbar-expand-lg">
-    <a class="navbar-brand pe-5" href="#" style="font-size: 30px; font-weight: 700;color: #74c0fc;"> REFSR</a>
+<div class="container-fluid shadow-lg">
+  <ul class="nav-links  navbar-expand-lg sticky-top">
+    <a class="navbar-brand pe-5" href="#" style=" font-weight: 700;color: #74c0fc;"> REFSR</a>
     <button class="navbar-toggler" 
     (click)="isCollapsed = !isCollapsed"type="button" data-bs-toggle="collapse"
      data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,7 +10,7 @@
 
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-5 mb-2 mb-lg-0">
+      <ul class="navbar-nav me-4 mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active" routerLink="/"> Buy</a>
         </li>
@@ -25,6 +25,11 @@
         <li  class="nav-item">
           <a class="nav-link" routerLinkActive="active" routerLink="/myProperty" > My property</a>
         </li>
+
+        <li  class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="/Favorites" > Favorites list</a>
+        </li>
+        
       </ul>
 
           <div class=" collapse navbar-collapse text-black" style="margin-left: 40%;">
@@ -52,6 +57,7 @@
   </div>
 </ul>
 </div>
+
 
 
 

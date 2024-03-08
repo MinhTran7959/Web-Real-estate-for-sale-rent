@@ -11,7 +11,7 @@
           <!-- Email input -->
           <div class="form-outline mb-4">
             <label class="form-label" for="form3Example3">Name</label>
-            <input type="text" id="form3Example3" class="form-control form-control-lg" required ngModel name="name"
+            <input type="text"  [(ngModel)]="account" class="form-control form-control-lg" required ngModel name="name"
               placeholder="Enter a valid name" />
            
           </div>
@@ -19,7 +19,7 @@
           <!-- Password input -->
           <div class="form-outline mb-3">
             <label class="form-label" for="form3Example4">Password</label>
-            <input type="password" id="form3Example4" class="form-control form-control-lg" required ngModel name="password"
+            <input type="password"  [(ngModel)]="password" class="form-control form-control-lg" required ngModel name="password"
               placeholder="Enter password" />
            
           </div>

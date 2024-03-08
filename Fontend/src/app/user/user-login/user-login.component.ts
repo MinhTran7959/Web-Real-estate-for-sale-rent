@@ -17,7 +17,11 @@ export class UserLoginComponent implements OnInit {
                private router: Router         
     ) { }
 
-  ngOnInit() {undefined
+    account!:string;
+    password!: string;
+  ngOnInit() {
+    this.account="Demo";
+    this.password="Demo@123";
   }
   onLogin(loginForm: NgForm ){
     

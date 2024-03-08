@@ -27,10 +27,12 @@ export class PropertyListComponent implements OnInit {
     SortbyParam = '';
     SortDirection = 'asc';
     timeout: any;
-    // eslint-disable-next-line @typescript-eslint/no-inferrable-types
-    searching: boolean = false;
-    //
-    contentArray = new Array(90).fill('');
+    //load
+    searching = false;
+    dataLoaded = false;
+    //load
+    
+    contentArray = new Array(6).fill('');
     returnedArray?: string[];
     total!: number;
     pageNumber=6;
@@ -41,14 +43,15 @@ export class PropertyListComponent implements OnInit {
       if (this.route.snapshot.url.toString()) {
         this.SellRent = 2; // Means we are on rent-property URL else we are on base URL
       }
+    
       this.housingService.getAllproperties(this.SellRent).subscribe(
           data => {
-            if(data && data.length>0){
-             this.properties = data;
-
-             this.contentArray = this.properties;
-             this.total=  this.contentArray.length;
-             this.returnedArray = this.contentArray.slice(0, this.pageNumber);            
+            if(data && data.length>0){        
+                this.properties = data;           
+                this.contentArray = this.properties;
+                this.total=  this.contentArray.length;
+                this.returnedArray = this.contentArray.slice(0, this.pageNumber);
+                this.dataLoaded = true;
             }
          else{
           this.properties= [];

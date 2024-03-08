@@ -1,106 +1,110 @@
-<div class="row">
-  <div class="col-12 m-auto" style="min-width: 380px; max-width: 800px;">
-  <div class="card m-auto shadow-lg">
-    <div class="card-header bg-primary text-white p-2  text-lg-center">
-      Register
-    </div>
-    <div class="card-body ">
-      <form [formGroup]="registerationform" (ngSubmit)="onSubmit()"> 
-        <div class="form-group col-12">
-            <label for="name" class="form-label" >Name</label>
-            <input type="text" class="form-control" formControlName = "name">
-            <span *ngIf="!name.valid && (name.touched|| userSubmited)" class="error-block">
-              Please provide name
-            </span>
+<div class="row mb-2">
+  <div class="col-md-8 m-auto"  style="min-width: 380px; max-width: 800px;">
+      <div class="card m-auto ">
+        <div class="card-header text-lg-center text-white" style="background-color: #74c0fc;">
+          Register
         </div>
-
-        <div class="form-group col-12">
-          <label for="email" class="form-label">Email</label>
-          <input type="email" class="form-control" formControlName = "email">
-          <span *ngIf="!email.valid && (email.touched||userSubmited)" class="error-block">
-            <span *ngIf="email.hasError('required')">
-              Please provide email
-            </span>
-            <span *ngIf="email.hasError('email')">
-              Please provide valid email
-            </span>
-          </span>
-        </div>
-
-        <div class="form-group col-12">
-
-          <label for="passwrod" class="form-label">Password</label>
-            <div class="d-flex align-items-center">
-              <input [type]="show ? 'text' : 'password'" class="form-control" formControlName="password">
-                <button (click)="ShowPassword()" type="button" class="btn btn-info ml-2" 
-                  [innerHTML]="show ? '<i class=\'fa-regular fa-eye\'></i>' : '<i class=\'fa-regular fa-eye-slash\'></i>'">
-                </button>
+        <div class="card-body ">
+          <form [formGroup]="registerationform" (ngSubmit)="onSubmit()"> 
+            <div class="form-group col-12">
+                <label for="name" class="form-label" >Name</label>
+                <input type="text" class="form-control" formControlName = "name">
+                <span *ngIf="!name.valid && (name.touched|| userSubmited)" class="error-block">
+                  Please provide name
+                </span>
             </div>
-          
-          <span *ngIf="!password.valid && (password.touched||userSubmited)" class="error-block">
-            <span *ngIf="password.hasError('required')">
-              Please provide email
-            </span>
-            <span *ngIf="password.errors?.['minlength']">
-              Password should not be lesser than 8 character
-            </span>
-          </span>
 
-        </div>
+            <div class="form-group col-12">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" formControlName = "email">
+              <span *ngIf="!email.valid && (email.touched||userSubmited)" class="error-block">
+                <span *ngIf="email.hasError('required')">
+                  Please provide email
+                </span>
+                <span *ngIf="email.hasError('email')">
+                  Please provide valid email
+                </span>
+              </span>
+            </div>
 
-        <div class="form-group col-12">
-          <label for="cpassword" class="form-label">Confirm Password</label>
-         
-          <div class="d-flex align-items-center">
-            <input [type]="show ? 'text' : 'password'" class="form-control" formControlName="confirmPassword">
-              <button (click)="ShowPassword()" type="button" class="btn btn-info ml-2" 
-                [innerHTML]="show ? '<i class=\'fa-regular fa-eye\'></i>' : '<i class=\'fa-regular fa-eye-slash\'></i>'">
-              </button>
+            <div class="form-group col-12">
+
+              <label for="passwrod" class="form-label">Password</label>
+                <div class="d-flex align-items-center">
+                  <input [type]="show ? 'text' : 'password'" class="form-control" formControlName="password">
+                    <button (click)="ShowPassword()" type="button" class="btn btn-info ml-2" 
+                      [innerHTML]="show ? '<i class=\'fa-regular fa-eye\'></i>' : '<i class=\'fa-regular fa-eye-slash\'></i>'">
+                    </button>
+                </div>
+              
+              <span *ngIf="!password.valid && (password.touched||userSubmited)" class="error-block">
+                <span *ngIf="password.hasError('required')">
+                  Please provide email
+                </span>
+                <span *ngIf="password.errors?.['minlength']">
+                  Password should not be lesser than 8 character
+                </span>
+              </span>
+
+            </div>
+
+            <div class="form-group col-12">
+              <label for="cpassword" class="form-label">Confirm Password</label>
+            
+              <div class="d-flex align-items-center">
+                <input [type]="show ? 'text' : 'password'" class="form-control" formControlName="confirmPassword">
+                  <button (click)="ShowPassword()" type="button" class="btn btn-info ml-2" 
+                    [innerHTML]="show ? '<i class=\'fa-regular fa-eye\'></i>' : '<i class=\'fa-regular fa-eye-slash\'></i>'">
+                  </button>
+              </div>
+
+              <span *ngIf="!confirmPassword.valid && (confirmPassword.touched||userSubmited)" class="error-block">
+                <span *ngIf="confirmPassword.hasError('required')">
+                  Please confirm password
+                </span>
+              </span>
+
+              <span *ngIf=" confirmPassword.valid && registerationform.hasError('notmatched') "class="error-block">
+                Password not matched
+              </span>
+              
+            </div>
+
+            <div class="form-group col-12">
+              <label for="mobile" class="form-label">Mobile</label>
+              <input type="text" class="form-control"formControlName = "phonenumber">
+              <span *ngIf="!phonenumber.valid && (phonenumber.touched||userSubmited)" class="error-block">
+                <span *ngIf="confirmPassword.hasError('required')">
+                  Please confirm mobile
+                </span>
+              </span>
+              <span *ngIf="(phonenumber.errors?.['maxlength'] || phonenumber.errors?.['minlength'] )" class="error-block">
+                Phone number from 10 to 11 digits
+              </span>
+              
+            </div>
+            <div class="form-group col-12">
+              <label for="mobile" class="form-label">other contacts</label>
+              <textarea type="text" class="form-control"formControlName = "otherContactInformation"></textarea>
+
+              <span *ngIf="(otherContactInformation.errors?.['maxlength'] )" class="error-block">
+                Other contacts max length 300
+              </span>
+              
+            </div>
+            <!-- form values:{{registerationform.value | json}}<br/>
+            form starus: {{registerationform.valid}} -->
+
+            <div class="form-group col-12 mt-2 d-flex justify-content-center">
+              <button type="reset" class="btn btn-outline-danger me-5 ">Cancel</button>
+              <button type="submit" class="btn btn-primary me-5">Save</button>
+             
+             
           </div>
-
-          <span *ngIf="!confirmPassword.valid && (confirmPassword.touched||userSubmited)" class="error-block">
-            <span *ngIf="confirmPassword.hasError('required')">
-              Please confirm password
-            </span>
-          </span>
-
-          <span *ngIf=" confirmPassword.valid && registerationform.hasError('notmatched') "class="error-block">
-            Password not matched
-          </span>
           
+          </form>
         </div>
-
-        <div class="form-group col-12">
-          <label for="mobile" class="form-label">Mobile</label>
-          <input type="text" class="form-control"formControlName = "phonenumber">
-          <span *ngIf="!phonenumber.valid && (phonenumber.touched||userSubmited)" class="error-block">
-            <span *ngIf="confirmPassword.hasError('required')">
-              Please confirm mobile
-            </span>
-          </span>
-          <span *ngIf="(phonenumber.errors?.['maxlength'] || phonenumber.errors?.['minlength'] )" class="error-block">
-            Phone number from 10 to 11 digits
-          </span>
-           
-        </div>
-        <div class="form-group col-12">
-          <label for="mobile" class="form-label">other contacts</label>
-          <textarea type="text" class="form-control"formControlName = "otherContactInformation"></textarea>
-
-          <span *ngIf="(otherContactInformation.errors?.['maxlength'] )" class="error-block">
-            Other contacts max length 300
-          </span>
-           
-        </div>
-        <!-- form values:{{registerationform.value | json}}<br/>
-        form starus: {{registerationform.valid}} -->
-
-        <div class="form-group col-12 mt-2 " >
-          <button type="submit" class="btn btn-primary ">Save</button>
-          <button type="reset" class="btn btn-secondary me-2">Cancel</button>
-        </div>
-      </form>
-    </div>
+      </div>
   </div>
-  </div>
+  
 </div>

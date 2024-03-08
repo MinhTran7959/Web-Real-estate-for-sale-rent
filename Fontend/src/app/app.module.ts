@@ -12,7 +12,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { AppComponent } from './app.component';
 import { PropertyCardComponent } from './Property/property-card/property-card.component';
 import { PropertyListComponent } from './Property/property-list/property-list.component';
-import { NarbarComponent } from './narbar/narbar.component';
+
 import { HousingService } from './services/housing.service';
 import { AddPropertyComponent } from './Property/add-property/add-property.component';
 import { PropertyDatailComponent } from './Property/property-datail/property-datail.component';
@@ -32,6 +32,13 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { MyPropertyComponent } from './Property/my-property/my-property.component';
 import { UpdatePropertyComponent } from './Property/update-property/update-property.component';
 import { PropertyDetailResolverService, PropertyUpdateResolverService } from './services/property-details-resolver.service';
+import { FavoritesListComponent } from './Property/Favorites-list/Favorites-list.component';
+import { FootersComponent } from './display/footer/footers/footers.component';
+import { NarbarComponent } from './narbar/narbar.component';
+import { CarouselComponent } from './display/Carousel/Carousel/Carousel.component';
+
+
+
 
 
 const appRoutes: Routes=[
@@ -43,6 +50,7 @@ const appRoutes: Routes=[
   {path: 'user/login' , component: UserLoginComponent},
   {path: 'user/register' , component: UserRegisterComponent},
   {path: 'myProperty' , component: MyPropertyComponent},
+  {path: 'Favorites' , component: FavoritesListComponent},
   {path: 'update-Property/:id' , component: UpdatePropertyComponent
                                 ,resolve: {
                                   prp: PropertyDetailResolverService,
@@ -57,7 +65,6 @@ const appRoutes: Routes=[
     AppComponent,
     PropertyCardComponent,
     PropertyListComponent,
-    NarbarComponent,
     AddPropertyComponent,
     PropertyDatailComponent,
     UserLoginComponent,
@@ -66,7 +73,11 @@ const appRoutes: Routes=[
     SortPipe,
     PhotoEditorComponent,
     MyPropertyComponent,
-    UpdatePropertyComponent
+    UpdatePropertyComponent,
+    FavoritesListComponent,
+    FootersComponent,
+    NarbarComponent,
+    CarouselComponent
    ],
   imports: [
     BrowserModule,
