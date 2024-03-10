@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "D:\\ProjectGit\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\WebAPI\\WebAPI\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{2BA4A0B1-D0C5-4B96-87E3-E95427535468}|WebAPI.csproj|d:\\projectgit\\webapi_angular\\web-real-estate-for-sale-rent\\backendapi\\webapi\\webapi\\service\\photoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BA4A0B1-D0C5-4B96-87E3-E95427535468}|WebAPI.csproj|solutionrelative:service\\photoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{2BA4A0B1-D0C5-4B96-87E3-E95427535468}|WebAPI.csproj|d:\\projectgit\\webapi_angular\\web-real-estate-for-sale-rent\\backendapi\\webapi\\webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{2BA4A0B1-D0C5-4B96-87E3-E95427535468}|WebAPI.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BA4A0B1-D0C5-4B96-87E3-E95427535468}|WebAPI.csproj|d:\\projectgit\\webapi_angular\\web-real-estate-for-sale-rent\\backendapi\\webapi\\webapi\\controllers\\propertycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BA4A0B1-D0C5-4B96-87E3-E95427535468}|WebAPI.csproj|solutionrelative:controllers\\propertycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2BA4A0B1-D0C5-4B96-87E3-E95427535468}|WebAPI.csproj|d:\\projectgit\\webapi_angular\\web-real-estate-for-sale-rent\\backendapi\\webapi\\webapi\\controllers\\favoriteslistcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -23,10 +31,6 @@
       "RelativeMoniker": "D:0:0:{2BA4A0B1-D0C5-4B96-87E3-E95427535468}|WebAPI.csproj|solutionrelative:helpers\\automapperprofiles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2BA4A0B1-D0C5-4B96-87E3-E95427535468}|WebAPI.csproj|d:\\projectgit\\webapi_angular\\web-real-estate-for-sale-rent\\backendapi\\webapi\\webapi\\controllers\\propertycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2BA4A0B1-D0C5-4B96-87E3-E95427535468}|WebAPI.csproj|solutionrelative:controllers\\propertycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{2BA4A0B1-D0C5-4B96-87E3-E95427535468}|WebAPI.csproj|d:\\projectgit\\webapi_angular\\web-real-estate-for-sale-rent\\backendapi\\webapi\\webapi\\models\\favoriteslist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2BA4A0B1-D0C5-4B96-87E3-E95427535468}|WebAPI.csproj|solutionrelative:models\\favoriteslist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -38,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,20 +58,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\ProjectGit\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\WebAPI\\WebAPI\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
               "ToolTip": "D:\\ProjectGit\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\WebAPI\\WebAPI\\appsettings.json",
               "RelativeToolTip": "appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-03-08T15:46:48.148Z",
+              "WhenOpened": "2024-03-10T09:29:13.336Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
+              "Title": "PhotoService.cs",
+              "DocumentMoniker": "D:\\ProjectGit\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\WebAPI\\WebAPI\\Service\\PhotoService.cs",
+              "RelativeDocumentMoniker": "Service\\PhotoService.cs",
+              "ToolTip": "D:\\ProjectGit\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\WebAPI\\WebAPI\\Service\\PhotoService.cs",
+              "RelativeToolTip": "Service\\PhotoService.cs",
+              "ViewState": "AQIAABsAAAAAAAAAAAAYwCkAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-10T09:26:08.859Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "FavoritesList.cs",
               "DocumentMoniker": "D:\\ProjectGit\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\WebAPI\\WebAPI\\Models\\FavoritesList.cs",
               "RelativeDocumentMoniker": "Models\\FavoritesList.cs",
@@ -75,11 +92,12 @@
               "RelativeToolTip": "Models\\FavoritesList.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-06T09:31:38.338Z"
+              "WhenOpened": "2024-03-06T09:31:38.338Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "IFavoritesListRepository.cs",
               "DocumentMoniker": "D:\\ProjectGit\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\WebAPI\\WebAPI\\Interfaces\\IFavoritesListRepository.cs",
               "RelativeDocumentMoniker": "Interfaces\\IFavoritesListRepository.cs",
@@ -87,11 +105,12 @@
               "RelativeToolTip": "Interfaces\\IFavoritesListRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAA1AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-06T08:01:17.806Z"
+              "WhenOpened": "2024-03-06T08:01:17.806Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "AutoMapperProfiles.cs",
               "DocumentMoniker": "D:\\ProjectGit\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\WebAPI\\WebAPI\\Helpers\\AutoMapperProfiles.cs",
               "RelativeDocumentMoniker": "Helpers\\AutoMapperProfiles.cs",
@@ -99,11 +118,12 @@
               "RelativeToolTip": "Helpers\\AutoMapperProfiles.cs",
               "ViewState": "AQIAAA4AAAAAAAAAAAAAwBwAAABRAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-06T05:28:37.6Z"
+              "WhenOpened": "2024-03-06T05:28:37.6Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "FavoritesListReporitory.cs",
               "DocumentMoniker": "D:\\ProjectGit\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\WebAPI\\WebAPI\\Data\\Repo\\FavoritesListReporitory.cs",
               "RelativeDocumentMoniker": "Data\\Repo\\FavoritesListReporitory.cs",
@@ -111,11 +131,12 @@
               "RelativeToolTip": "Data\\Repo\\FavoritesListReporitory.cs",
               "ViewState": "AQIAACMAAAAAAAAAAAAAwDgAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-06T04:15:00.029Z"
+              "WhenOpened": "2024-03-06T04:15:00.029Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "FavoritesListController.cs",
               "DocumentMoniker": "D:\\ProjectGit\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\WebAPI\\WebAPI\\Controllers\\FavoritesListController.cs",
               "RelativeDocumentMoniker": "Controllers\\FavoritesListController.cs",
@@ -128,15 +149,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "PropertyController.cs",
               "DocumentMoniker": "D:\\ProjectGit\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\WebAPI\\WebAPI\\Controllers\\PropertyController.cs",
               "RelativeDocumentMoniker": "Controllers\\PropertyController.cs",
               "ToolTip": "D:\\ProjectGit\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\WebAPI\\WebAPI\\Controllers\\PropertyController.cs",
               "RelativeToolTip": "Controllers\\PropertyController.cs",
-              "ViewState": "AQIAABMAAAAAAAAAAAAzwCEAAAAcAAAA",
+              "ViewState": "AQIAAM0AAAAAAAAAAAAcwCIAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-03T07:42:23.677Z"
+              "WhenOpened": "2024-03-03T07:42:23.677Z",
+              "EditorCaption": ""
             }
           ]
         }
