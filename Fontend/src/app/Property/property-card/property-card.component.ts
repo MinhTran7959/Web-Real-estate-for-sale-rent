@@ -14,5 +14,13 @@ import { Property } from "src/app/model/property";
 export class PropertyCardComponent{
     @Input() property2! : IPropertyBase | Property ;
     @Input() hideIcons! : boolean ;
+    loggedInUserMatchesPostByName= false;
 
+    ngOnInit() {
+        const nameUserLogged = localStorage.getItem('userName');
+        if(this.property2.postByName === nameUserLogged){
+          this.loggedInUserMatchesPostByName= true;
+        }
+    
+    }
 }
