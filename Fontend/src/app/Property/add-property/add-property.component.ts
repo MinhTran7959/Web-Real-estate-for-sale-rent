@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { DatePipe } from '@angular/common';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { TabsetComponent } from 'ngx-bootstrap/tabs';
 import { IKeyValuePair } from 'src/app/model/IKeyValuePair';
 import { IPropertyBase } from 'src/app/model/ipropertyBase';
@@ -17,13 +19,13 @@ import { HousingService } from 'src/app/services/housing.service';
 })
 export class AddPropertyComponent implements OnInit {
 
-
-    @ViewChild('formTabs') formTabs?: TabsetComponent;
+  @ViewChild('template') template!: TemplateRef<any>;
+  @ViewChild('formTabs') formTabs?: TabsetComponent;
     // @ViewChild('Form') addPropertyForm!: NgForm;
     addPropertyForm!: FormGroup;
     nextClicked!: boolean;
     property = new Property();
-
+    modalRef?: BsModalRef;
   // will come form master
   propertyType! : IKeyValuePair[] ;
   furnishType!: IKeyValuePair[];
@@ -53,28 +55,45 @@ export class AddPropertyComponent implements OnInit {
                ,private housingServe: HousingService
                ,private alertify: AltertifyService
                , private datePipe: DatePipe
+               ,private modalService: BsModalService
               ) { }
 
   ngOnInit() {
-    if(!localStorage.getItem('userName')){
-      this.alertify.error('You must be looged in to add aproperty');
-      this.route.navigate(['/user/login'])
-    }
-    this.createAddPropertyForm();
-    this.housingServe.getAllCities().subscribe(data=>{
-      // console.log(data);
-      this.cityList = data;
-    });
 
-    this.housingServe.getPropertyType().subscribe(data=>{
-      this.propertyType= data;
-    })
+      if(!localStorage.getItem('userName')){
+        this.alertify.error('You must be looged in to add aproperty');
+        this.route.navigate(['/user/login'])
+      }
 
-    this.housingServe.getFurnishingType().subscribe(data=>{
-      this.furnishType= data;
-    })
+    
+      setTimeout(() => {
+
+        this.openModal();
+          setTimeout(() => {
+  
+            this.closeModal();
+            
+            }, 200); 
+        }, 100); 
+       
+         this.createAddPropertyForm();
+        this.housingServe.getAllCities().subscribe(data=>{
+          // console.log(data);
+          this.cityList = data;
+        });
+    
+        this.housingServe.getPropertyType().subscribe(data=>{
+          this.propertyType= data;
+        })
+    
+        this.housingServe.getFurnishingType().subscribe(data=>{
+          this.furnishType= data;
+        })
+        this.scrollToTop();
   }
-
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
   createAddPropertyForm(){
       this.addPropertyForm= this.fb.group({
         BasicInfo: this.fb.group({
@@ -109,6 +128,7 @@ export class AddPropertyComponent implements OnInit {
         Description: [null]
       })
       });
+      
   }
 
 //#region <Getter Methods>
@@ -312,6 +332,11 @@ export class AddPropertyComponent implements OnInit {
       this.formTabs.tabs[tabId].active = true;
     }
   }
-  
+  openModal() {
+    this.modalRef = this.modalService.show(this.template);
+}
+closeModal() {
+  this.modalRef?.hide(); // Không cần truyền tham chiếu đến template
+}
 
 }

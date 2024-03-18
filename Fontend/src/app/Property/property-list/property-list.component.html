@@ -1,8 +1,20 @@
 <!-- eslint-disable @angular-eslint/template/eqeqeq -->
 
 
-   
-<div #pageTop class="row mb-2 shadow-sm p-3" style="border-radius:30px ; border: solid 1px #74c0fc;" >
+
+ 
+<ng-template #template >
+    <div class="modal-header" style="display: contents;">
+      <button class="btn btn-primary" type="button" disabled style="width: 100%;">
+        <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+        <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+        <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+        <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+      </button>
+  </div>
+</ng-template>
+
+<div #pageTop class="row mb-2 shadow-sm p-3" style="border-radius:26px ; border: solid 1px #74c0fc;" >
   <div class="col-lg-6 col-md-12">
     <div class="row">
       <div class="col-md-6">

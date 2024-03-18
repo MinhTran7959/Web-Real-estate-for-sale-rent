@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // import { HttpClient} from '@angular/common/http';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { HousingService } from '../../services/housing.service';
 import { ActivatedRoute } from '@angular/router';
 import { IPropertyBase } from 'src/app/model/ipropertyBase';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 
 
@@ -15,8 +16,9 @@ import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 })
 
 export class PropertyListComponent implements OnInit {
-
+  @ViewChild('template') template!: TemplateRef<any>;
   @ViewChild('pageTop') pageTop: any;
+  modalRef?: BsModalRef;
     SellRent=1;
     properties?: IPropertyBase[];
     propertiesView?: IPropertyBase[];
@@ -40,24 +42,33 @@ export class PropertyListComponent implements OnInit {
     returnedArray?: string[];
     total!: number;
     pageNumber=6;
-    constructor( private route:ActivatedRoute, private housingService: HousingService){
+    constructor( private route:ActivatedRoute, private housingService: HousingService,private modalService: BsModalService){
 
     }
     ngOnInit(): void {
+      
+       
             if (this.route.snapshot.url.toString()) {
               this.SellRent = 2; // Means we are on rent-property URL else we are on base URL
             }
           
             this.housingService.getAllproperties(this.SellRent).subscribe(
                 data => {
-                  if(data && data.length>0){        
+                  if(data && data.length>0){    
+                    this.openModal();
+                    setTimeout(() => {
                       this.properties = data;           
                       this.contentArray = this.properties;
                       this.total=  this.contentArray.length;
                       this.returnedArray = this.contentArray.slice(0, this.pageNumber);
                       this.dataLoaded = true;
-                      
+                      this.closeModal();
+                      if (this.pageTop && this.SellRent == 2) {
+                        this.pageTop.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start'});
+                      }
                       //console.log(this.returnedArray);
+                    }, 500); // Mở modal sau 0.5 giây    
+                      
                   }
               else{
                 this.properties= [];
@@ -126,5 +137,12 @@ export class PropertyListComponent implements OnInit {
     } else {
       this.SortDirection = 'desc';
     }
+  }
+
+    openModal() {
+      this.modalRef = this.modalService.show(this.template);
+  }
+  closeModal() {
+    this.modalRef?.hide(); // Không cần truyền tham chiếu đến template
   }
 }

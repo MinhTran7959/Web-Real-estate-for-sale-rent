@@ -93,7 +93,8 @@ const appRoutes: Routes=[
     ModalModule.forRoot(),
     CarouselModule.forRoot(),
     FileUploadModule,
-    PaginationModule.forRoot()
+    PaginationModule.forRoot(),
+    ModalModule.forRoot(),
   ],
   providers: [
     {

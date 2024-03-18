@@ -11,6 +11,7 @@ export class NarbarComponent implements OnInit {
   loggedinUser!: string | null;
   ShowMyProperty!: boolean;
   userLogged?:string;
+  dataLoaded? = false;
   constructor(private alter: AltertifyService) { }
   // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method, @typescript-eslint/no-empty-function
   ngOnInit(){
@@ -18,6 +19,7 @@ export class NarbarComponent implements OnInit {
     const userLogged= localStorage.getItem('userName');
     if(userLogged != null){ this.userLogged = userLogged}
     else{this.userLogged=''}
+    this.loadData();
   }
 
   login() {
@@ -29,5 +31,11 @@ export class NarbarComponent implements OnInit {
     localStorage.removeItem('token');
     this.alter.warning("Logged out!!");
     window.location.reload();
+  }
+  loadData() {
+    // Hãy thay thế dòng dưới đây bằng các logic tải dữ liệu thực tế
+    setTimeout(() => {
+      this.dataLoaded = true; // Đánh dấu rằng dữ liệu đã được tải xong
+    }, 2000); // Giả định việc tải dữ liệu mất 2 giây
   }
 }

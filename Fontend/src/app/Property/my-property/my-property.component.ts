@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-inferrable-types */
 import { Router } from '@angular/router';
 import { AltertifyService } from 'src/app/services/altertify.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HousingService } from '../../services/housing.service';
 import { IPropertyBase } from 'src/app/model/ipropertyBase';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
@@ -13,6 +14,7 @@ import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 })
 
 export class MyPropertyComponent implements OnInit {
+  @ViewChild('pageTop') pageTop: any;
   UserNameLogged!: string |null; 
   properties?: IPropertyBase[];
   //list
@@ -48,7 +50,10 @@ export class MyPropertyComponent implements OnInit {
 
             this.contentArray = this.properties;
             this.total=  this.contentArray.length;
-            this.returnedArray = this.contentArray.slice(0, this.pageNumber);            
+            this.returnedArray = this.contentArray.slice(0, this.pageNumber);   
+            if (this.pageTop ) {
+              this.pageTop.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start'});
+            }         
            }
             else{
             this.properties= [];

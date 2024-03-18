@@ -1,15 +1,27 @@
 <!-- eslint-disable @angular-eslint/template/eqeqeq -->
-<div class="row mb-5">
+<!-- <button type="button" class="btn btn-primary" (click)="openModal()">Create template modal</button> -->
+<ng-template #template >
+  <div class="modal-header" style="display: contents;">
+    <button class="btn btn-primary" type="button" disabled style="width: 100%;">
+      <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+      <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+      <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+      <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+    </button>
+</div>
+</ng-template>
+
+<div  class="row mb-5">
   <div class="col-12 col-lg-8 shadow-lg bg-white p-0">
     <div class="card">
-      <div class="card-header text-white" style="background-color: #5169d4;">
+      <div  class="card-header text-white" style="background-color: #5169d4;">
 
         <h3>List your Property</h3>
       </div>
       <div class="card-body">
         <form (ngSubmit)='onSubmit()' [formGroup]="addPropertyForm">
           <div>
-            <tabset class="member-tabset" #formTabs>
+            <tabset   class="member-tabset" #formTabs>
               <tab formGroupName="BasicInfo">
                 <ng-template tabHeading>
                   <span class="badge badge-secondary bg-info fs-5">Basic Info</span>

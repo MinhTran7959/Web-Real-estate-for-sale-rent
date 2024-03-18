@@ -1,5 +1,5 @@
 <!-- eslint-disable @angular-eslint/template/eqeqeq -->
-<div class="row mb-2">
+<div class="row mb-2 p-3"style="border-radius:26px ; border: solid 1px #74c0fc;">
   <div class="col-6" style="display: contents;"> 
   <div class="col-3">
     <input [(ngModel)]="city" class="form-control" (input)="onInputChange()"placeholder="Search City...">
@@ -20,7 +20,7 @@
   </div>
 
 </div>
-  <div class="col-6">
+  <div   class="col-6">
     <div class="row">
       <label class="col-form-label" style="width: 80px;">Sort by:</label>
       <div class="col-3">
@@ -41,7 +41,7 @@
 
 
 
-<div class="row" *ngIf="returnedArray ">
+<div  #pageTop class="row" *ngIf="returnedArray " >
   <div *ngFor="let property2 of returnedArray | filter:SearchCity:'city' | sort:[SortbyParam,SortDirection]  "   class="col-sm-4">
     <div class="shadow-lg p-3 mb-4">
       <app-property-card [property2]="property2"></app-property-card>
