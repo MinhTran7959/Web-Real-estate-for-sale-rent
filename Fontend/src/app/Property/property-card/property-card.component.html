@@ -1,7 +1,7 @@
 
 <div class="card size_text_all">    
     <div class="card-img-wrapper">
-        <img *ngIf="property2.photo" class="card-img-top" src="{{property2.photo}}">
+        <img loading="lazy" *ngIf="property2.photo" class="card-img-top" src="{{property2.photo}}">
         <img *ngIf="!property2.photo" class="card-img-top" src="assets/Images/house_default.png">
 
         <ul  class="list-inline text-center member-icon animate">

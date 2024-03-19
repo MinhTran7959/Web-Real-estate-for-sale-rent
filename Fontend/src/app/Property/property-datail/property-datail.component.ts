@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Property } from 'src/app/model/property';
@@ -23,27 +24,31 @@ CheckLogin!: boolean;
                ) { }
 
   ngOnInit() {
-    this.loggedInUserMatchesPostByName= false;
-    this.propertyId= +this.route.snapshot.params['id'];
-    this.route.data.subscribe(
-      (data) => {
-        this.property = data['prp'];
-     
-    });
-    this.property.age = this.HousingService.getPropertyAge(this.property.estPossessionOn);
-    
-    const nameUserLogged = localStorage.getItem('userName');
-    if(this.property.postByName === nameUserLogged){
-      this.loggedInUserMatchesPostByName= true;
-    }
-   this.checkLoginUser();
-   this.HousingService.getView(this.property, this.propertyId).subscribe(data => {
-    // Làm gì đó với dữ liệu nhận được
-  }, error => {
-    console.log('httperror:');
-    console.log(error);
-  });
-  
+        this.loggedInUserMatchesPostByName= false;
+        this.propertyId= +this.route.snapshot.params['id'];
+        this.route.data.subscribe(
+          (data) => {
+            this.property = data['prp'];
+        
+        });
+        this.property.age = this.HousingService.getPropertyAge(this.property.estPossessionOn);
+        
+        const nameUserLogged = localStorage.getItem('userName');
+        if(this.property.postByName === nameUserLogged){
+          this.loggedInUserMatchesPostByName= true;
+        }
+      this.checkLoginUser();
+      this.HousingService.getView(this.property, this.propertyId).subscribe(data => {
+        // Làm gì đó với dữ liệu nhận được
+      }, error => {
+        console.log('httperror:');
+        console.log(error);
+      });
+      this.scrollToTop();
+  }
+
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
   onSelectNext(){
     this.propertyId +=1;
