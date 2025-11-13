@@ -242,3 +242,7 @@ D:\ProjectGit\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\Web
 D:\ProjectGit\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\WebAPI\obj\Debug\net7.0\WebAPI.pdb
 D:\ProjectGit\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\WebAPI\obj\Debug\net7.0\WebAPI.genruntimeconfig.cache
 D:\ProjectGit\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\WebAPI\obj\Debug\net7.0\ref\WebAPI.dll
+D:\ProjectGit\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\WebAPI\bin\Debug\net7.0\WebAPI.staticwebassets.endpoints.json
+D:\ProjectGit\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\WebAPI\obj\Debug\net7.0\staticwebassets.build.endpoints.json
+D:\ProjectGit\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\WebAPI\obj\Debug\net7.0\staticwebassets\msbuild.WebAPI.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+D:\ProjectGit\WebApi_Angular\Web-Real-estate-for-sale-rent\BackendAPI\WebAPI\WebAPI\obj\Debug\net7.0\staticwebassets.upToDateCheck.txt

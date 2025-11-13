@@ -6250,7 +6250,8 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Minh7959\\.nuget\\packages\\": {}
+    "C:\\Users\\minht\\.nuget\\packages\\": {},
+    "D:\\VisualStudio\\Shares\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
@@ -6258,11 +6259,15 @@
       "projectUniqueName": "D:\\ProjectGit\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\WebAPI\\WebAPI\\WebAPI.csproj",
       "projectName": "WebAPI",
       "projectPath": "D:\\ProjectGit\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\WebAPI\\WebAPI\\WebAPI.csproj",
-      "packagesPath": "C:\\Users\\Minh7959\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\minht\\.nuget\\packages\\",
       "outputPath": "D:\\ProjectGit\\WebApi_Angular\\Web-Real-estate-for-sale-rent\\BackendAPI\\WebAPI\\WebAPI\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "D:\\VisualStudio\\Shares\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Minh7959\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\minht\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6270,6 +6275,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -6287,7 +6293,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net7.0": {
@@ -6357,7 +6364,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

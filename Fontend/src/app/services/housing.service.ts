@@ -12,32 +12,32 @@ import { IKeyValuePair } from '../model/IKeyValuePair';
 
     constructor(private http:HttpClient) { }
     baseUrl = environment.baseUrl;
-    baseUrlPublic = environmentPublic.baseUrl;
-
+    //baseUrl = environmentPublic.baseUrl;
+    baseUrlPublic =environment.baseUrl;
     getAllCities(): Observable<string[]> {
-      return this.http.get<string[]>(this.baseUrlPublic+'Citys/GetCity') as Observable<string[]>;
+      return this.http.get<string[]>(this.baseUrl+'Citys/GetCity') as Observable<string[]>;
       //
     }
 
     getPropertyType(): Observable<IKeyValuePair[]> {
-      return this.http.get<IKeyValuePair[]>(this.baseUrlPublic+'PropertyType/List') as Observable<IKeyValuePair[]>;
+      return this.http.get<IKeyValuePair[]>(this.baseUrl+'PropertyType/List') as Observable<IKeyValuePair[]>;
       //
     }
     getFurnishingType(): Observable<IKeyValuePair[]> {
-      return this.http.get<IKeyValuePair[]>(this.baseUrlPublic+'FurnishingType/List') as Observable<IKeyValuePair[]>;
+      return this.http.get<IKeyValuePair[]>(this.baseUrl+'FurnishingType/List') as Observable<IKeyValuePair[]>;
       //
     }
 
     getProperty(id: number){
-      return this.http.get<Property>(this.baseUrlPublic+"Property/Details/"+ id?.toString());
+      return this.http.get<Property>(this.baseUrl+"Property/Details/"+ id?.toString());
     }
 
     getPropertyView(id: number){
-      return this.http.get<Property>(this.baseUrlPublic+"Property/TopView/"+ id?.toString());
+      return this.http.get<Property>(this.baseUrl+"Property/TopView/"+ id?.toString());
     }
 
     getView(property: Property,PropId: number){
-      return this.http.patch<Property>(this.baseUrlPublic+"Property/View/"+ PropId?.toString(),property );
+      return this.http.patch<Property>(this.baseUrl+"Property/View/"+ PropId?.toString(),property );
     }
     
     getPropertyUpdate(id: number){
@@ -46,15 +46,15 @@ import { IKeyValuePair } from '../model/IKeyValuePair';
           Authorization: 'Bearer '+ localStorage.getItem("token")
         })
       };
-      return this.http.get<Property>(this.baseUrlPublic+"Property/DetailsUpdate/"+ id?.toString(),httpOptions);
+      return this.http.get<Property>(this.baseUrl+"Property/DetailsUpdate/"+ id?.toString(),httpOptions);
     }
     
     getAllproperties(SellRent?:number): Observable<Property[]> {
-      return this.http.get<Property[]>(this.baseUrlPublic+"Property/list/"+ SellRent?.toString());
+      return this.http.get<Property[]>(this.baseUrl+"Property/list/"+ SellRent?.toString());
 
     }
     getAllpropertiesView(): Observable<Property[]> {
-      return this.http.get<Property[]>(this.baseUrlPublic+"Property/TopView");
+      return this.http.get<Property[]>(this.baseUrl+"Property/TopView");
     }
 
     getFavoritesList(name: string): Observable<Property[]> {
@@ -63,7 +63,7 @@ import { IKeyValuePair } from '../model/IKeyValuePair';
           Authorization: 'Bearer '+ localStorage.getItem("token")
         })
       };
-      return this.http.get<Property[]>(this.baseUrlPublic+"FavoritesList/FacvoritesList/"+ name ,httpOptions);
+      return this.http.get<Property[]>(this.baseUrl+"FavoritesList/FacvoritesList/"+ name ,httpOptions);
     }
 
     AddFavoritesList(name: string ,  propId: number): Observable<Property[]> {
@@ -72,7 +72,7 @@ import { IKeyValuePair } from '../model/IKeyValuePair';
           Authorization: 'Bearer '+ localStorage.getItem("token")
         })
       };
-      return this.http.get<Property[]>(this.baseUrlPublic+"FavoritesList/FacvoritesList/"+ name +'/'+propId ,httpOptions);
+      return this.http.get<Property[]>(this.baseUrl+"FavoritesList/FacvoritesList/"+ name +'/'+propId ,httpOptions);
     }
 
     getMyproperties(UserName?:string): Observable<Property[]> {
@@ -81,7 +81,7 @@ import { IKeyValuePair } from '../model/IKeyValuePair';
           Authorization: 'Bearer '+ localStorage.getItem("token")
         })
       };
-      return this.http.get<Property[]>(this.baseUrlPublic+"Property/MyProperty/"+ UserName?.toString(),httpOptions);
+      return this.http.get<Property[]>(this.baseUrl+"Property/MyProperty/"+ UserName?.toString(),httpOptions);
      
     }
 
@@ -93,7 +93,7 @@ import { IKeyValuePair } from '../model/IKeyValuePair';
           Authorization: 'Bearer '+ localStorage.getItem("token")
         })
       };
-      return this.http.post<Property[]>(this.baseUrlPublic+"Property/Add ", property, httpOptions);
+      return this.http.post<Property[]>(this.baseUrl+"Property/Add ", property, httpOptions);
     }
 
     updateProperty(property: Property , propertyId: number){
@@ -102,7 +102,7 @@ import { IKeyValuePair } from '../model/IKeyValuePair';
           Authorization: 'Bearer '+ localStorage.getItem("token")
         })
       };
-      return this.http.put<Property[]>(this.baseUrlPublic+"Property/Update/"+propertyId, property, httpOptions);
+      return this.http.put<Property[]>(this.baseUrl+"Property/Update/"+propertyId, property, httpOptions);
     }
     getPropertyAge(dateofestablishment: Date | string | undefined): string {
       if (!dateofestablishment) {
@@ -140,7 +140,7 @@ import { IKeyValuePair } from '../model/IKeyValuePair';
           Authorization: 'Bearer '+ localStorage.getItem("token")
         })
       };
-      return this.http.post(this.baseUrlPublic+"Property/set-primary-photo/"+ propertyId+"/"+ propertyPhotoId, {},httpOptions )
+      return this.http.post(this.baseUrl+"Property/set-primary-photo/"+ propertyId+"/"+ propertyPhotoId, {},httpOptions )
     }
 
     deletePhoto(propertyId: number , propertyPhotoId : string){
@@ -149,6 +149,6 @@ import { IKeyValuePair } from '../model/IKeyValuePair';
           Authorization: 'Bearer '+ localStorage.getItem("token")
         })
       };
-      return this.http.delete(this.baseUrlPublic+"Property/delete-photo/"+ propertyId+"/"+ propertyPhotoId, httpOptions )
+      return this.http.delete(this.baseUrl+"Property/delete-photo/"+ propertyId+"/"+ propertyPhotoId, httpOptions )
     }
   }

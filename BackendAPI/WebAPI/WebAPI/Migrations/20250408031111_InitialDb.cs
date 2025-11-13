@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace WebAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class updateModel : Migration
+    public partial class InitialDb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -64,6 +64,9 @@ namespace WebAPI.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Phonenumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    OtherContactInformation = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: true),
                     Password = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
                     PasswordKey = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
                     LastUpdatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -89,18 +92,19 @@ namespace WebAPI.Migrations
                     BuiltArea = table.Column<int>(type: "int", nullable: false),
                     CityId = table.Column<int>(type: "int", nullable: false),
                     ReadyToMove = table.Column<bool>(type: "bit", nullable: false),
-                    CarpetArea = table.Column<int>(type: "int", nullable: false),
-                    Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Address2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    FloorNo = table.Column<int>(type: "int", nullable: false),
-                    TotalFloors = table.Column<int>(type: "int", nullable: false),
-                    MainEntrance = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Security = table.Column<int>(type: "int", nullable: false),
-                    Gated = table.Column<bool>(type: "bit", nullable: false),
-                    Maintenance = table.Column<int>(type: "int", nullable: false),
-                    EstPossessionOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Age = table.Column<int>(type: "int", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CarpetArea = table.Column<int>(type: "int", nullable: true),
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Address2 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FloorNo = table.Column<int>(type: "int", nullable: true),
+                    TotalFloors = table.Column<int>(type: "int", nullable: true),
+                    MainEntrance = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Security = table.Column<int>(type: "int", nullable: true),
+                    Gated = table.Column<bool>(type: "bit", nullable: true),
+                    Maintenance = table.Column<int>(type: "int", nullable: true),
+                    EstPossessionOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    Age = table.Column<int>(type: "int", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    View = table.Column<int>(type: "int", nullable: true),
                     PostedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     PostedBy = table.Column<int>(type: "int", nullable: false),
                     LastUpdatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -136,11 +140,32 @@ namespace WebAPI.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "favoritesLists",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    IdProperty = table.Column<int>(type: "int", nullable: true),
+                    LastUpdatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    LastUpdatedBy = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_favoritesLists", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_favoritesLists_properties_IdProperty",
+                        column: x => x.IdProperty,
+                        principalTable: "properties",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Photos",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    PublicId = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsPrimary = table.Column<bool>(type: "bit", nullable: false),
                     PropertyId = table.Column<int>(type: "int", nullable: false),
@@ -157,6 +182,11 @@ namespace WebAPI.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_favoritesLists_IdProperty",
+                table: "favoritesLists",
+                column: "IdProperty");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Photos_PropertyId",
@@ -187,6 +217,9 @@ namespace WebAPI.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "favoritesLists");
+
             migrationBuilder.DropTable(
                 name: "Photos");
 

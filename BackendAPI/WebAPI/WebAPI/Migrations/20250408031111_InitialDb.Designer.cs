@@ -12,8 +12,8 @@ using WebAPI.Data;
 namespace WebAPI.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240222033015_update_model_photo")]
-    partial class update_model_photo
+    [Migration("20250408031111_InitialDb")]
+    partial class InitialDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -50,6 +50,30 @@ namespace WebAPI.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Cities");
+                });
+
+            modelBuilder.Entity("WebAPI.Models.FavoritesList", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("IdProperty")
+                        .HasColumnType("int");
+
+                    b.Property<int>("LastUpdatedBy")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("LastUpdatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdProperty");
+
+                    b.ToTable("favoritesLists");
                 });
 
             modelBuilder.Entity("WebAPI.Models.FurnishingType", b =>
@@ -194,6 +218,9 @@ namespace WebAPI.Migrations
                     b.Property<int?>("TotalFloors")
                         .HasColumnType("int");
 
+                    b.Property<int?>("View")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CityId");
@@ -238,6 +265,10 @@ namespace WebAPI.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("LastUpdatedBy")
                         .HasColumnType("int");
 
@@ -248,6 +279,10 @@ namespace WebAPI.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("OtherContactInformation")
+                        .HasMaxLength(300)
+                        .HasColumnType("nvarchar(300)");
+
                     b.Property<byte[]>("Password")
                         .IsRequired()
                         .HasColumnType("varbinary(max)");
@@ -256,9 +291,21 @@ namespace WebAPI.Migrations
                         .IsRequired()
                         .HasColumnType("varbinary(max)");
 
+                    b.Property<string>("Phonenumber")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("WebAPI.Models.FavoritesList", b =>
+                {
+                    b.HasOne("WebAPI.Models.Property", "PropertyList")
+                        .WithMany("favoritesList")
+                        .HasForeignKey("IdProperty");
+
+                    b.Navigation("PropertyList");
                 });
 
             modelBuilder.Entity("WebAPI.Models.Photo", b =>
@@ -287,7 +334,7 @@ namespace WebAPI.Migrations
                         .IsRequired();
 
                     b.HasOne("WebAPI.Models.User", "User")
-                        .WithMany()
+                        .WithMany("PropertyList")
                         .HasForeignKey("PostedBy")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -310,6 +357,13 @@ namespace WebAPI.Migrations
             modelBuilder.Entity("WebAPI.Models.Property", b =>
                 {
                     b.Navigation("Photos");
+
+                    b.Navigation("favoritesList");
+                });
+
+            modelBuilder.Entity("WebAPI.Models.User", b =>
+                {
+                    b.Navigation("PropertyList");
                 });
 #pragma warning restore 612, 618
         }
